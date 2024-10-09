@@ -1,0 +1,9 @@
+{
+  "name": "todolist-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/todolist-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["todolist"],
+  "// targets": "to see all targets run: nx show project todolist-e2e --web",
+  "targets": {}
+}

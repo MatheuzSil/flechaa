@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": [
+      "node",
+      "@nx/react/typings/cssmodule.d.ts",
+      "@nx/react/typings/image.d.ts",
+      "next",
+      "@nx/next/typings/image.d.ts"
+    ]
+  },
+  "exclude": [
+    "jest.config.ts",
+    "safira/src/**/*.spec.ts",
+    "safira/src/**/*.test.ts",
+    "safira/src/**/*.spec.tsx",
+    "safira/src/**/*.test.tsx",
+    "safira/src/**/*.spec.js",
+    "safira/src/**/*.test.js",
+    "safira/src/**/*.spec.jsx",
+    "safira/src/**/*.test.jsx"
+  ],
+  "include": ["safira/src/**/*.js", "safira/src/**/*.jsx", "safira/src/**/*.ts", "safira/src/**/*.tsx"]
+}

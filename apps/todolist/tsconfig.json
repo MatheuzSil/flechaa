@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
     "allowJs": true,
@@ -18,13 +19,17 @@
     "types": ["jest", "node"]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.js",
-    "src/**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "../../apps/todolist/.next/types/**/*.ts",
+    "../../dist/apps/todolist/.next/types/**/*.ts",
+    "next-env.d.ts",
     ".next/types/**/*.ts",
-    "dist/meu-workspace/.next/types/**/*.ts",
-    "next-env.d.ts"
+    "../../dist/todolist/.next/types/**/*.ts"
+
+
   ],
-  "extends": "./tsconfig.base.json"
+  "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
 }

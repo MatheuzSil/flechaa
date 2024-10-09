@@ -6,5 +6,34 @@
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project meu-workspace --web",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/workspace:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "commands": [
+          {
+            "command": "nx run source:build"
+          },
+          {
+            "command": "nx run todolist:build"
+          }
+        ],
+        "outputPath": "dist/apps/meu-workspace"
+      }
+    },
+    "serve": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx run source:serve"
+          },
+          {
+            "command": "nx run todolist:serve"
+          }
+        ]
+      }
+    }
+  }
 }
