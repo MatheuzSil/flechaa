@@ -8,7 +8,7 @@ export default function Index() {
   return (
     <>
     <Title variant="h1">TodoList</Title>
-      <button>Adicionar</button>
+      <button>Adicionara</button>
     </>
   );
 }
