@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:to": "nx run todolist:serve"
+    "start:to": "nx run todolist:serve",
+    "build": "next build",
+    "lint": "eslint ./src",
+    "test": "node ./run-tests.js"
   },
   "private": true,
   "dependencies": {
