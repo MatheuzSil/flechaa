@@ -1,6 +1,6 @@
 {
   "name": "e2e",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "e2e/src",
   "tags": [],
   "implicitDependencies": ["meu-workspace"],
