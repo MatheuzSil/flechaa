@@ -1,0 +1,490 @@
+{
+  "version": "6.0",
+  "nxVersion": "19.8.3",
+  "deps": {
+    "@nrwl/workspace": "^19.8.3",
+    "next": "^14.2.15",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-is": "18.3.1",
+    "styled-components": "5.3.6",
+    "@eslint/compat": "1.2.0",
+    "@eslint/js": "^9.8.0",
+    "@nx/devkit": "19.8.3",
+    "@nx/eslint": "19.8.3",
+    "@nx/eslint-plugin": "19.8.3",
+    "@nx/jest": "19.8.3",
+    "@nx/js": "19.8.3",
+    "@nx/next": "19.8.3",
+    "@nx/playwright": "19.8.3",
+    "@nx/react": "^19.8.3",
+    "@nx/workspace": "19.8.3",
+    "@playwright/test": "^1.36.0",
+    "@swc-node/register": "~1.9.1",
+    "@swc/cli": "~0.3.12",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "@swc/plugin-styled-components": "^1.5.67",
+    "@testing-library/react": "15.0.6",
+    "@types/jest": "^29.5.12",
+    "@types/node": "18.16.9",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
+    "@types/react-is": "18.3.0",
+    "@types/styled-components": "5.1.26",
+    "babel-jest": "^29.7.0",
+    "babel-plugin-styled-components": "1.10.7",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "2.30.0",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-playwright": "^1.6.2",
+    "eslint-plugin-react": "7.35.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-environment-node": "^29.7.0",
+    "nx": "19.8.3",
+    "prettier": "^2.6.2",
+    "ts-jest": "^29.1.0",
+    "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
+    "typescript": "~5.5.2",
+    "typescript-eslint": "^8.0.0"
+  },
+  "pathMappings": {
+    "@meu-workspace/safira/server": [
+      "libs/safira/src/server.ts"
+    ],
+    "@meu-workspace/safira": [
+      "libs/safira/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "name": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
+  ],
+  "fileMap": {
+    "projectFileMap": {
+      "meu-workspace": [
+        {
+          "file": ".github/workflows/ci.yml",
+          "hash": "14904967224619360600"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "4244852349151601841"
+        },
+        {
+          "file": ".prettierignore",
+          "hash": "14688272390704683536"
+        },
+        {
+          "file": ".prettierrc",
+          "hash": "16267754514737964994"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "4422400126597322578"
+        },
+        {
+          "file": "README.md",
+          "hash": "9411167858413021298"
+        },
+        {
+          "file": "eslint.base.config.js",
+          "hash": "2478217381773231556",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "eslint.config.js",
+          "hash": "17164158338537413788",
+          "deps": [
+            "npm:@eslint/eslintrc",
+            "npm:@eslint/js",
+            "npm:@eslint/compat",
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "jest.config.ts",
+          "hash": "97517593631883422"
+        },
+        {
+          "file": "jest.preset.js",
+          "hash": "9430166341120122740",
+          "deps": [
+            "npm:@nx/jest"
+          ]
+        },
+        {
+          "file": "next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "next.config.js",
+          "hash": "9301335525920576465",
+          "deps": [
+            "npm:@nx/next"
+          ]
+        },
+        {
+          "file": "nx.json",
+          "hash": "14954681720453027166"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "5708094334912697961"
+        },
+        {
+          "file": "package.json",
+          "hash": "818792764086848618",
+          "deps": [
+            "npm:@eslint/compat",
+            "npm:@eslint/js",
+            "npm:@nx/devkit",
+            "npm:@nx/eslint",
+            "npm:@nx/eslint-plugin",
+            "npm:@nx/jest",
+            "npm:@nx/js",
+            "npm:@nx/next",
+            "npm:@nx/playwright",
+            "npm:@nx/react",
+            "npm:@nx/workspace",
+            "npm:@playwright/test",
+            "npm:@swc-node/register",
+            "npm:@swc/cli",
+            "npm:@swc/core",
+            "npm:@swc/helpers",
+            "npm:@swc/plugin-styled-components",
+            "npm:@testing-library/react",
+            "npm:@types/jest",
+            "npm:@types/node",
+            "npm:@types/react",
+            "npm:@types/react-dom",
+            "npm:@types/react-is",
+            "npm:@types/styled-components",
+            "npm:babel-jest",
+            "npm:babel-plugin-styled-components",
+            "npm:eslint",
+            "npm:eslint-config-next",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-import",
+            "npm:eslint-plugin-jsx-a11y",
+            "npm:eslint-plugin-playwright",
+            "npm:eslint-plugin-react",
+            "npm:eslint-plugin-react-hooks",
+            "npm:jest",
+            "npm:jest-environment-jsdom",
+            "npm:jest-environment-node",
+            "npm:nx",
+            "npm:prettier",
+            "npm:ts-jest",
+            "npm:ts-node",
+            "npm:tslib",
+            "npm:typescript",
+            "npm:typescript-eslint",
+            "npm:@nrwl/workspace",
+            "npm:next",
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-is",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "project.json",
+          "hash": "10172850672222676321"
+        },
+        {
+          "file": "specs/index.spec.tsx",
+          "hash": "1288872939091782814",
+          "deps": [
+            "npm:react",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "tsconfig.base.json",
+          "hash": "14857484099911894507"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "6528393863221961328"
+        },
+        {
+          "file": "tsconfig.spec.json",
+          "hash": "10791914817938135086"
+        },
+        {
+          "file": "yarn.lock",
+          "hash": "6503800568131119275"
+        }
+      ],
+      "safira": [
+        {
+          "file": "libs/safira/README.md",
+          "hash": "13447232245180026650"
+        },
+        {
+          "file": "libs/safira/eslint.config.js",
+          "hash": "12946987853647979914",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "libs/safira/project.json",
+          "hash": "6395543466657236724"
+        },
+        {
+          "file": "libs/safira/src/global.tsx",
+          "hash": "10772515825818530225",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/index.ts",
+          "hash": "15810266279729284213"
+        },
+        {
+          "file": "libs/safira/src/lib/Safira/safira.spec.tsx",
+          "hash": "7859987400508457030",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/Safira/safira.tsx",
+          "hash": "15106984809640826928"
+        },
+        {
+          "file": "libs/safira/src/lib/Title/Title.styles.tsx",
+          "hash": "1284449406318454843",
+          "deps": [
+            "npm:react",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/Title/Title.tsx",
+          "hash": "2130881717848541411",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/hello-server.tsx",
+          "hash": "2397568674684759047"
+        },
+        {
+          "file": "libs/safira/src/provider.tsx",
+          "hash": "12064182328408072279",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/server.ts",
+          "hash": "8912437808649717296"
+        },
+        {
+          "file": "libs/safira/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/safira/tsconfig.lib.json",
+          "hash": "14546755975749336931"
+        }
+      ],
+      "todolist-e2e": [
+        {
+          "file": "apps/todolist-e2e/eslint.config.js",
+          "hash": "12491722319891407566",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/playwright.config.ts",
+          "hash": "8102381676387307650",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/project.json",
+          "hash": "10422790176229607128"
+        },
+        {
+          "file": "apps/todolist-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/tsconfig.json",
+          "hash": "17106955236454832320"
+        }
+      ],
+      "todolist": [
+        {
+          "file": "apps/todolist/eslint.config.js",
+          "hash": "9291946918323467744",
+          "deps": [
+            "npm:@eslint/eslintrc",
+            "npm:@eslint/js",
+            "npm:@eslint/compat",
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "apps/todolist/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/todolist/jest.config.ts",
+          "hash": "15272471038018169512"
+        },
+        {
+          "file": "apps/todolist/next-env.d.ts",
+          "hash": "13904763933831424769"
+        },
+        {
+          "file": "apps/todolist/next.config.js",
+          "hash": "9301335525920576465",
+          "deps": [
+            "npm:@nx/next"
+          ]
+        },
+        {
+          "file": "apps/todolist/project.json",
+          "hash": "13096146536511629249"
+        },
+        {
+          "file": "apps/todolist/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/todolist/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/todolist/specs/index.spec.tsx",
+          "hash": "1288872939091782814",
+          "deps": [
+            "npm:react",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/todolist/src/app/api/hello/route.ts",
+          "hash": "495073956729887886"
+        },
+        {
+          "file": "apps/todolist/src/app/global.css",
+          "hash": "2063387531564215811"
+        },
+        {
+          "file": "apps/todolist/src/app/layout.tsx",
+          "hash": "13661322514837864675"
+        },
+        {
+          "file": "apps/todolist/src/app/page.tsx",
+          "hash": "1292301846634878848",
+          "deps": [
+            "npm:react",
+            "safira"
+          ]
+        },
+        {
+          "file": "apps/todolist/src/app/registry.tsx",
+          "hash": "4422837858457286383",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "apps/todolist/tsconfig.json",
+          "hash": "17147762801662518993"
+        },
+        {
+          "file": "apps/todolist/tsconfig.spec.json",
+          "hash": "6922413205408300107"
+        }
+      ],
+      "e2e": [
+        {
+          "file": "e2e/eslint.config.js",
+          "hash": "8766195062671103701",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
+        },
+        {
+          "file": "e2e/playwright.config.ts",
+          "hash": "15742260811836272678",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "e2e/project.json",
+          "hash": "7362097039426745624"
+        },
+        {
+          "file": "e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "e2e/tsconfig.json",
+          "hash": "13921281020092875063"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  }
+}

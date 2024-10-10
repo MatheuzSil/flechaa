@@ -1,0 +1,26 @@
+Daemon process terminated and closed the connection
+
+Messages from the log:
+[NX Daemon Server] - 2024-10-04T16:10:44.195Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2024-10-04T16:10:44.195Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2024-10-04T16:10:44.195Z - Handled HASH_GLOB. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-10-04T16:10:44.476Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2024-10-04T16:10:44.476Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2024-10-04T16:10:44.476Z - Handled HASH_GLOB. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-10-04T16:10:44.478Z - [REQUEST]: Responding to the client. handleNxWorkspaceFiles
+[NX Daemon Server] - 2024-10-04T16:10:44.478Z - Done responding to the client handleNxWorkspaceFiles
+[NX Daemon Server] - 2024-10-04T16:10:44.478Z - Handled GET_FILES_IN_DIRECTORY. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-10-04T16:10:46.307Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX Daemon Server] - 2024-10-04T16:10:46.307Z - Done responding to the client handleHashGlob
+[NX Daemon Server] - 2024-10-04T16:10:46.307Z - Handled HASH_GLOB. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-10-04T16:10:46.385Z - Time taken for 'build-project-configs' 2855.9210000000003ms
+[NX Daemon Server] - 2024-10-04T16:10:46.509Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-10-04T16:10:46.511Z - Closed a connection. Number of open connections: 4
+[NX Daemon Server] - 2024-10-04T16:10:46.511Z - Closed a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-10-04T16:10:46.511Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-10-04T16:10:46.511Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-10-04T16:10:46.511Z - Closed a connection. Number of open connections: 0
+
+
+
+More information: c:\Users\Theuz Dev\Documents\GitHub\meu-workspace\.nx\workspace-data\d\daemon.log
