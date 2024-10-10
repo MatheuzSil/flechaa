@@ -531,6 +531,9 @@
             "cache": true,
             "options": {
               "cwd": "e2e",
+              "env": {
+                "ESLINT_USE_FLAT_CONFIG": "true"
+              },
               "command": "eslint ."
             },
             "inputs": [
@@ -554,7 +557,7 @@
               ],
               "description": "Runs ESLint on project",
               "help": {
-                "command": "npx eslint --help",
+                "command": "yarn eslint --help",
                 "example": {
                   "options": {
                     "max-warnings": 0
@@ -568,7 +571,7 @@
           }
         },
         "name": "e2e",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "e2e/src",
         "tags": [],
         "implicitDependencies": [
@@ -13253,6 +13256,16 @@
     "todolist": [
       {
         "source": "todolist",
+        "target": "npm:next",
+        "type": "dynamic"
+      },
+      {
+        "source": "todolist",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "todolist",
         "target": "npm:@eslint/eslintrc",
         "type": "static"
       },
@@ -13289,11 +13302,6 @@
       {
         "source": "todolist",
         "target": "safira",
-        "type": "static"
-      },
-      {
-        "source": "todolist",
-        "target": "npm:next",
         "type": "static"
       },
       {

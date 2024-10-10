@@ -92,41 +92,271 @@
   ],
   "fileMap": {
     "projectFileMap": {
-      "meu-workspace": [
+      "e2e": [
         {
-          "file": ".github/workflows/ci.yml",
-          "hash": "14904967224619360600"
-        },
-        {
-          "file": ".gitignore",
-          "hash": "4244852349151601841"
-        },
-        {
-          "file": ".prettierignore",
-          "hash": "14688272390704683536"
-        },
-        {
-          "file": ".prettierrc",
-          "hash": "16267754514737964994"
-        },
-        {
-          "file": ".vscode/extensions.json",
-          "hash": "4422400126597322578"
-        },
-        {
-          "file": "README.md",
-          "hash": "9411167858413021298"
-        },
-        {
-          "file": "eslint.base.config.js",
-          "hash": "2478217381773231556",
+          "file": "e2e/eslint.config.js",
+          "hash": "8766195062671103701",
           "deps": [
-            "npm:@nx/eslint-plugin"
+            "npm:eslint-plugin-playwright"
           ]
         },
         {
-          "file": "eslint.config.js",
-          "hash": "17164158338537413788",
+          "file": "e2e/playwright.config.ts",
+          "hash": "15742260811836272678",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "e2e/project.json",
+          "hash": "3857261549816383909"
+        },
+        {
+          "file": "e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "e2e/tsconfig.json",
+          "hash": "13413400511057489941"
+        }
+      ],
+      "todolist": [
+        {
+          "file": "apps/todolist/.next/app-build-manifest.json",
+          "hash": "15088666744455680857"
+        },
+        {
+          "file": "apps/todolist/.next/build-manifest.json",
+          "hash": "4022198718087905130"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development-fallback/0.pack.gz",
+          "hash": "572169651723568797"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development-fallback/index.pack.gz",
+          "hash": "6215385813253065575"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/0.pack.gz",
+          "hash": "12628056984098016532"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/1.pack.gz",
+          "hash": "12449509307657816136"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/2.pack.gz",
+          "hash": "8164162645514361953"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/3.pack.gz",
+          "hash": "13671660630468902014"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/4.pack.gz",
+          "hash": "11296654984806906282"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/5.pack.gz",
+          "hash": "14094001055425179371"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/6.pack.gz",
+          "hash": "13591330501432272175"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/index.pack.gz",
+          "hash": "4532426565112172246"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/client-development/index.pack.gz.old",
+          "hash": "17398001160930949124"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/server-development/0.pack.gz",
+          "hash": "650503533321449965"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/server-development/1.pack.gz",
+          "hash": "14728824409897099243"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/server-development/2.pack.gz",
+          "hash": "104212813110669250"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/server-development/3.pack.gz",
+          "hash": "241226310149977483"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/server-development/index.pack.gz",
+          "hash": "8673187492214698233"
+        },
+        {
+          "file": "apps/todolist/.next/cache/webpack/server-development/index.pack.gz.old",
+          "hash": "17628916944166041597"
+        },
+        {
+          "file": "apps/todolist/.next/package.json",
+          "hash": "11338307439248427064"
+        },
+        {
+          "file": "apps/todolist/.next/react-loadable-manifest.json",
+          "hash": "1389868326933519382"
+        },
+        {
+          "file": "apps/todolist/.next/server/app-paths-manifest.json",
+          "hash": "6045270427439857966"
+        },
+        {
+          "file": "apps/todolist/.next/server/app/page.js",
+          "hash": "10448315820274974028",
+          "deps": [
+            [
+              "npm:next",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/todolist/.next/server/app/page_client-reference-manifest.js",
+          "hash": "2635158249710843849"
+        },
+        {
+          "file": "apps/todolist/.next/server/interception-route-rewrite-manifest.js",
+          "hash": "10484309360224763022"
+        },
+        {
+          "file": "apps/todolist/.next/server/middleware-build-manifest.js",
+          "hash": "8129127502097255315"
+        },
+        {
+          "file": "apps/todolist/.next/server/middleware-manifest.json",
+          "hash": "9889576824779923310"
+        },
+        {
+          "file": "apps/todolist/.next/server/middleware-react-loadable-manifest.js",
+          "hash": "9185069726031651908"
+        },
+        {
+          "file": "apps/todolist/.next/server/next-font-manifest.js",
+          "hash": "16541577805185552134"
+        },
+        {
+          "file": "apps/todolist/.next/server/next-font-manifest.json",
+          "hash": "11891788324563068681"
+        },
+        {
+          "file": "apps/todolist/.next/server/pages-manifest.json",
+          "hash": "1389868326933519382"
+        },
+        {
+          "file": "apps/todolist/.next/server/server-reference-manifest.js",
+          "hash": "13062913855343812063"
+        },
+        {
+          "file": "apps/todolist/.next/server/server-reference-manifest.json",
+          "hash": "1208341861708597180"
+        },
+        {
+          "file": "apps/todolist/.next/server/vendor-chunks/@emotion.js",
+          "hash": "6134394190743512824"
+        },
+        {
+          "file": "apps/todolist/.next/server/vendor-chunks/hoist-non-react-statics.js",
+          "hash": "12094733262015781875"
+        },
+        {
+          "file": "apps/todolist/.next/server/vendor-chunks/next.js",
+          "hash": "273571035284114409"
+        },
+        {
+          "file": "apps/todolist/.next/server/vendor-chunks/react-is.js",
+          "hash": "18232863238840686257"
+        },
+        {
+          "file": "apps/todolist/.next/server/vendor-chunks/shallowequal.js",
+          "hash": "989826594564947923"
+        },
+        {
+          "file": "apps/todolist/.next/server/vendor-chunks/styled-components.js",
+          "hash": "726985120191138269"
+        },
+        {
+          "file": "apps/todolist/.next/server/webpack-runtime.js",
+          "hash": "5237513461988227224"
+        },
+        {
+          "file": "apps/todolist/.next/static/chunks/app-pages-internals.js",
+          "hash": "4983624475996271611"
+        },
+        {
+          "file": "apps/todolist/.next/static/chunks/app/layout.js",
+          "hash": "11745864553137103242"
+        },
+        {
+          "file": "apps/todolist/.next/static/chunks/app/page.js",
+          "hash": "3163352074025518994"
+        },
+        {
+          "file": "apps/todolist/.next/static/chunks/main-app.js",
+          "hash": "14407756383917880092"
+        },
+        {
+          "file": "apps/todolist/.next/static/chunks/polyfills.js",
+          "hash": "8152964857117933876"
+        },
+        {
+          "file": "apps/todolist/.next/static/chunks/webpack.js",
+          "hash": "18444153900228556309"
+        },
+        {
+          "file": "apps/todolist/.next/static/css/app/layout.css",
+          "hash": "5402897986346936729"
+        },
+        {
+          "file": "apps/todolist/.next/static/development/_buildManifest.js",
+          "hash": "15678672880040024319"
+        },
+        {
+          "file": "apps/todolist/.next/static/development/_ssgManifest.js",
+          "hash": "17018243955171961484"
+        },
+        {
+          "file": "apps/todolist/.next/static/webpack/633457081244afec._.hot-update.json",
+          "hash": "10481436618516908015"
+        },
+        {
+          "file": "apps/todolist/.next/trace",
+          "hash": "13590481795094374413"
+        },
+        {
+          "file": "apps/todolist/.next/types/app/layout.ts",
+          "hash": "14072664123672166849",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/todolist/.next/types/app/page.ts",
+          "hash": "1985730983064505118",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/todolist/.next/types/package.json",
+          "hash": "6094546126370684104"
+        },
+        {
+          "file": "apps/todolist/eslint.config.js",
+          "hash": "9291946918323467744",
           "deps": [
             "npm:@eslint/eslintrc",
             "npm:@eslint/js",
@@ -135,101 +365,38 @@
           ]
         },
         {
-          "file": "index.d.ts",
+          "file": "apps/todolist/index.d.ts",
           "hash": "5498222895072842432"
         },
         {
-          "file": "jest.config.ts",
-          "hash": "97517593631883422"
+          "file": "apps/todolist/jest.config.ts",
+          "hash": "15272471038018169512"
         },
         {
-          "file": "jest.preset.js",
-          "hash": "9430166341120122740",
-          "deps": [
-            "npm:@nx/jest"
-          ]
+          "file": "apps/todolist/next-env.d.ts",
+          "hash": "13904763933831424769"
         },
         {
-          "file": "next-env.d.ts",
-          "hash": "5909181270615354023"
-        },
-        {
-          "file": "next.config.js",
+          "file": "apps/todolist/next.config.js",
           "hash": "9301335525920576465",
           "deps": [
             "npm:@nx/next"
           ]
         },
         {
-          "file": "nx.json",
-          "hash": "14954681720453027166"
+          "file": "apps/todolist/project.json",
+          "hash": "13096146536511629249"
         },
         {
-          "file": "package-lock.json",
-          "hash": "5708094334912697961"
+          "file": "apps/todolist/public/.gitkeep",
+          "hash": "3244421341483603138"
         },
         {
-          "file": "package.json",
-          "hash": "818792764086848618",
-          "deps": [
-            "npm:@eslint/compat",
-            "npm:@eslint/js",
-            "npm:@nx/devkit",
-            "npm:@nx/eslint",
-            "npm:@nx/eslint-plugin",
-            "npm:@nx/jest",
-            "npm:@nx/js",
-            "npm:@nx/next",
-            "npm:@nx/playwright",
-            "npm:@nx/react",
-            "npm:@nx/workspace",
-            "npm:@playwright/test",
-            "npm:@swc-node/register",
-            "npm:@swc/cli",
-            "npm:@swc/core",
-            "npm:@swc/helpers",
-            "npm:@swc/plugin-styled-components",
-            "npm:@testing-library/react",
-            "npm:@types/jest",
-            "npm:@types/node",
-            "npm:@types/react",
-            "npm:@types/react-dom",
-            "npm:@types/react-is",
-            "npm:@types/styled-components",
-            "npm:babel-jest",
-            "npm:babel-plugin-styled-components",
-            "npm:eslint",
-            "npm:eslint-config-next",
-            "npm:eslint-config-prettier",
-            "npm:eslint-plugin-import",
-            "npm:eslint-plugin-jsx-a11y",
-            "npm:eslint-plugin-playwright",
-            "npm:eslint-plugin-react",
-            "npm:eslint-plugin-react-hooks",
-            "npm:jest",
-            "npm:jest-environment-jsdom",
-            "npm:jest-environment-node",
-            "npm:nx",
-            "npm:prettier",
-            "npm:ts-jest",
-            "npm:ts-node",
-            "npm:tslib",
-            "npm:typescript",
-            "npm:typescript-eslint",
-            "npm:@nrwl/workspace",
-            "npm:next",
-            "npm:react",
-            "npm:react-dom",
-            "npm:react-is",
-            "npm:styled-components"
-          ]
+          "file": "apps/todolist/public/favicon.ico",
+          "hash": "9303420814833116677"
         },
         {
-          "file": "project.json",
-          "hash": "10172850672222676321"
-        },
-        {
-          "file": "specs/index.spec.tsx",
+          "file": "apps/todolist/specs/index.spec.tsx",
           "hash": "1288872939091782814",
           "deps": [
             "npm:react",
@@ -237,20 +404,41 @@
           ]
         },
         {
-          "file": "tsconfig.base.json",
-          "hash": "14857484099911894507"
+          "file": "apps/todolist/src/app/api/hello/route.ts",
+          "hash": "495073956729887886"
         },
         {
-          "file": "tsconfig.json",
-          "hash": "6528393863221961328"
+          "file": "apps/todolist/src/app/global.css",
+          "hash": "2063387531564215811"
         },
         {
-          "file": "tsconfig.spec.json",
-          "hash": "10791914817938135086"
+          "file": "apps/todolist/src/app/layout.tsx",
+          "hash": "13661322514837864675"
         },
         {
-          "file": "yarn.lock",
-          "hash": "6503800568131119275"
+          "file": "apps/todolist/src/app/page.tsx",
+          "hash": "1292301846634878848",
+          "deps": [
+            "npm:react",
+            "safira"
+          ]
+        },
+        {
+          "file": "apps/todolist/src/app/registry.tsx",
+          "hash": "4422837858457286383",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "apps/todolist/tsconfig.json",
+          "hash": "17147762801662518993"
+        },
+        {
+          "file": "apps/todolist/tsconfig.spec.json",
+          "hash": "6922413205408300107"
         }
       ],
       "safira": [
@@ -363,10 +551,41 @@
           "hash": "17106955236454832320"
         }
       ],
-      "todolist": [
+      "meu-workspace": [
         {
-          "file": "apps/todolist/eslint.config.js",
-          "hash": "9291946918323467744",
+          "file": ".github/workflows/ci.yml",
+          "hash": "14904967224619360600"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "7634907643303397314"
+        },
+        {
+          "file": ".prettierignore",
+          "hash": "14688272390704683536"
+        },
+        {
+          "file": ".prettierrc",
+          "hash": "16267754514737964994"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "4422400126597322578"
+        },
+        {
+          "file": "README.md",
+          "hash": "9411167858413021298"
+        },
+        {
+          "file": "eslint.base.config.js",
+          "hash": "2478217381773231556",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "eslint.config.js",
+          "hash": "17164158338537413788",
           "deps": [
             "npm:@eslint/eslintrc",
             "npm:@eslint/js",
@@ -375,38 +594,101 @@
           ]
         },
         {
-          "file": "apps/todolist/index.d.ts",
+          "file": "index.d.ts",
           "hash": "5498222895072842432"
         },
         {
-          "file": "apps/todolist/jest.config.ts",
-          "hash": "15272471038018169512"
+          "file": "jest.config.ts",
+          "hash": "97517593631883422"
         },
         {
-          "file": "apps/todolist/next-env.d.ts",
-          "hash": "13904763933831424769"
+          "file": "jest.preset.js",
+          "hash": "9430166341120122740",
+          "deps": [
+            "npm:@nx/jest"
+          ]
         },
         {
-          "file": "apps/todolist/next.config.js",
+          "file": "next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "next.config.js",
           "hash": "9301335525920576465",
           "deps": [
             "npm:@nx/next"
           ]
         },
         {
-          "file": "apps/todolist/project.json",
-          "hash": "13096146536511629249"
+          "file": "nx.json",
+          "hash": "14954681720453027166"
         },
         {
-          "file": "apps/todolist/public/.gitkeep",
-          "hash": "3244421341483603138"
+          "file": "package-lock.json",
+          "hash": "5708094334912697961"
         },
         {
-          "file": "apps/todolist/public/favicon.ico",
-          "hash": "9303420814833116677"
+          "file": "package.json",
+          "hash": "8184909989046378616",
+          "deps": [
+            "npm:@eslint/compat",
+            "npm:@eslint/js",
+            "npm:@nx/devkit",
+            "npm:@nx/eslint",
+            "npm:@nx/eslint-plugin",
+            "npm:@nx/jest",
+            "npm:@nx/js",
+            "npm:@nx/next",
+            "npm:@nx/playwright",
+            "npm:@nx/react",
+            "npm:@nx/workspace",
+            "npm:@playwright/test",
+            "npm:@swc-node/register",
+            "npm:@swc/cli",
+            "npm:@swc/core",
+            "npm:@swc/helpers",
+            "npm:@swc/plugin-styled-components",
+            "npm:@testing-library/react",
+            "npm:@types/jest",
+            "npm:@types/node",
+            "npm:@types/react",
+            "npm:@types/react-dom",
+            "npm:@types/react-is",
+            "npm:@types/styled-components",
+            "npm:babel-jest",
+            "npm:babel-plugin-styled-components",
+            "npm:eslint",
+            "npm:eslint-config-next",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-import",
+            "npm:eslint-plugin-jsx-a11y",
+            "npm:eslint-plugin-playwright",
+            "npm:eslint-plugin-react",
+            "npm:eslint-plugin-react-hooks",
+            "npm:jest",
+            "npm:jest-environment-jsdom",
+            "npm:jest-environment-node",
+            "npm:nx",
+            "npm:prettier",
+            "npm:ts-jest",
+            "npm:ts-node",
+            "npm:tslib",
+            "npm:typescript",
+            "npm:typescript-eslint",
+            "npm:@nrwl/workspace",
+            "npm:next",
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-is",
+            "npm:styled-components"
+          ]
         },
         {
-          "file": "apps/todolist/specs/index.spec.tsx",
+          "file": "project.json",
+          "hash": "10172850672222676321"
+        },
+        {
+          "file": "specs/index.spec.tsx",
           "hash": "1288872939091782814",
           "deps": [
             "npm:react",
@@ -414,74 +696,20 @@
           ]
         },
         {
-          "file": "apps/todolist/src/app/api/hello/route.ts",
-          "hash": "495073956729887886"
+          "file": "tsconfig.base.json",
+          "hash": "14857484099911894507"
         },
         {
-          "file": "apps/todolist/src/app/global.css",
-          "hash": "2063387531564215811"
+          "file": "tsconfig.json",
+          "hash": "6528393863221961328"
         },
         {
-          "file": "apps/todolist/src/app/layout.tsx",
-          "hash": "13661322514837864675"
+          "file": "tsconfig.spec.json",
+          "hash": "10791914817938135086"
         },
         {
-          "file": "apps/todolist/src/app/page.tsx",
-          "hash": "1292301846634878848",
-          "deps": [
-            "npm:react",
-            "safira"
-          ]
-        },
-        {
-          "file": "apps/todolist/src/app/registry.tsx",
-          "hash": "4422837858457286383",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "apps/todolist/tsconfig.json",
-          "hash": "17147762801662518993"
-        },
-        {
-          "file": "apps/todolist/tsconfig.spec.json",
-          "hash": "6922413205408300107"
-        }
-      ],
-      "e2e": [
-        {
-          "file": "e2e/eslint.config.js",
-          "hash": "8766195062671103701",
-          "deps": [
-            "npm:eslint-plugin-playwright"
-          ]
-        },
-        {
-          "file": "e2e/playwright.config.ts",
-          "hash": "15742260811836272678",
-          "deps": [
-            "npm:@playwright/test",
-            "npm:@nx/playwright",
-            "npm:@nx/devkit"
-          ]
-        },
-        {
-          "file": "e2e/project.json",
-          "hash": "7362097039426745624"
-        },
-        {
-          "file": "e2e/src/example.spec.ts",
-          "hash": "16019101014373124625",
-          "deps": [
-            "npm:@playwright/test"
-          ]
-        },
-        {
-          "file": "e2e/tsconfig.json",
-          "hash": "13921281020092875063"
+          "file": "yarn.lock",
+          "hash": "6503800568131119275"
         }
       ]
     },
