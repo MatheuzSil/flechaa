@@ -92,132 +92,6 @@
   ],
   "fileMap": {
     "projectFileMap": {
-      "todolist-e2e": [
-        {
-          "file": "apps/todolist-e2e/eslint.config.js",
-          "hash": "12491722319891407566",
-          "deps": [
-            "npm:eslint-plugin-playwright"
-          ]
-        },
-        {
-          "file": "apps/todolist-e2e/playwright.config.ts",
-          "hash": "8102381676387307650",
-          "deps": [
-            "npm:@playwright/test",
-            "npm:@nx/playwright",
-            "npm:@nx/devkit"
-          ]
-        },
-        {
-          "file": "apps/todolist-e2e/project.json",
-          "hash": "10422790176229607128"
-        },
-        {
-          "file": "apps/todolist-e2e/src/example.spec.ts",
-          "hash": "16019101014373124625",
-          "deps": [
-            "npm:@playwright/test"
-          ]
-        },
-        {
-          "file": "apps/todolist-e2e/tsconfig.json",
-          "hash": "17106955236454832320"
-        }
-      ],
-      "safira": [
-        {
-          "file": "libs/safira/README.md",
-          "hash": "13447232245180026650"
-        },
-        {
-          "file": "libs/safira/eslint.config.js",
-          "hash": "12946987853647979914",
-          "deps": [
-            "npm:@nx/eslint-plugin"
-          ]
-        },
-        {
-          "file": "libs/safira/project.json",
-          "hash": "6395543466657236724"
-        },
-        {
-          "file": "libs/safira/src/Themes/TodoTheme.tsx",
-          "hash": "9924968238763631866",
-          "deps": [
-            "npm:react",
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "libs/safira/src/Themes/defaultTheme.ts",
-          "hash": "17461365149324560462"
-        },
-        {
-          "file": "libs/safira/src/Themes/themes.ts",
-          "hash": "12272396651421512488"
-        },
-        {
-          "file": "libs/safira/src/global.tsx",
-          "hash": "10772515825818530225",
-          "deps": [
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "libs/safira/src/index.ts",
-          "hash": "1410315430679214111"
-        },
-        {
-          "file": "libs/safira/src/lib/Safira/safira.spec.tsx",
-          "hash": "7859987400508457030",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/safira/src/lib/Safira/safira.tsx",
-          "hash": "15106984809640826928"
-        },
-        {
-          "file": "libs/safira/src/lib/Title/Title.styles.tsx",
-          "hash": "1284449406318454843",
-          "deps": [
-            "npm:react",
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "libs/safira/src/lib/Title/Title.tsx",
-          "hash": "2130881717848541411",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/safira/src/lib/hello-server.tsx",
-          "hash": "2397568674684759047"
-        },
-        {
-          "file": "libs/safira/src/provider.tsx",
-          "hash": "12064182328408072279",
-          "deps": [
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "libs/safira/src/server.ts",
-          "hash": "8912437808649717296"
-        },
-        {
-          "file": "libs/safira/tsconfig.json",
-          "hash": "14088618039610991405"
-        },
-        {
-          "file": "libs/safira/tsconfig.lib.json",
-          "hash": "14546755975749336931"
-        }
-      ],
       "meu-workspace": [
         {
           "file": ".env",
@@ -381,6 +255,132 @@
         {
           "file": "yarn.lock",
           "hash": "6503800568131119275"
+        }
+      ],
+      "todolist-e2e": [
+        {
+          "file": "apps/todolist-e2e/eslint.config.js",
+          "hash": "12491722319891407566",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/playwright.config.ts",
+          "hash": "8102381676387307650",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/project.json",
+          "hash": "10422790176229607128"
+        },
+        {
+          "file": "apps/todolist-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/tsconfig.json",
+          "hash": "17106955236454832320"
+        }
+      ],
+      "safira": [
+        {
+          "file": "libs/safira/README.md",
+          "hash": "13447232245180026650"
+        },
+        {
+          "file": "libs/safira/eslint.config.js",
+          "hash": "12946987853647979914",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "libs/safira/project.json",
+          "hash": "6395543466657236724"
+        },
+        {
+          "file": "libs/safira/src/Themes/TodoTheme.tsx",
+          "hash": "9924968238763631866",
+          "deps": [
+            "npm:react",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/Themes/defaultTheme.ts",
+          "hash": "17461365149324560462"
+        },
+        {
+          "file": "libs/safira/src/Themes/themes.ts",
+          "hash": "12272396651421512488"
+        },
+        {
+          "file": "libs/safira/src/global.tsx",
+          "hash": "10772515825818530225",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/index.ts",
+          "hash": "1410315430679214111"
+        },
+        {
+          "file": "libs/safira/src/lib/Safira/safira.spec.tsx",
+          "hash": "7859987400508457030",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/Safira/safira.tsx",
+          "hash": "15106984809640826928"
+        },
+        {
+          "file": "libs/safira/src/lib/Title/Title.styles.tsx",
+          "hash": "1284449406318454843",
+          "deps": [
+            "npm:react",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/Title/Title.tsx",
+          "hash": "2130881717848541411",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/hello-server.tsx",
+          "hash": "2397568674684759047"
+        },
+        {
+          "file": "libs/safira/src/provider.tsx",
+          "hash": "12064182328408072279",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/server.ts",
+          "hash": "8912437808649717296"
+        },
+        {
+          "file": "libs/safira/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/safira/tsconfig.lib.json",
+          "hash": "14546755975749336931"
         }
       ],
       "todolist": [
