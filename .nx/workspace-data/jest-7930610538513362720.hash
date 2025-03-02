@@ -25914,5 +25914,81 @@
         ]
       }
     }
+  },
+  "17302340872627894788": {
+    "targets": {
+      "test": {
+        "command": "jest",
+        "options": {
+          "cwd": "."
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests",
+          "help": {
+            "command": "yarn jest --help",
+            "example": {
+              "options": {
+                "coverage": true
+              }
+            }
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          "{projectRoot}\\jest.preset.js",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{projectRoot}\\coverage\\meu-workspace"
+        ]
+      }
+    }
+  },
+  "2224814853752877661": {
+    "targets": {
+      "test": {
+        "command": "jest",
+        "options": {
+          "cwd": "."
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests",
+          "help": {
+            "command": "yarn jest --help",
+            "example": {
+              "options": {
+                "coverage": true
+              }
+            }
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          "{projectRoot}\\jest.preset.js",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{projectRoot}\\coverage\\meu-workspace"
+        ]
+      }
+    }
   }
 }
