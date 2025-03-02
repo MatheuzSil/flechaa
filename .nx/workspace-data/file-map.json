@@ -92,268 +92,7 @@
   ],
   "fileMap": {
     "projectFileMap": {
-      "e2e": [
-        {
-          "file": "e2e/eslint.config.js",
-          "hash": "8766195062671103701",
-          "deps": [
-            "npm:eslint-plugin-playwright"
-          ]
-        },
-        {
-          "file": "e2e/playwright.config.ts",
-          "hash": "15742260811836272678",
-          "deps": [
-            "npm:@playwright/test",
-            "npm:@nx/playwright",
-            "npm:@nx/devkit"
-          ]
-        },
-        {
-          "file": "e2e/project.json",
-          "hash": "3857261549816383909"
-        },
-        {
-          "file": "e2e/src/example.spec.ts",
-          "hash": "16019101014373124625",
-          "deps": [
-            "npm:@playwright/test"
-          ]
-        },
-        {
-          "file": "e2e/tsconfig.json",
-          "hash": "13413400511057489941"
-        }
-      ],
       "todolist": [
-        {
-          "file": "apps/todolist/.next/app-build-manifest.json",
-          "hash": "15088666744455680857"
-        },
-        {
-          "file": "apps/todolist/.next/build-manifest.json",
-          "hash": "4022198718087905130"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development-fallback/0.pack.gz",
-          "hash": "572169651723568797"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development-fallback/index.pack.gz",
-          "hash": "6215385813253065575"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/0.pack.gz",
-          "hash": "12628056984098016532"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/1.pack.gz",
-          "hash": "12449509307657816136"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/2.pack.gz",
-          "hash": "8164162645514361953"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/3.pack.gz",
-          "hash": "13671660630468902014"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/4.pack.gz",
-          "hash": "11296654984806906282"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/5.pack.gz",
-          "hash": "14094001055425179371"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/6.pack.gz",
-          "hash": "13591330501432272175"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/index.pack.gz",
-          "hash": "4532426565112172246"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/client-development/index.pack.gz.old",
-          "hash": "17398001160930949124"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/server-development/0.pack.gz",
-          "hash": "650503533321449965"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/server-development/1.pack.gz",
-          "hash": "14728824409897099243"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/server-development/2.pack.gz",
-          "hash": "104212813110669250"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/server-development/3.pack.gz",
-          "hash": "241226310149977483"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/server-development/index.pack.gz",
-          "hash": "8673187492214698233"
-        },
-        {
-          "file": "apps/todolist/.next/cache/webpack/server-development/index.pack.gz.old",
-          "hash": "17628916944166041597"
-        },
-        {
-          "file": "apps/todolist/.next/package.json",
-          "hash": "11338307439248427064"
-        },
-        {
-          "file": "apps/todolist/.next/react-loadable-manifest.json",
-          "hash": "1389868326933519382"
-        },
-        {
-          "file": "apps/todolist/.next/server/app-paths-manifest.json",
-          "hash": "6045270427439857966"
-        },
-        {
-          "file": "apps/todolist/.next/server/app/page.js",
-          "hash": "10448315820274974028",
-          "deps": [
-            [
-              "npm:next",
-              "dynamic"
-            ]
-          ]
-        },
-        {
-          "file": "apps/todolist/.next/server/app/page_client-reference-manifest.js",
-          "hash": "2635158249710843849"
-        },
-        {
-          "file": "apps/todolist/.next/server/interception-route-rewrite-manifest.js",
-          "hash": "10484309360224763022"
-        },
-        {
-          "file": "apps/todolist/.next/server/middleware-build-manifest.js",
-          "hash": "8129127502097255315"
-        },
-        {
-          "file": "apps/todolist/.next/server/middleware-manifest.json",
-          "hash": "9889576824779923310"
-        },
-        {
-          "file": "apps/todolist/.next/server/middleware-react-loadable-manifest.js",
-          "hash": "9185069726031651908"
-        },
-        {
-          "file": "apps/todolist/.next/server/next-font-manifest.js",
-          "hash": "16541577805185552134"
-        },
-        {
-          "file": "apps/todolist/.next/server/next-font-manifest.json",
-          "hash": "11891788324563068681"
-        },
-        {
-          "file": "apps/todolist/.next/server/pages-manifest.json",
-          "hash": "1389868326933519382"
-        },
-        {
-          "file": "apps/todolist/.next/server/server-reference-manifest.js",
-          "hash": "13062913855343812063"
-        },
-        {
-          "file": "apps/todolist/.next/server/server-reference-manifest.json",
-          "hash": "1208341861708597180"
-        },
-        {
-          "file": "apps/todolist/.next/server/vendor-chunks/@emotion.js",
-          "hash": "6134394190743512824"
-        },
-        {
-          "file": "apps/todolist/.next/server/vendor-chunks/hoist-non-react-statics.js",
-          "hash": "12094733262015781875"
-        },
-        {
-          "file": "apps/todolist/.next/server/vendor-chunks/next.js",
-          "hash": "273571035284114409"
-        },
-        {
-          "file": "apps/todolist/.next/server/vendor-chunks/react-is.js",
-          "hash": "18232863238840686257"
-        },
-        {
-          "file": "apps/todolist/.next/server/vendor-chunks/shallowequal.js",
-          "hash": "989826594564947923"
-        },
-        {
-          "file": "apps/todolist/.next/server/vendor-chunks/styled-components.js",
-          "hash": "726985120191138269"
-        },
-        {
-          "file": "apps/todolist/.next/server/webpack-runtime.js",
-          "hash": "5237513461988227224"
-        },
-        {
-          "file": "apps/todolist/.next/static/chunks/app-pages-internals.js",
-          "hash": "4983624475996271611"
-        },
-        {
-          "file": "apps/todolist/.next/static/chunks/app/layout.js",
-          "hash": "11745864553137103242"
-        },
-        {
-          "file": "apps/todolist/.next/static/chunks/app/page.js",
-          "hash": "3163352074025518994"
-        },
-        {
-          "file": "apps/todolist/.next/static/chunks/main-app.js",
-          "hash": "14407756383917880092"
-        },
-        {
-          "file": "apps/todolist/.next/static/chunks/polyfills.js",
-          "hash": "8152964857117933876"
-        },
-        {
-          "file": "apps/todolist/.next/static/chunks/webpack.js",
-          "hash": "18444153900228556309"
-        },
-        {
-          "file": "apps/todolist/.next/static/css/app/layout.css",
-          "hash": "5402897986346936729"
-        },
-        {
-          "file": "apps/todolist/.next/static/development/_buildManifest.js",
-          "hash": "15678672880040024319"
-        },
-        {
-          "file": "apps/todolist/.next/static/development/_ssgManifest.js",
-          "hash": "17018243955171961484"
-        },
-        {
-          "file": "apps/todolist/.next/static/webpack/633457081244afec._.hot-update.json",
-          "hash": "10481436618516908015"
-        },
-        {
-          "file": "apps/todolist/.next/trace",
-          "hash": "13590481795094374413"
-        },
-        {
-          "file": "apps/todolist/.next/types/app/layout.ts",
-          "hash": "14072664123672166849",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/todolist/.next/types/app/page.ts",
-          "hash": "1985730983064505118",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/todolist/.next/types/package.json",
-          "hash": "6094546126370684104"
-        },
         {
           "file": "apps/todolist/eslint.config.js",
           "hash": "9291946918323467744",
@@ -378,7 +117,7 @@
         },
         {
           "file": "apps/todolist/next.config.js",
-          "hash": "9301335525920576465",
+          "hash": "8247069542949241882",
           "deps": [
             "npm:@nx/next"
           ]
@@ -404,23 +143,42 @@
           ]
         },
         {
+          "file": "apps/todolist/src/Components/Header/Header.styles.tsx",
+          "hash": "5132993751280177677",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "apps/todolist/src/Components/Header/Header.tsx",
+          "hash": "298482341466958473",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "apps/todolist/src/Components/Providers/Providers.tsx",
+          "hash": "17238839526023511236",
+          "deps": [
+            "safira"
+          ]
+        },
+        {
           "file": "apps/todolist/src/app/api/hello/route.ts",
           "hash": "495073956729887886"
         },
         {
-          "file": "apps/todolist/src/app/global.css",
-          "hash": "2063387531564215811"
-        },
-        {
           "file": "apps/todolist/src/app/layout.tsx",
-          "hash": "13661322514837864675"
+          "hash": "11410481261524548569",
+          "deps": [
+            "safira"
+          ]
         },
         {
           "file": "apps/todolist/src/app/page.tsx",
-          "hash": "1292301846634878848",
+          "hash": "5702064018314856769",
           "deps": [
-            "npm:react",
-            "safira"
+            "npm:react"
           ]
         },
         {
@@ -458,6 +216,22 @@
           "hash": "6395543466657236724"
         },
         {
+          "file": "libs/safira/src/Themes/TodoTheme.tsx",
+          "hash": "9924968238763631866",
+          "deps": [
+            "npm:react",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/Themes/defaultTheme.ts",
+          "hash": "17461365149324560462"
+        },
+        {
+          "file": "libs/safira/src/Themes/themes.ts",
+          "hash": "12272396651421512488"
+        },
+        {
           "file": "libs/safira/src/global.tsx",
           "hash": "10772515825818530225",
           "deps": [
@@ -466,7 +240,7 @@
         },
         {
           "file": "libs/safira/src/index.ts",
-          "hash": "15810266279729284213"
+          "hash": "1410315430679214111"
         },
         {
           "file": "libs/safira/src/lib/Safira/safira.spec.tsx",
@@ -553,12 +327,16 @@
       ],
       "meu-workspace": [
         {
+          "file": ".env",
+          "hash": "3244421341483603138"
+        },
+        {
           "file": ".github/workflows/ci.yml",
           "hash": "14904967224619360600"
         },
         {
           "file": ".gitignore",
-          "hash": "7634907643303397314"
+          "hash": "9109719282076533961"
         },
         {
           "file": ".prettierignore",
@@ -710,6 +488,39 @@
         {
           "file": "yarn.lock",
           "hash": "6503800568131119275"
+        }
+      ],
+      "e2e": [
+        {
+          "file": "e2e/eslint.config.js",
+          "hash": "8766195062671103701",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
+        },
+        {
+          "file": "e2e/playwright.config.ts",
+          "hash": "15742260811836272678",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "e2e/project.json",
+          "hash": "3857261549816383909"
+        },
+        {
+          "file": "e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "e2e/tsconfig.json",
+          "hash": "13413400511057489941"
         }
       ]
     },

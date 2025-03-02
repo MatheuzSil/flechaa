@@ -1528,3 +1528,25 @@
 [NX Daemon Server] - 2024-10-10T18:15:43.891Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2024-10-10T18:15:43.891Z - [WATCHER]: Stopping the watcher for C:\Users\Theuz Dev\Documents\GitHub\meu-workspace (sources)
 [NX Daemon Server] - 2024-10-10T18:15:43.891Z - [WATCHER]: Stopping the watcher for C:\Users\Theuz Dev\Documents\GitHub\meu-workspace (outputs)
+[NX Daemon Server] - 2024-10-14T14:16:41.021Z - Started listening on: \\.\pipe\nx\C:\Users\THEUZD~1\AppData\Local\Temp\be707378ff2ff630f8d3\d.sock
+[NX Daemon Server] - 2024-10-14T14:16:41.027Z - [WATCHER]: Subscribed to changes within: c:\Users\Theuz Dev\Documents\GitHub\meu-workspace (native)
+[NX Daemon Server] - 2024-10-14T14:16:41.035Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-10-14T14:16:41.037Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-10-14T14:16:41.037Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-10-14T14:16:41.040Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2024-10-14T14:16:41.041Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2024-10-14T14:16:41.042Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 2.
+[NX Daemon Server] - 2024-10-14T14:16:41.042Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-10-14T14:16:41.042Z - [WATCHER]: Stopping the watcher for c:\Users\Theuz Dev\Documents\GitHub\meu-workspace (sources)
+[NX Daemon Server] - 2024-10-14T14:16:41.042Z - [WATCHER]: Stopping the watcher for c:\Users\Theuz Dev\Documents\GitHub\meu-workspace (outputs)
+[NX Daemon Server] - 2024-10-14T14:16:41.433Z - Started listening on: \\.\pipe\nx\C:\Users\THEUZD~1\AppData\Local\Temp\be707378ff2ff630f8d3\d.sock
+[NX Daemon Server] - 2024-10-14T14:16:41.436Z - [WATCHER]: Subscribed to changes within: c:\Users\Theuz Dev\Documents\GitHub\meu-workspace (native)
+[NX Daemon Server] - 2024-10-14T14:16:41.442Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-10-14T14:16:41.443Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-10-14T14:16:41.444Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-10-14T14:16:41.446Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2024-10-14T14:16:41.446Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2024-10-14T14:16:41.446Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-10-14T14:16:41.457Z - [WATCHER]: Stopping the watcher for c:\Users\Theuz Dev\Documents\GitHub\meu-workspace (sources)
+[NX Daemon Server] - 2024-10-14T14:16:41.457Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-10-14T14:16:41.458Z - [WATCHER]: Stopping the watcher for c:\Users\Theuz Dev\Documents\GitHub\meu-workspace (outputs)

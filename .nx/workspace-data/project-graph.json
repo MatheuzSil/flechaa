@@ -350,6 +350,9 @@
             "cache": true,
             "options": {
               "cwd": "libs/safira",
+              "env": {
+                "ESLINT_USE_FLAT_CONFIG": "true"
+              },
               "command": "eslint ."
             },
             "inputs": [
@@ -13256,16 +13259,6 @@
     "todolist": [
       {
         "source": "todolist",
-        "target": "npm:next",
-        "type": "dynamic"
-      },
-      {
-        "source": "todolist",
-        "target": "npm:next",
-        "type": "static"
-      },
-      {
-        "source": "todolist",
         "target": "npm:@eslint/eslintrc",
         "type": "static"
       },
@@ -13301,12 +13294,17 @@
       },
       {
         "source": "todolist",
+        "target": "npm:styled-components",
+        "type": "static"
+      },
+      {
+        "source": "todolist",
         "target": "safira",
         "type": "static"
       },
       {
         "source": "todolist",
-        "target": "npm:styled-components",
+        "target": "npm:next",
         "type": "static"
       }
     ],
@@ -13318,17 +13316,17 @@
       },
       {
         "source": "safira",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "safira",
         "target": "npm:styled-components",
         "type": "static"
       },
       {
         "source": "safira",
         "target": "npm:@testing-library/react",
-        "type": "static"
-      },
-      {
-        "source": "safira",
-        "target": "npm:react",
         "type": "static"
       }
     ],

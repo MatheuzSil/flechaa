@@ -4,3 +4,4 @@ export * from './lib/Safira/safira';
 export * from './provider';
 export * from './global';
 export * from './lib/Title/Title'
+export * from './Themes/themes'

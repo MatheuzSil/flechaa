@@ -1,4 +1,6 @@
 
+import styles from './safira.module.css';
+
 export function Safira() {
   return (
     <div className={styles['container']}>
