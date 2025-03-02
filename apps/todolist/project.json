@@ -12,7 +12,7 @@
       "options": {
         "buildTarget": "todolist:build",
         "dev": true,
-        "port": 3000
+        "port": 3001
       },
       "configurations": {
         "development":{

@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start:to": "nx run todolist:serve",
+    "start:fl": "nx run flecha:serve",
     "build": "next build",
     "lint": "eslint ./src",
     "test": "node ./run-tests.js"

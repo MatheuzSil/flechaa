@@ -92,6 +92,260 @@
   ],
   "fileMap": {
     "projectFileMap": {
+      "flecha": [
+        {
+          "file": "apps/flecha/eslint.config.js",
+          "hash": "15572561482850089407",
+          "deps": [
+            "npm:@eslint/eslintrc",
+            "npm:@eslint/js",
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "apps/flecha/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/flecha/jest.config.ts",
+          "hash": "16690382377614831230"
+        },
+        {
+          "file": "apps/flecha/next-env.d.ts",
+          "hash": "5909181270615354023"
+        },
+        {
+          "file": "apps/flecha/next.config.js",
+          "hash": "5355404018510039863",
+          "deps": [
+            "npm:@nx/next"
+          ]
+        },
+        {
+          "file": "apps/flecha/project.json",
+          "hash": "2049702940654350168"
+        },
+        {
+          "file": "apps/flecha/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/flecha/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/flecha/specs/index.spec.tsx",
+          "hash": "1288872939091782814",
+          "deps": [
+            "npm:react",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/flecha/src/app/api/hello/route.ts",
+          "hash": "495073956729887886"
+        },
+        {
+          "file": "apps/flecha/src/app/layout.tsx",
+          "hash": "877234566482938908",
+          "deps": [
+            "npm:react",
+            "safira"
+          ]
+        },
+        {
+          "file": "apps/flecha/src/app/page.tsx",
+          "hash": "11328716773491484793",
+          "deps": [
+            "safira"
+          ]
+        },
+        {
+          "file": "apps/flecha/src/app/registry.tsx",
+          "hash": "4422837858457286383",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "apps/flecha/tsconfig.json",
+          "hash": "5826317170885715725"
+        },
+        {
+          "file": "apps/flecha/tsconfig.spec.json",
+          "hash": "6922413205408300107"
+        }
+      ],
+      "todolist-e2e": [
+        {
+          "file": "apps/todolist-e2e/eslint.config.js",
+          "hash": "12491722319891407566",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/playwright.config.ts",
+          "hash": "8102381676387307650",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/project.json",
+          "hash": "10422790176229607128"
+        },
+        {
+          "file": "apps/todolist-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "apps/todolist-e2e/tsconfig.json",
+          "hash": "17106955236454832320"
+        }
+      ],
+      "flecha-e2e": [
+        {
+          "file": "apps/flecha-e2e/eslint.config.js",
+          "hash": "12491722319891407566",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
+        },
+        {
+          "file": "apps/flecha-e2e/playwright.config.ts",
+          "hash": "17107498418863671095",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "apps/flecha-e2e/project.json",
+          "hash": "12435552009773929574"
+        },
+        {
+          "file": "apps/flecha-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "apps/flecha-e2e/tsconfig.json",
+          "hash": "13413400511057489941"
+        }
+      ],
+      "safira": [
+        {
+          "file": "libs/safira/README.md",
+          "hash": "13447232245180026650"
+        },
+        {
+          "file": "libs/safira/eslint.config.js",
+          "hash": "12946987853647979914",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "libs/safira/project.json",
+          "hash": "6395543466657236724"
+        },
+        {
+          "file": "libs/safira/src/Themes/FlechaTheme.tsx",
+          "hash": "2445472514377723110",
+          "deps": [
+            "npm:react",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/Themes/TodoTheme.tsx",
+          "hash": "9924968238763631866",
+          "deps": [
+            "npm:react",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/Themes/defaultTheme.ts",
+          "hash": "17461365149324560462"
+        },
+        {
+          "file": "libs/safira/src/Themes/themes.ts",
+          "hash": "9756093123990300325"
+        },
+        {
+          "file": "libs/safira/src/global.tsx",
+          "hash": "10772515825818530225",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/index.ts",
+          "hash": "1410315430679214111"
+        },
+        {
+          "file": "libs/safira/src/lib/Safira/safira.spec.tsx",
+          "hash": "2419609957771609399",
+          "deps": [
+            "npm:react",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/Safira/safira.tsx",
+          "hash": "15880751428448629529"
+        },
+        {
+          "file": "libs/safira/src/lib/Title/Title.styles.tsx",
+          "hash": "1284449406318454843",
+          "deps": [
+            "npm:react",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/Title/Title.tsx",
+          "hash": "2130881717848541411",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/safira/src/lib/hello-server.tsx",
+          "hash": "2397568674684759047"
+        },
+        {
+          "file": "libs/safira/src/provider.tsx",
+          "hash": "12064182328408072279",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "libs/safira/src/server.ts",
+          "hash": "8912437808649717296"
+        },
+        {
+          "file": "libs/safira/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/safira/tsconfig.lib.json",
+          "hash": "14546755975749336931"
+        }
+      ],
       "todolist": [
         {
           "file": "apps/todolist/eslint.config.js",
@@ -124,7 +378,7 @@
         },
         {
           "file": "apps/todolist/project.json",
-          "hash": "13096146536511629249"
+          "hash": "5565530399475865318"
         },
         {
           "file": "apps/todolist/public/.gitkeep",
@@ -197,133 +451,6 @@
         {
           "file": "apps/todolist/tsconfig.spec.json",
           "hash": "6922413205408300107"
-        }
-      ],
-      "safira": [
-        {
-          "file": "libs/safira/README.md",
-          "hash": "13447232245180026650"
-        },
-        {
-          "file": "libs/safira/eslint.config.js",
-          "hash": "12946987853647979914",
-          "deps": [
-            "npm:@nx/eslint-plugin"
-          ]
-        },
-        {
-          "file": "libs/safira/project.json",
-          "hash": "6395543466657236724"
-        },
-        {
-          "file": "libs/safira/src/Themes/TodoTheme.tsx",
-          "hash": "9924968238763631866",
-          "deps": [
-            "npm:react",
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "libs/safira/src/Themes/defaultTheme.ts",
-          "hash": "17461365149324560462"
-        },
-        {
-          "file": "libs/safira/src/Themes/themes.ts",
-          "hash": "12272396651421512488"
-        },
-        {
-          "file": "libs/safira/src/global.tsx",
-          "hash": "10772515825818530225",
-          "deps": [
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "libs/safira/src/index.ts",
-          "hash": "1410315430679214111"
-        },
-        {
-          "file": "libs/safira/src/lib/Safira/safira.spec.tsx",
-          "hash": "7859987400508457030",
-          "deps": [
-            "npm:react",
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/safira/src/lib/Safira/safira.tsx",
-          "hash": "15106984809640826928"
-        },
-        {
-          "file": "libs/safira/src/lib/Title/Title.styles.tsx",
-          "hash": "1284449406318454843",
-          "deps": [
-            "npm:react",
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "libs/safira/src/lib/Title/Title.tsx",
-          "hash": "2130881717848541411",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/safira/src/lib/hello-server.tsx",
-          "hash": "2397568674684759047"
-        },
-        {
-          "file": "libs/safira/src/provider.tsx",
-          "hash": "12064182328408072279",
-          "deps": [
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "libs/safira/src/server.ts",
-          "hash": "8912437808649717296"
-        },
-        {
-          "file": "libs/safira/tsconfig.json",
-          "hash": "14088618039610991405"
-        },
-        {
-          "file": "libs/safira/tsconfig.lib.json",
-          "hash": "14546755975749336931"
-        }
-      ],
-      "todolist-e2e": [
-        {
-          "file": "apps/todolist-e2e/eslint.config.js",
-          "hash": "12491722319891407566",
-          "deps": [
-            "npm:eslint-plugin-playwright"
-          ]
-        },
-        {
-          "file": "apps/todolist-e2e/playwright.config.ts",
-          "hash": "8102381676387307650",
-          "deps": [
-            "npm:@playwright/test",
-            "npm:@nx/playwright",
-            "npm:@nx/devkit"
-          ]
-        },
-        {
-          "file": "apps/todolist-e2e/project.json",
-          "hash": "10422790176229607128"
-        },
-        {
-          "file": "apps/todolist-e2e/src/example.spec.ts",
-          "hash": "16019101014373124625",
-          "deps": [
-            "npm:@playwright/test"
-          ]
-        },
-        {
-          "file": "apps/todolist-e2e/tsconfig.json",
-          "hash": "17106955236454832320"
         }
       ],
       "meu-workspace": [
@@ -408,7 +535,7 @@
         },
         {
           "file": "package.json",
-          "hash": "8184909989046378616",
+          "hash": "1093203273358752170",
           "deps": [
             "npm:@eslint/compat",
             "npm:@eslint/js",
@@ -476,7 +603,7 @@
         },
         {
           "file": "tsconfig.base.json",
-          "hash": "14459124121935200714"
+          "hash": "16066141998551084806"
         },
         {
           "file": "tsconfig.json",
