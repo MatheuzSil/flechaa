@@ -1,0 +1,9 @@
+{
+  "name": "flecha-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/flecha-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["flecha"],
+  "// targets": "to see all targets run: nx show project flecha-e2e --web",
+  "targets": {}
+}

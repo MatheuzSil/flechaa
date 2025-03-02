@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@meu-workspace/safira/server": ["libs/safira/src/server.ts"],
       "@meu-workspace/safira": ["libs/safira/src/index.ts"],
+      "@meu-workspace/safira/server": ["libs/safira/src/server.ts"]
     }
   },
   "exclude": [
