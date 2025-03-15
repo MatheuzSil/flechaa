@@ -1,3 +1,4 @@
+"use client"
 import { ThemeProvider as StyledThemeProvider } from "styled-components"
 import { GlobalStyles } from "@meu-workspace/safira"
 

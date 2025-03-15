@@ -1,3 +1,4 @@
+"use client"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`

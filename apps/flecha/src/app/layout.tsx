@@ -1,3 +1,4 @@
+'use client'
 import { useMemo } from 'react';
 import { StyledComponentsRegistry } from './registry';
 import { themes } from '@meu-workspace/safira';
