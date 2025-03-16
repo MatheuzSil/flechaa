@@ -5,8 +5,8 @@ export const defaultTheme = ({brandColors, isDarkMode, backgroundImage, logo, fa
 
 return {
   colors: {
-    primary: brandColors.primary,
-    secondary: brandColors.secondary,
+    brand: brandColors.brand,
+    brandSecondary: brandColors.brandSecondary,
     background: isDarkMode ? '#000000' : '#FFFFFF',
   },
   backgroundImage: backgroundImage,

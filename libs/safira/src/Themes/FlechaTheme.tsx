@@ -7,8 +7,8 @@ import { Title } from "../lib/Title/Title";
 const application = process.env.REACT_APP_APPLICATION || 'Flecha';
 
 const brandColors = {
-  primary: '#4ECDC4',
-  secondary: '#C7F464'
+  brand: '#4ECDC4',
+  brandSecondary: '#C7F464'
 };
 
 

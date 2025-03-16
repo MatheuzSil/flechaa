@@ -2,6 +2,7 @@
 import { useMemo } from 'react';
 import { StyledComponentsRegistry } from './registry';
 import { themes } from '@meu-workspace/safira';
+import { Providers } from '../Components/Providers/Providers';
 
 
 export default function RootLayout({children,}: {children: React.ReactNode;}) {
@@ -15,7 +16,9 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
       </head>
       <body>
         <StyledComponentsRegistry>
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </StyledComponentsRegistry>
       </body>
     </html>
