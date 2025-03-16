@@ -4,3 +4,5 @@ export * from './provider';
 export * from './global';
 export * from './lib/Title/Title'
 export * from './Themes/themes'
+export * from './lib/Field/Field'
+export * from './lib/Input/Input'

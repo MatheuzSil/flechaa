@@ -7,8 +7,8 @@ export const LoginBackgroundContainer = styled.div<any>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
-  background-color: ${({ theme }) => theme.colors.brand};
+  height: 30vh;
+  background-color: ${({ theme }) => theme.brandColors.brand};
 `;
 
 export const LoginBackgroundWrapper = styled.div`
