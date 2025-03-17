@@ -7,7 +7,6 @@ export const Login = () => {
 
   return(
     <>
-      <LoginBackground />
       <LoginForm />
     </>
 

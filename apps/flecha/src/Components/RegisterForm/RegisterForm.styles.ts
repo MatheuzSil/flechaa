@@ -2,7 +2,7 @@ import { Button, Field, Title } from "@meu-workspace/safira";
 import styled from "styled-components";
 
 
-export const LoginFormBackground = styled.div`
+export const RegisterFormBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@ export const LoginFormBackground = styled.div`
 
 `;
 
-export const LoginForm = styled.div`
+export const RegisterForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@ export const LoginForm = styled.div`
   height: 100%;
 `
 
-export const LoginFormContainer = styled.div`
+export const RegisterFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@ export const LoginFormContainer = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
-export const LoginFormContent = styled.div`
+export const RegisterFormContent = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -43,13 +43,13 @@ export const LoginFormContent = styled.div`
 `
 
 
-export const LoginFormTitle = styled(Title)`  
+export const RegisterFormTitle = styled(Title)`  
   display: flex;
   align-items: center;
   color: #fff;
 `
 
-export const LoginFormTitleContainer = styled.div`
+export const RegisterFormTitleContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
@@ -59,7 +59,7 @@ export const LoginFormTitleContainer = styled.div`
   background-color: ${({ theme }) => theme.brandColors.brandSecondary};
 `
 
-export const LoginFormInput = styled<any>(Field)`
+export const RegisterFormInput = styled<any>(Field)`
   width: 100%;
   height: 30px;
   max-width: 600px ;
@@ -74,7 +74,7 @@ export const LoginFormInput = styled<any>(Field)`
 
 `;
 
-export const LoginFormLabel = styled.label`
+export const RegisterFormLabel = styled.label`
   display: flex;
   justify-content: start;
   width: 100%;
@@ -83,7 +83,7 @@ export const LoginFormLabel = styled.label`
   margin-top: 20px;
 `
 
-export const LoginFormButton = styled(Button)`
+export const RegisterFormButton = styled(Button)`
   margin-top: 20px;
   color: ${({ theme }) => theme.brandColors.brandSecondary};
   font-weight: 600;
