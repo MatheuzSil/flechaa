@@ -64,6 +64,7 @@ export const RegisterForm = () => {
     trigger(registerData)
     .then(() => {
       const path = '/'
+      router.push(path)
       console.log('cadastrado com sucesso')
     })
     .catch((error) => { 

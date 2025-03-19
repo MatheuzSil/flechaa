@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { SignJWT } from 'jose'; 
+import { jwtVerify, SignJWT } from 'jose'; 
 
 
 export const hashPassword = async (password: string): Promise<string> => {
@@ -29,6 +29,25 @@ export const signJWT = async (payload: any, secret: any, expiresIn: string): Pro
     .setProtectedHeader({ alg: 'HS256' })
     .setExpirationTime(expiresIn)
     .sign(secretKey);
-    
+
   return token;
 }
+
+
+export const verifyToken = async (token: string): Promise<any> => {
+  const secret = process.env.AUTH_SECRET;
+  if (!secret) {
+    throw new Error('AUTH_SECRET is not defined');
+  }
+
+  const encoder = new TextEncoder();
+  const secretKey = encoder.encode(secret);
+
+  try {
+    const { payload } = await jwtVerify(token, secretKey);
+    return payload;
+  } catch (error) {
+    console.error('Token verification failed:', error);
+    return null;
+  }
+};

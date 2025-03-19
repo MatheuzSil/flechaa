@@ -1,8 +1,6 @@
-import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
-import bcrypt from 'bcrypt';
-import { hashPassword } from '../../utils/auth';
-
+import { NextResponse } from 'next/server';
+import { generateToken, hashPassword } from '../../utils/auth';
 
 const prisma = new PrismaClient()
 const secret = process.env.AUTH_SECRET;
@@ -11,19 +9,13 @@ const secret = process.env.AUTH_SECRET;
 export async function register(req: Request) {
   try{
     const args = await req.json()
-
-    const existingUser = await prisma.user.findFirst({
-      where: {
-        email: args.email
-      }
-    })
+    const existingUser = await prisma.user.findFirst({ where: { email: args.email } })
 
     if(existingUser){
       return new Response('User already exists', { status: 400 })
     }
 
     const hashedPassword = await hashPassword(args.password)
-
 
     const NewUser = await prisma.user.create({
       data: {
@@ -33,14 +25,20 @@ export async function register(req: Request) {
       }
     })
 
-    
-  
+    const token = await generateToken(NewUser.id)
+    const response = new NextResponse('User created', { status: 200 });
 
+    response.cookies.set('token', token, {
+      httpOnly: true,
+      secure: false ,
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7,
+    })
+    return response
 
-
-    console.log( args.name, args.email, args.password)
-    return new Response('Hello, from API!');
   }catch(e){
     console.log(e)
+    return NextResponse.json(`Erro ao cadastrar`, { status: 500 });
   }
 }
