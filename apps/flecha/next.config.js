@@ -11,8 +11,16 @@ const nextConfig = {
     APPLICATION: process.env.APPLICATION || 'Flecha',
     THEME: process.env.THEME || 'flecha',
   },
-  // Adicione esta linha para informar ao Next.js que a pasta `app` está em `src/app`
-  dir: './src',
+  dir: './src', // Configuração para usar `src/app`
+  webpack: (config, { isServer }) => {
+    // Ignora arquivos HTML
+    config.module.rules.push({
+      test: /\.html$/,
+      loader: 'ignore-loader',
+    });
+
+    return config;
+  },
 };
 
 const plugins = [withNx];

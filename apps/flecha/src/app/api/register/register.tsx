@@ -25,17 +25,17 @@ export async function register(req: Request) {
       }
     })
 
-    const token = await generateToken(NewUser.id)
-    const response = new NextResponse('User created', { status: 200 });
+    // const token = await generateToken(NewUser.id)
+    // const response = new NextResponse('User created', { status: 200 });
 
-    response.cookies.set('token', token, {
-      httpOnly: true,
-      secure: false ,
-      sameSite: 'lax',
-      path: '/',
-      maxAge: 60 * 60 * 24 * 7,
-    })
-    return response
+    // response.cookies.set('token', token, {
+    //   httpOnly: true,
+    //   secure: false ,
+    //   sameSite: 'lax',
+    //   path: '/',
+    //   maxAge: 60 * 60 * 24 * 7,
+    // })
+    // return response
 
   }catch(e){
     console.log(e)
