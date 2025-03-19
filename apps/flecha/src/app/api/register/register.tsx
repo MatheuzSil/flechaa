@@ -12,7 +12,7 @@ export async function register(req: Request) {
     const existingUser = await prisma.user.findFirst({ where: { email: args.email } })
 
     if(existingUser){
-      return new Response('User already exists', { status: 400 })
+      return new NextResponse('User already exists', { status: 400 })
     }
 
     const hashedPassword = await hashPassword(args.password)
@@ -37,6 +37,7 @@ export async function register(req: Request) {
     // })
     // return response
 
+  return NextResponse.json( { message: 'User created successfully', user: NewUser },{ status: 201 });
   }catch(e){
     console.log(e)
     return NextResponse.json(`Erro ao cadastrar`, { status: 500 });
