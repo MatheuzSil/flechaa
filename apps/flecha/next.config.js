@@ -17,10 +17,12 @@ const nextConfig = {
     // For other options, see https://styled-components.com/docs/tooling#babel-plugin
     styledComponents: true,
   },
-  env:{
+  env: {
     APPLICATION: process.env.APPLICATION || 'Flecha',
     THEME: process.env.THEME || 'flecha',
-  }
+  },
+  // Adicione esta linha para garantir que o Next.js reconheça o diretório correto
+  basePath: '/apps/flecha',
 };
 
 const plugins = [
