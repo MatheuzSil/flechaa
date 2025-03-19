@@ -2,14 +2,32 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import *as S from './RegisterForm.styles';
 import { Paragraph } from '@meu-workspace/safira';
+import useSWRMutation from "swr/mutation";
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+const register = async (url: any, { arg }:any) => {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', },
+    body: JSON.stringify(arg),
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(data || error.message);
+  }
+  return data;  
+  }
 
 export const RegisterForm = () => {
   const [name, setName] = useState({ value: '', error: false, errorMessage: '' });
   const [email, setEmail] = useState({ value: '', error: false, errorMessage: '' });
   const [password, setPassword] = useState({ value: '', error: false, errorMessage: '' });
-  const [errorMessage, setErrorMessage] = useState<any>('');
-
+  const [errorMessage, setErrorMessage] = useState<any>('');  
+  const { trigger, isMutating } = useSWRMutation('api/register', register)
+  const router = useRouter()
+  
   const onNameChange = useCallback((e:any) => { setName({ value: e.target.value, error: false, errorMessage: '' })}, [])
   const onEmailChange = useCallback((e:any) => { 
     e.target.value === 0 
@@ -37,8 +55,25 @@ export const RegisterForm = () => {
     }
   }, [password]);
 
+  const onRegister = useCallback(() => {
+    const registerData: any ={
+      name: name.value,
+      email: email.value,
+      password: password.value
+    }
+    trigger(registerData)
+    .then(() => {
+      const path = '/'
+      console.log('cadastrado com sucesso')
+    })
+    .catch((error) => { 
+      setErrorMessage(error.message || 'Erro ao cadastrar')
+    })
+  }, [name, email, password, trigger])
+
+
   const disabled = useMemo(() => {
-    return !name.value || !email.value || !password.value || name.error || email.error || password.error
+    return !name.value || !email.value || !password.value || name.error || email.error || password.error || isMutating
   }, [name, email, password])
 
 
@@ -57,7 +92,7 @@ export const RegisterForm = () => {
               <S.RegisterFormInput placeholder='Email' label="E-mail" type='email' onChange={onEmailChange} {...email}  />
               <S.RegisterFormLabel>Senha</S.RegisterFormLabel>
               <S.RegisterFormInput placeholder='Senha' label="Senha" type='password' onChange={onPasswordChange} onBlur={onPasswordBlur} {...password} />
-              <S.RegisterFormButton disabled={disabled} >Register</S.RegisterFormButton>
+              <S.RegisterFormButton disabled={disabled} onClick={onRegister} >Register</S.RegisterFormButton>
               <S.Links >
                 <Paragraph>Veja aqui os <Link href="/termos-de-uso">termos de uso</Link> e a <Link href="/politica-de-privacidade">política de privacidade</Link></Paragraph>
                 <Paragraph>Já é cadastrado?  <Link href="/login" >Então entre por aqui!</Link></Paragraph>
