@@ -18,7 +18,7 @@ export const Field = styled.label<any>`
 export const ErrorContainer = styled.div`
   position: absolute;
   z-index: 1000;
-  background-color: ${props => props.theme.colors.brand}; ;
+  background-color: ${props => props.theme.brandColors.brand}; ;
   border-radius: 10px;
   padding: 8px 12px;
   right: 4px;
@@ -33,7 +33,7 @@ export const Arrow = styled.div`
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid ${props => props.theme.colors.brand};
+  border-top: 10px solid ${props => props.theme.brandColors.brand};
   position: absolute;
   top: 100%;
   right: 12px;

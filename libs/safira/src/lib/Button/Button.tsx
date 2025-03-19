@@ -1,3 +1,4 @@
+'use client'
 import { forwardRef } from 'react';
 import React from 'react';
 import * as S from './Button.styles';

@@ -93,3 +93,16 @@ export const LoginFormButton = styled(Button)`
   margin: 40px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
+
+export const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+
+  a {
+    color: ${({ theme }) => theme.brandColors.brand};
+    text-decoration: none;
+    font-weight: 600;
+  }
+`;
