@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
-import { generateToken, hashPassword } from '../../utils/auth';
+import { generateToken, hashPassword } from '../../../utils/auth';
 
 const prisma = new PrismaClient()
 const secret = process.env.AUTH_SECRET;
@@ -25,19 +25,18 @@ export async function register(req: Request) {
       }
     })
 
-    // const token = await generateToken(NewUser.id)
-    // const response = new NextResponse('User created', { status: 200 });
+    const token = await generateToken(NewUser.id)
+    const response = new NextResponse('User created', { status: 200 });
 
-    // response.cookies.set('token', token, {
-    //   httpOnly: true,
-    //   secure: false ,
-    //   sameSite: 'lax',
-    //   path: '/',
-    //   maxAge: 60 * 60 * 24 * 7,
-    // })
-    // return response
+    response.cookies.set('token', token, {
+      httpOnly: true,
+      secure: false ,
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7,
+    })
+    return response
 
-  return NextResponse.json( { message: 'User created successfully', user: NewUser },{ status: 201 });
   }catch(e){
     console.log(e)
     return NextResponse.json(`Erro ao cadastrar`, { status: 500 });
