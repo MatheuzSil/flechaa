@@ -5,7 +5,6 @@ import { generateToken, hashPassword } from '../../../utils/auth';
 const prisma = new PrismaClient()
 const secret = process.env.AUTH_SECRET;
 
-
 export async function register(req: Request) {
   try{
     const args = await req.json()
@@ -36,6 +35,7 @@ export async function register(req: Request) {
       maxAge: 60 * 60 * 24 * 7,
     })
     return response
+
 
   }catch(e){
     console.log(e)

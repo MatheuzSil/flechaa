@@ -8,7 +8,7 @@ export const LoginBackgroundContainer = styled.div<any>`
   align-items: center;
   width: 100%;
   height: 30vh;
-  background: linear-gradient(360deg, #E8DB26,rgb(205, 255, 252));;
+  background: linear-gradient(180deg, #E8DB26,rgb(205, 255, 252));;
 `;
 
 export const LoginBackgroundWrapper = styled.div`
