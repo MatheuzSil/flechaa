@@ -1,11 +1,9 @@
-import { Title } from "@meu-workspace/safira";
+import { Title } from '@meu-workspace/safira';
 
-export default function Index(){
-
-  return(
+export default function Index() {
+  return (
     <>
-      <Title>Dash</Title>
+      <Title>Richard is here!</Title>
     </>
-  )
-
+  );
 }
