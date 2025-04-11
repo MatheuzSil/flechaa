@@ -55,16 +55,15 @@ export const RegisterForm = () => {
     }
   }, [password]);
 
-  const onRegister = useCallback(() => {
+  const onRegister = useCallback( async () => {
     const registerData: any ={
       name: name.value,
       email: email.value,
       password: password.value
     }
-    trigger(registerData)
+    await trigger(registerData)
     .then(() => {
-      const path = '/'
-      router.push(path)
+      router.push('/')
       console.log('cadastrado com sucesso')
     })
     .catch((error) => { 
