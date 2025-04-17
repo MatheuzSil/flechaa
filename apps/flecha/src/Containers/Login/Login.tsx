@@ -1,15 +1,10 @@
-import { LoginBackground } from "../../Components/LoginBackground/LoginBackground"
-import { LoginForm } from "../../Components/LoginForm/LoginForm"
-
-
+import { LoginBackground } from '../../Components/Background/Background';
+import { LoginForm } from '../../Components/LoginForm/LoginForm';
 
 export const Login = () => {
-
-  return(
+  return (
     <>
       <LoginForm />
     </>
-
-  )
-
-}
+  );
+};
