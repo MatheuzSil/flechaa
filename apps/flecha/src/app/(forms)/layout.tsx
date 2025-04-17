@@ -6,8 +6,9 @@ import { LoginBackground } from "../../Components/LoginBackground/LoginBackgroun
 export default function LoginLayout({children,}: {children: React.ReactNode;}) {
   return (
     <>
-    <LoginBackground />
+    <LoginBackground>
       {children}
+    </LoginBackground>
     </>
   );
 }

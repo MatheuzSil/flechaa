@@ -1,15 +1,12 @@
 import React from 'react';
 import * as S from './LoginBackground.styles';
 
-export const LoginBackground = () => {
+export const LoginBackground = ({children}: any) => {
 
   return(
     <>
-      <S.LoginBackgroundContainer>
-        <S.LoginBackgroundWrapper>
-          <S.LoginBackgroundTitle>FLECHA</S.LoginBackgroundTitle>
-        </S.LoginBackgroundWrapper>
-      </S.LoginBackgroundContainer>
+      <S.LoginBackgroundContainer/>
+        {children}
     </>
 
 
