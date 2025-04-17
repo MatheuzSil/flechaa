@@ -8,6 +8,20 @@ const publicRoutes = ['/login', '/cadastrar'];
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
+  if(
+    pathname.startsWith('/_next/') ||
+    pathname.startsWith('/static/') ||
+    pathname === '/favicon.ico' ||
+    pathname.startsWith('/icons/') ||      // se guardou seu SVG em public/icons
+    pathname.endsWith('.svg') ||            // qualquer SVG
+    pathname.endsWith('.png') ||
+    pathname.endsWith('.jpg') ||
+    pathname.endsWith('.css') ||
+    pathname.endsWith('.js')
+  ){
+    return NextResponse.next(); // Permite o carregamento de arquivos estáticos
+  }
+
   // Verifica se a rota atual não é uma rota pública
   if (!publicRoutes.includes(pathname)) {
     const token = req.cookies.get('token')?.value;
