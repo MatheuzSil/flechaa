@@ -7,8 +7,8 @@ export const LoginFormBackground = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #E6EBE9;
-  height: 70vh;
+  height: 100%;
+  z-index: 1;
   padding: 20px;
 
 `;
@@ -17,7 +17,7 @@ export const LoginForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content:center;
   width: 100%;
   max-width: 700px;
   height: 100%;
@@ -31,7 +31,19 @@ export const LoginFormContainer = styled.div`
   background-color: #fff;
   border-radius: 10px;
   width: 100%;
+  max-width: 750px;
+  height: 100%;
+  max-height: 618px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`
+
+
+export const FlechaIcon = styled.img`
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `
 
 export const LoginFormContent = styled.div`

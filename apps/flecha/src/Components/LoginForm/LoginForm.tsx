@@ -3,17 +3,13 @@ import * as S from './LoginForm.styles';
 import { Paragraph } from '@meu-workspace/safira';
 import Link from 'next/link';
 
-
 export const LoginForm = () => {
 
   return(
     <>
       <S.LoginFormBackground>
-        <S.LoginForm>
           <S.LoginFormContainer>
-            <S.LoginFormTitleContainer>
-              <S.LoginFormTitle>Login</S.LoginFormTitle>
-            </S.LoginFormTitleContainer>
+            <img src="/flecha_logo.svg" alt="Flecha Logo" />
             <S.LoginFormContent>
               <S.LoginFormLabel>E-mail</S.LoginFormLabel>
               <S.LoginFormInput placeholder='Email' label="E-mail" type='email'/>
@@ -25,7 +21,6 @@ export const LoginForm = () => {
               </S.Links>
             </S.LoginFormContent>
           </S.LoginFormContainer>
-        </S.LoginForm>
       </S.LoginFormBackground>
     </>
 
