@@ -1,14 +1,15 @@
-'use client'
+'use client';
 
-import { LoginBackground } from "../../Components/LoginBackground/LoginBackground";
+import { LoginBackground } from '../../Components/Background/Background';
 
-
-export default function LoginLayout({children,}: {children: React.ReactNode;}) {
+export default function LoginLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <>
-    <LoginBackground>
-      {children}
-    </LoginBackground>
+      <LoginBackground>{children}</LoginBackground>
     </>
   );
 }
