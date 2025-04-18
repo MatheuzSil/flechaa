@@ -12,11 +12,19 @@ const register = async (url: any, { arg }: any) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(arg),
   });
-  const data = await response.json();
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(data || error.message);
+
+  let data;
+  try {
+    data = await response.json();
+  } catch (error) {
+    console.warn('Failed to parse JSON:', error);
+    data = null;
   }
+
+  if (!response.ok) {
+    throw new Error(data?.message || 'Erro ao cadastrar');
+  }
+
   return data;
 };
 
@@ -100,14 +108,13 @@ export const RegisterForm = () => {
       email: email.value,
       password: password.value,
     };
-    await trigger(registerData)
-      .then(() => {
-        router.push('/');
-        console.log('cadastrado com sucesso');
-      })
-      .catch((error) => {
-        setErrorMessage(error.message || 'Erro ao cadastrar');
-      });
+
+    try {
+      const res = await trigger(registerData);
+      router.push('/');
+    } catch (error: any) {
+      setErrorMessage(error.message || 'Erro ao cadastrar');
+    }
   }, [name, email, password, trigger]);
 
   const disabled = useMemo(() => {
