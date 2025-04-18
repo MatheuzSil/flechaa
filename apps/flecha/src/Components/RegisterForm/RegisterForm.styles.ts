@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const RegisterFormBackground = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -113,9 +114,7 @@ export const LinksText = styled.p`
 
 export const FlechaLogo = styled.img`
   display: flex;
-  width: 100px;
-  height: 100px;
+  width: 1000px;
+  height: auto;
   align-self: center;
-  margin: 0px 82px;
-  position: absolute;
 `;
