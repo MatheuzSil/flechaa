@@ -14,6 +14,7 @@
   "private": true,
   "dependencies": {
     "@nrwl/workspace": "^19.8.3",
+    "@prisma/client": "^6.6.0",
     "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",
     "jose": "^6.0.10",
@@ -65,7 +66,7 @@
     "jest-environment-node": "^29.7.0",
     "nx": "19.8.3",
     "prettier": "^2.6.2",
-    "prisma": "^6.5.0",
+    "prisma": "^6.6.0",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
