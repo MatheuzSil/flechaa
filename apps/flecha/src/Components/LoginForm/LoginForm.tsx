@@ -7,12 +7,15 @@ export const LoginForm = () => {
 
   return(
     <>
+      <S.FlechaIconContainer>
+        <S.FlechaIcon src="/flecha_logo.svg" />
+      </S.FlechaIconContainer>
       <S.LoginFormBackground>
           <S.LoginFormContainer>
             <S.LoginTitleContainer>
-              <S.LoginFormTitle>Bem vindo!</S.LoginFormTitle>
+              <S.LoginFormTitle>Bem vindo de volta!</S.LoginFormTitle>
               <S.LoginFormSubtitle>
-                  Por favor, cadastre sua conta abaixo.
+                  Por favor, coloque os dados da sua conta.
               </S.LoginFormSubtitle>
             </S.LoginTitleContainer>
             <S.LoginFormContent>
@@ -22,7 +25,9 @@ export const LoginForm = () => {
               <S.LoginFormInput placeholder='Senha' label="Senha" type='password' />
               <S.LoginFormButton>Login</S.LoginFormButton>
               <S.Links >
-                <Paragraph>Veja aqui os <Link href="/termos-de-uso">termos de uso</Link> e a <Link href="/politica-de-privacidade">política de privacidade</Link></Paragraph>
+                <S.LinksText>Não tem uma conta?{' '}
+                  <Link href="/cadastrar">Cadastre-se aqui!</Link>
+                </S.LinksText>
               </S.Links>
             </S.LoginFormContent>
           </S.LoginFormContainer>

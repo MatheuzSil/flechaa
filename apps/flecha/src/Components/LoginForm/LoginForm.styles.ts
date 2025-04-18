@@ -41,14 +41,7 @@ export const LoginFormSubtitle = styled.p`
   font-weight: 400;
   margin-top: 12px;
   color: #222222;
-`
-
-export const FlechaIcon = styled.img`
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  text-align: center;
 `
 
 export const LoginFormContent = styled.div`
@@ -111,6 +104,20 @@ export const LoginFormLabel = styled.label`
   color: #222222;
 `
 
+export const LinksText = styled.p`
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-size: 18px;
+  font-weight: 400;
+  color: #222222;
+
+  a {
+    color: ${({ theme }) => theme.brandColors.primary400};
+    text-decoration: none;
+    font-family: ${({ theme }) => theme.fonts.poppins};
+    font-weight: 400;
+  }
+`
+
 export const LoginFormButton = styled(Button)`
   margin-top: 20px;
   color: ${({ theme }) => theme.brandColors.primary50};
@@ -135,3 +142,20 @@ export const Links = styled.div`
     font-weight: 600;
   }
 `;
+
+
+
+
+export const FlechaIconContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  z-index: 1000;
+  margin-top: 50px;
+`
+
+export const FlechaIcon = styled.img`
+  z-index: 1000;
+  width: 300px;
+  height: auto;
+`
