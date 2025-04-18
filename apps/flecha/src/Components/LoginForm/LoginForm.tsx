@@ -9,7 +9,12 @@ export const LoginForm = () => {
     <>
       <S.LoginFormBackground>
           <S.LoginFormContainer>
-            <img src="/flecha_logo.svg" alt="Flecha Logo" />
+            <S.LoginTitleContainer>
+              <S.LoginFormTitle>Bem vindo!</S.LoginFormTitle>
+              <S.LoginFormSubtitle>
+                  Por favor, cadastre sua conta abaixo.
+              </S.LoginFormSubtitle>
+            </S.LoginTitleContainer>
             <S.LoginFormContent>
               <S.LoginFormLabel>E-mail</S.LoginFormLabel>
               <S.LoginFormInput placeholder='Email' label="E-mail" type='email'/>
