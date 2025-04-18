@@ -124,8 +124,8 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <S.FlechaLogo src="/flecha_logo.svg" alt="" />
       <S.RegisterFormBackground>
+        <S.FlechaLogo src="/flecha_logo.svg" alt="" />
         <S.RegisterForm>
           <S.RegisterFormContainer>
             <S.RegisterFormTitle>Bem vindo!</S.RegisterFormTitle>
