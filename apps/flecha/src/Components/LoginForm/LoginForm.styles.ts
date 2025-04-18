@@ -7,7 +7,6 @@ export const LoginFormBackground = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
   z-index: 1;
   padding: 20px;
 
@@ -36,7 +35,13 @@ export const LoginFormContainer = styled.div`
   max-height: 618px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
-
+export const LoginFormSubtitle = styled.p`
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 12px;
+  color: #222222;
+`
 
 export const FlechaIcon = styled.img`
   width: 100%;
@@ -54,12 +59,21 @@ export const LoginFormContent = styled.div`
   padding: 10px;
 `
 
+export const LoginTitleContainer = styled.div`
+  
 
-export const LoginFormTitle = styled(Title)`  
-  display: flex;
-  align-items: center;
-  color: #fff;
 `
+
+export const LoginFormTitle = styled(Title)`
+  font-family: ${({ theme }) => theme.fonts.craftyGirls};
+  font-size: 48px;
+  text-align: center;
+  font-weight: 400;
+  color: ${({ theme }) => theme.brandColors.primary400};
+  margin-top: 48px;
+`;
+
+
 
 export const LoginFormTitleContainer = styled.div`
   display: flex;
@@ -72,34 +86,37 @@ export const LoginFormTitleContainer = styled.div`
 `
 
 export const LoginFormInput = styled<any>(Field)`
+  
   width: 100%;
-  height: 30px;
-  max-width: 600px ;
+  height: 64px;
+  max-width: 600px;
   margin-bottom: 10px;
   padding: 10px 0;
   border-radius: 5px;
 
   & input {
-    background-color: #E6EBE9;
-
+    border: 1px solid #888888;
+    height: 64px;
   }
 
-`;
+`
 
 export const LoginFormLabel = styled.label`
-  display: flex;
-  justify-content: start;
   width: 100%;
   max-width: 600px;
-  color:rgb(162, 165, 164);
-  margin-top: 20px;
+  margin-top: 24px;
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-size: 18px;
+  font-weight: 400;
+  color: #222222;
 `
 
 export const LoginFormButton = styled(Button)`
   margin-top: 20px;
-  color: ${({ theme }) => theme.brandColors.brandSecondary};
+  color: ${({ theme }) => theme.brandColors.primary50};
   font-weight: 600;
   width: 100%;
+  background-color: ${({ theme }) => theme.brandColors.primary400};
   max-width: 600px;
   padding: 12px;
   margin: 40px;
@@ -113,7 +130,7 @@ export const Links = styled.div`
   align-items: center;
 
   a {
-    color: ${({ theme }) => theme.brandColors.brand};
+    color: ${({ theme }) => theme.brandColors.primary400};
     text-decoration: none;
     font-weight: 600;
   }
