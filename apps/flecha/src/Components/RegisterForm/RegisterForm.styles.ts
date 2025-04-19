@@ -5,11 +5,16 @@ export const RegisterFormBackground = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
   height: 100%;
   padding: 20px;
   position: absolute;
+
+  @media screen and (max-width: 1180px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const RegisterForm = styled.div`
@@ -114,7 +119,18 @@ export const LinksText = styled.p`
 
 export const FlechaLogo = styled.img`
   display: flex;
-  width: 1000px;
+  width: 900px;
+  max-width: 100%;
   height: auto;
   align-self: center;
+
+  @media screen and (max-width: 1670px){
+    width: 600px;
+  }
+
+  @media screen and (max-width: 1350px){
+    width: 400px;
+
+  }
+
 `;
