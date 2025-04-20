@@ -5,7 +5,7 @@ import useSWRMutation from 'swr/mutation';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import { useErrorToast } from '../../hooks/useErrorToast';
+import { useToast } from '../../hooks/useToast';
 
 const Loading = dynamic(() => import('../Loading/Loading'), {
   ssr: false,
@@ -52,7 +52,7 @@ export const RegisterForm = () => {
     error: false,
     errorMessage: '',
   });
-  const { showError } = useErrorToast();
+  const { showError } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const { trigger, isMutating } = useSWRMutation('api/register', register);
   const router = useRouter();
