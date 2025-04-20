@@ -49,7 +49,7 @@ export const RegisterForm = () => {
     errorMessage: '',
   });
 
-  const { showError } = useToast();
+  const { showError, showSuccess} = useToast();
   const { trigger, isMutating } = useSWRMutation('api/register', register);
   const router = useRouter();
 
@@ -125,6 +125,7 @@ export const RegisterForm = () => {
 
     try {
       await trigger(registerData);
+      showSuccess('Cadastro realizado com sucesso!');
       router.push('/');
     } catch (error: any) {
       showError(error.data?.error || error.message || 'Erro ao cadastrar');

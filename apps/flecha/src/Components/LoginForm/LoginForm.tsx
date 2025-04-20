@@ -50,7 +50,7 @@ export const LoginForm = () => {
   const deactivateLoadAnimation = useLoadingStore(
     (state) => state.deactivateLoadAnimation
   );
-  const { showError } = useToast();
+  const { showError, showSuccess } = useToast();
 
   const onEmailChange = useCallback((e: any) => {
     e.target.value === 0
@@ -87,6 +87,7 @@ export const LoginForm = () => {
     activateLoadAnimation();
     try {
       const res = await trigger(loginData);
+      showSuccess('Login realizado com sucesso!');
       router.push('/');
     } catch (error: any) {
       console.log('Erro ao realizar login:', error);
