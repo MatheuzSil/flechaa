@@ -165,6 +165,8 @@ export const RegisterForm = () => {
                 onChange={onNameChange}
                 onBlur={onNameBlur}
                 {...name}
+                autoComplete="name"
+                name="name"
               />
               <S.RegisterFormLabel>Email</S.RegisterFormLabel>
               <S.RegisterFormInput
@@ -173,6 +175,8 @@ export const RegisterForm = () => {
                 type="email"
                 onChange={onEmailChange}
                 {...email}
+                autoComplete="email"
+                name="email"
               />
               <S.RegisterFormLabel>Senha</S.RegisterFormLabel>
               <S.RegisterFormInput
@@ -182,6 +186,8 @@ export const RegisterForm = () => {
                 onChange={onPasswordChange}
                 onBlur={onPasswordBlur}
                 {...password}
+                autoComplete="password"
+                name="password"
               />
               <S.RegisterFormButton disabled={disabled} onClick={onRegister}>
                 Cadastrar

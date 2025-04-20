@@ -128,6 +128,8 @@ export const LoginForm = () => {
               type="email"
               onChange={onEmailChange}
               {...email}
+              autoComplete="email"
+              name="email"
             />
             <S.LoginFormLabel>Senha</S.LoginFormLabel>
             <S.LoginFormInput
@@ -137,6 +139,8 @@ export const LoginForm = () => {
               onChange={onPasswordChange}
               {...password}
               onBlur={onPasswordBlur}
+              name="password"
+              autoComplete="current-password"
             />
             <S.LoginFormButton onClick={onLogin}>Login</S.LoginFormButton>
             <S.Links>
