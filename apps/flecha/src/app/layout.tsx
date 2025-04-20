@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { StyledComponentsRegistry } from './registry';
 import { themes } from '@meu-workspace/safira';
 import { Providers } from '../Components/Providers/Providers';
+import { Bounce, ToastContainer } from 'react-toastify';
 
 export default function RootLayout({
   children,
@@ -26,7 +27,22 @@ export default function RootLayout({
       </head>
       <body>
         <StyledComponentsRegistry>
-          <Providers>{children}</Providers>
+          <Providers>
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable={false}
+              pauseOnHover
+              theme="dark"
+              transition={Bounce}
+            />
+            {children}
+          </Providers>
         </StyledComponentsRegistry>
       </body>
     </html>

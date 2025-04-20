@@ -1,10 +1,15 @@
 'use client';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import * as S from './RegisterForm.styles';
-import { Paragraph } from '@meu-workspace/safira';
 import useSWRMutation from 'swr/mutation';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic';
+import { useToast } from '../../hooks/useToast';
+
+const Loading = dynamic(() => import('../Loading/Loading'), {
+  ssr: false,
+});
 
 const register = async (url: any, { arg }: any) => {
   const response = await fetch(url, {
@@ -22,7 +27,10 @@ const register = async (url: any, { arg }: any) => {
   }
 
   if (!response.ok) {
-    throw new Error(data?.message || 'Erro ao cadastrar');
+    const error = new Error(data?.error || 'Erro ao cadastrar') as any;
+    error.response = response;
+    error.data = data;
+    throw error;
   }
 
   return data;
@@ -44,7 +52,8 @@ export const RegisterForm = () => {
     error: false,
     errorMessage: '',
   });
-  const [errorMessage, setErrorMessage] = useState<any>('');
+  const { showError } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const { trigger, isMutating } = useSWRMutation('api/register', register);
   const router = useRouter();
 
@@ -109,11 +118,15 @@ export const RegisterForm = () => {
       password: password.value,
     };
 
+    setIsLoading(true);
+
     try {
-      const res = await trigger(registerData);
+      await trigger(registerData);
       router.push('/');
     } catch (error: any) {
-      setErrorMessage(error.message || 'Erro ao cadastrar');
+      showError(error.data?.error || error.message || 'Erro ao cadastrar');
+    } finally {
+      setIsLoading(false);
     }
   }, [name, email, password, trigger]);
 
@@ -127,12 +140,13 @@ export const RegisterForm = () => {
       password.error ||
       isMutating
     );
-  }, [name, email, password]);
+  }, [name, email, password, isMutating]);
 
   return (
     <>
+      <Loading isLoading={isLoading} />
       <S.RegisterFormBackground>
-        <S.FlechaLogo src="/flecha_logo.svg" alt="" />
+        <S.FlechaLogo src="/flecha_logo.svg" alt="" unselectable="on" />
         <S.RegisterForm>
           <S.RegisterFormContainer>
             <S.RegisterFormTitle>Bem vindo!</S.RegisterFormTitle>
@@ -167,7 +181,7 @@ export const RegisterForm = () => {
                 {...password}
               />
               <S.RegisterFormButton disabled={disabled} onClick={onRegister}>
-                Register
+                Cadastrar
               </S.RegisterFormButton>
               <S.Links>
                 <S.LinksText>

@@ -1,4 +1,4 @@
-import { Button, Field, Title } from '@meu-workspace/safira';
+import { Field, Title } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const RegisterFormBackground = styled.div`
@@ -85,7 +85,7 @@ export const RegisterFormLabel = styled.label`
   color: #222222;
 `;
 
-export const RegisterFormButton = styled.button`
+export const RegisterFormButton = styled.button<{ disabled: boolean }>`
   font-family: ${({ theme }) => theme.fonts.poppins};
   color: ${({ theme }) => theme.brandColors.primary50};
   background-color: ${({ theme }) => theme.brandColors.primary400};
@@ -94,6 +94,15 @@ export const RegisterFormButton = styled.button`
   border-radius: 10px;
   padding: 12px 48px;
   margin: 48px 0px;
+
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+
+  &:hover {
+    background-color: ${({ theme, disabled }) =>
+      disabled ? theme.brandColors.primary200 : theme.brandColors.primary500};
+  }
 `;
 
 export const Links = styled.div`
@@ -124,13 +133,11 @@ export const FlechaLogo = styled.img`
   height: auto;
   align-self: center;
 
-  @media screen and (max-width: 1670px){
+  @media screen and (max-width: 1670px) {
     width: 600px;
   }
 
-  @media screen and (max-width: 1350px){
+  @media screen and (max-width: 1350px) {
     width: 400px;
-
   }
-
 `;
