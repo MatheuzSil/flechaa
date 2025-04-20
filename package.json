@@ -26,7 +26,8 @@
     "react-lottie": "^1.2.10",
     "react-toastify": "^11.0.5",
     "styled-components": "5.3.6",
-    "swr": "^2.3.3"
+    "swr": "^2.3.3",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/compat": "1.2.0",

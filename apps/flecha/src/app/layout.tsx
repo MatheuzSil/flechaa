@@ -4,6 +4,12 @@ import { StyledComponentsRegistry } from './registry';
 import { themes } from '@meu-workspace/safira';
 import { Providers } from '../Components/Providers/Providers';
 import { Bounce, ToastContainer } from 'react-toastify';
+import { useLoadingStore } from '../store/store';
+import dynamic from 'next/dynamic';
+
+const Loading = dynamic(() => import('../Components/Loading/Loading'), {
+  ssr: false,
+});
 
 export default function RootLayout({
   children,
@@ -15,6 +21,8 @@ export default function RootLayout({
     () => themes[process.env.THEME as keyof typeof themes],
     []
   );
+
+  const isLoading = useLoadingStore((state) => state.isActive);
   return (
     <html lang="pt-br">
       <head>
@@ -28,6 +36,7 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <Providers>
+            <Loading isLoading={isLoading} />
             <ToastContainer
               position="top-right"
               autoClose={3000}

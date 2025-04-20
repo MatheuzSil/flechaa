@@ -4,12 +4,8 @@ import * as S from './RegisterForm.styles';
 import useSWRMutation from 'swr/mutation';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import { useToast } from '../../hooks/useToast';
-
-const Loading = dynamic(() => import('../Loading/Loading'), {
-  ssr: false,
-});
+import { useLoadingStore } from '../../store/store';
 
 const register = async (url: any, { arg }: any) => {
   const response = await fetch(url, {
@@ -52,10 +48,17 @@ export const RegisterForm = () => {
     error: false,
     errorMessage: '',
   });
+
   const { showError } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
   const { trigger, isMutating } = useSWRMutation('api/register', register);
   const router = useRouter();
+
+  const activateLoadAnimation = useLoadingStore(
+    (state) => state.activateLoadAnimation
+  );
+  const deactivateLoadAnimation = useLoadingStore(
+    (state) => state.deactivateLoadAnimation
+  );
 
   const onNameChange = useCallback((e: any) => {
     setName({ value: e.target.value, error: false, errorMessage: '' });
@@ -118,7 +121,7 @@ export const RegisterForm = () => {
       password: password.value,
     };
 
-    setIsLoading(true);
+    activateLoadAnimation();
 
     try {
       await trigger(registerData);
@@ -126,7 +129,7 @@ export const RegisterForm = () => {
     } catch (error: any) {
       showError(error.data?.error || error.message || 'Erro ao cadastrar');
     } finally {
-      setIsLoading(false);
+      deactivateLoadAnimation();
     }
   }, [name, email, password, trigger]);
 
@@ -144,7 +147,6 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <Loading isLoading={isLoading} />
       <S.RegisterFormBackground>
         <S.FlechaLogo src="/flecha_logo.svg" alt="" unselectable="on" />
         <S.RegisterForm>

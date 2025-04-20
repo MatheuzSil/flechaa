@@ -1,4 +1,4 @@
-import { Field, Title } from '@meu-workspace/safira';
+import { Field, Paragraph, Title } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const RegisterFormBackground = styled.div`
@@ -53,7 +53,7 @@ export const RegisterFormTitle = styled(Title)`
   margin-top: 48px;
 `;
 
-export const RegisterFormSubtitle = styled.p`
+export const RegisterFormSubtitle = styled(Paragraph)`
   font-family: ${({ theme }) => theme.fonts.poppins};
   font-size: 24px;
   font-weight: 400;
