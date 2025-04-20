@@ -14,8 +14,8 @@ export async function register(req: Request) {
 
     if (existingUser) {
       return NextResponse.json(
-        { error: 'Error 400: Um usuário com este email já está cadastrado.' },
-        { status: 400 }
+        { error: 'Error 409: Um usuário com este email já está cadastrado.' },
+        { status: 409 }
       );
     }
 
