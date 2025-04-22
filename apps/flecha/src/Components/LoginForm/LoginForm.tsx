@@ -9,7 +9,7 @@ import { useToast } from '../../hooks/useToast';
 
 const login = async (url: any, { arg }: any) => {
   const response = await fetch(url, {
-    method: 'PATCH',
+    method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(arg),
   });
@@ -21,6 +21,7 @@ const login = async (url: any, { arg }: any) => {
     console.warn('Failed to parse JSON:', error);
     data = null;
   }
+  console.log(data);
   if (!response.ok) {
     const error = new Error(data?.error || 'Erro ao cadastrar') as any;
     error.response = response;
