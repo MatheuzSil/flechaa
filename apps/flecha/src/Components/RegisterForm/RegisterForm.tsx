@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import * as S from './RegisterForm.styles';
 import useSWRMutation from 'swr/mutation';
 import Link from 'next/link';
@@ -49,7 +49,7 @@ export const RegisterForm = () => {
     errorMessage: '',
   });
 
-  const { showError, showSuccess} = useToast();
+  const { showError, showSuccess } = useToast();
   const { trigger, isMutating } = useSWRMutation('api/register', register);
   const router = useRouter();
 
