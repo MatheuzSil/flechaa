@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useToast } from '../../hooks/useToast';
 import { useLoadingStore } from '../../store/store';
+import { validateEmail, validatePassword } from '../../utils/auth';
+import ValidationObject from '../../types/validationObject';
 
 const register = async (url: any, { arg }: any) => {
   const response = await fetch(url, {
@@ -33,17 +35,17 @@ const register = async (url: any, { arg }: any) => {
 };
 
 export const RegisterForm = () => {
-  const [name, setName] = useState({
+  const [name, setName] = useState<ValidationObject>({
     value: '',
     error: false,
     errorMessage: '',
   });
-  const [email, setEmail] = useState({
+  const [email, setEmail] = useState<ValidationObject>({
     value: '',
     error: false,
     errorMessage: '',
   });
-  const [password, setPassword] = useState({
+  const [password, setPassword] = useState<ValidationObject>({
     value: '',
     error: false,
     errorMessage: '',
@@ -64,18 +66,12 @@ export const RegisterForm = () => {
     setName({ value: e.target.value, error: false, errorMessage: '' });
   }, []);
   const onEmailChange = useCallback((e: any) => {
-    e.target.value === 0
-      ? setEmail({ value: '', error: true, errorMessage: 'Email inválido' })
-      : setEmail({ value: e.target.value, error: false, errorMessage: '' });
-    !e.target.value.includes('@') &&
-      setEmail({
-        value: e.target.value,
-        error: true,
-        errorMessage: 'Email inválido',
-      });
+    let regexpResult = validateEmail(e.target.value);
+    setEmail(regexpResult);
   }, []);
   const onPasswordChange = useCallback((e: any) => {
-    setPassword({ value: e.target.value, error: false, errorMessage: '' });
+    let regexpResult = validatePassword(e.target.value);
+    setPassword(regexpResult);
   }, []);
 
   const onNameBlur = useCallback(

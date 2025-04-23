@@ -51,6 +51,11 @@ export const RegisterFormTitle = styled(Title)`
   font-weight: 400;
   color: ${({ theme }) => theme.brandColors.primary400};
   margin-top: 48px;
+
+  @media screen and (max-width: 425px) {
+    margin-top: 12px;
+    font-size: 36px;
+  }
 `;
 
 export const RegisterFormSubtitle = styled(Paragraph)`
@@ -59,6 +64,33 @@ export const RegisterFormSubtitle = styled(Paragraph)`
   font-weight: 400;
   margin-top: 12px;
   color: #222222;
+
+  @media screen and (max-width: 425px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 375px) {
+    font-size: 14px;
+  }
+`;
+
+export const RegisterFormLabel = styled.label`
+  width: 100%;
+  max-width: 600px;
+  margin-top: 24px;
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-size: 18px;
+  font-weight: 400;
+  color: #222222;
+
+  @media screen and (max-width: 425px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 375px) {
+    margin-top: 12px;
+    font-size: 14px;
+  }
 `;
 
 export const RegisterFormInput = styled<any>(Field)`
@@ -73,16 +105,13 @@ export const RegisterFormInput = styled<any>(Field)`
     border: 1px solid #888888;
     height: 64px;
   }
-`;
 
-export const RegisterFormLabel = styled.label`
-  width: 100%;
-  max-width: 600px;
-  margin-top: 24px;
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 18px;
-  font-weight: 400;
-  color: #222222;
+  @media screen and (max-width: 375px) {
+    font-size: 14px;
+    & input {
+      height: 48px;
+    }
+  }
 `;
 
 export const RegisterFormButton = styled.button<{ disabled: boolean }>`
@@ -103,6 +132,15 @@ export const RegisterFormButton = styled.button<{ disabled: boolean }>`
     background-color: ${({ theme, disabled }) =>
       disabled ? theme.brandColors.primary200 : theme.brandColors.primary500};
   }
+
+  @media screen and (max-width: 1024px) {
+    margin: 12px 0px;
+  }
+
+  @media screen and (max-width: 375px) {
+    font-size: 14px;
+    padding: 12px 36px;
+  }
 `;
 
 export const Links = styled.div`
@@ -111,6 +149,10 @@ export const Links = styled.div`
   gap: 8px;
   align-items: center;
   margin-bottom: 48px;
+
+  @media screen and (max-width: 1024px) {
+    margin: 12px 0px;
+  }
 `;
 
 export const LinksText = styled.p`
@@ -123,6 +165,10 @@ export const LinksText = styled.p`
     color: ${({ theme }) => theme.brandColors.primary400};
     text-decoration: none;
     font-family: ${({ theme }) => theme.fonts.poppins};
+  }
+
+  @media screen and (max-width: 375px) {
+    font-size: 14px;
   }
 `;
 
