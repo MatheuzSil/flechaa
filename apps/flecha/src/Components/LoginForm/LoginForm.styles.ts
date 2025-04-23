@@ -61,8 +61,9 @@ export const LoginFormTitle = styled(Title)`
   font-weight: 400;
   color: ${({ theme }) => theme.brandColors.primary400};
   margin-top: 48px;
+  padding: 0 10px;
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 535px) {
     font-size: 34px;
   }
 
@@ -78,9 +79,10 @@ export const LoginFormSubtitle = styled.p`
   margin-top: 12px;
   color: #222222;
   text-align: center;
+  padding: 0 10px ;
 
-  @media screen and (max-width: 425px) {
-    font-size: 14px;
+  @media screen and (max-width: 580px) {
+    font-size: 16px;
   }
 
   @media screen and (max-width: 320px) {
@@ -144,6 +146,10 @@ export const LoginFormButton = styled(Button)`
   max-width: 600px;
   padding: 12px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.brandColors.primary600};
+  }
 
   @media screen and (max-width: 425px) {
     margin: 12px 0px;
