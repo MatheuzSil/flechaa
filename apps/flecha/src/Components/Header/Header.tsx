@@ -7,7 +7,7 @@ export const Header = () => {
     <>
       <S.HeaderContainer>
         <S.HeaderContents>
-          <S.HeaderFlechaIcon src="/flecha.svg" alt="Flecha" />
+          <S.HeaderFlechaIcon src="/flecha_logo.svg" alt="Flecha" />
           <S.HeaderProfileContainer>
             <ProfileIcon />
             <S.HeaderProfileName>Nome do Usuário</S.HeaderProfileName>
