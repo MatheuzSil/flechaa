@@ -1,19 +1,16 @@
-import styled from "styled-components";
-
+'use client';
+import styled from 'styled-components';
 
 const DashboardBackground = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${({ theme }) => theme.colors.brandColors.backgroundBlack}; 
-`
+  background-color: ${({ theme }) => theme.brandColors.backgroundBlack};
+`;
 
-
-export default function Layout({children}: {children: React.ReactNode}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <DashboardBackground>
-        {children}
-      </DashboardBackground>
+      <DashboardBackground>{children}</DashboardBackground>
     </>
   );
 }
