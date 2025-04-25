@@ -1,9 +1,5 @@
-import { Title } from '@meu-workspace/safira';
-import { Dashboard } from '../Containers/Dashboard/Dashboard';
+'use client';
 
 export default function Index() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }
