@@ -15,7 +15,7 @@ export const PaginationText = styled.p`
   font-family: ${({ theme }) => theme.fonts.poppins};
 `;
 
-export const PaginationChevron = styled.img`
+export const PaginationChevron = styled.div`
   width: 20px;
   height: 20px;
   margin-right: 10px;

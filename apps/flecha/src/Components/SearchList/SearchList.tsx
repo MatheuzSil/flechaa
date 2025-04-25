@@ -41,7 +41,7 @@ export default function SearchList() {
     },
   ];
 
-  const paginationTotal = results.length / 5;
+  const paginationTotal = results.length / 1;
 
   return (
     <S.SearchContainer>

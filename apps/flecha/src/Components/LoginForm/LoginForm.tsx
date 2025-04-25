@@ -89,7 +89,7 @@ export const LoginForm = () => {
     try {
       const res = await trigger(loginData);
       showSuccess('Login realizado com sucesso!');
-      router.push('/');
+      router.push('/dashboard');
     } catch (error: any) {
       console.log('Erro ao realizar login:', error);
       showError(error.data?.error || error.message || 'Erro ao realizar login');

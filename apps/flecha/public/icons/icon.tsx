@@ -20,6 +20,30 @@ export const ArrowIcon = ({props}:any) => {
 
 }
 
+export const ArrowRightIcon = ({props}:any) => {
+
+  return(
+    <svg {...props} width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.375 3.75L13.625 10L7.375 16.25" stroke="#F0F8FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+  )
+
+}
+
+
+export const ArrowLeftIcon = ({props}:any) => {
+  
+    return(
+      <svg {...props} width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.625 16.25L7.375 10L13.625 3.75" stroke="#F0F8FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+  
+    )
+
+}
+
 
 export const PersonIcon = ({props}:any) => {
 
