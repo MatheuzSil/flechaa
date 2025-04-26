@@ -1,4 +1,5 @@
 import { Button, Paragraph } from "@meu-workspace/safira";
+import { PersonIcon, PersonsIcon } from "apps/flecha/public/icons/icon";
 import styled from "styled-components";
 
 
@@ -55,15 +56,33 @@ export const FastRegisterBoxText = styled(Paragraph)`
 
 
 export const FastRegisterButton = styled(Button)`
+  display: flex;
+  gap: 5px;
   width: 190px;
   height: 42px;
+  padding: 12px 24px;
   background-color: ${({ theme }) => theme.brandColors.primary400};
   color: ${({ theme }) => theme.brandColors.primary950};
+  font-size: 12px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.brandColors.primary500};
+  }
+
 `
 
 export const FastRegisterButtonParents = styled(Button)`
+  display: flex;
+  gap: 5px;
   width: 190px;
   height: 42px;
   background-color: ${({ theme }) => theme.brandColors.primary50};
   color: ${({ theme }) => theme.brandColors.primary950};
+  font-size: 12px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.brandColors.primary100};
+  }
 `

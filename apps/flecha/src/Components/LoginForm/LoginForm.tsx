@@ -108,6 +108,8 @@ export const LoginForm = () => {
     }
   }, [email, password]);
 
+  const isDisabled = !email.value || !password.value || email.error || password.error || isMutating;
+
   return (
     <>
       <S.FlechaIconContainer>
@@ -143,7 +145,7 @@ export const LoginForm = () => {
               name="password"
               autoComplete="current-password"
             />
-            <S.LoginFormButton onClick={onLogin}>Login</S.LoginFormButton>
+            <S.LoginFormButton disabled={isDisabled} onClick={onLogin}>Login</S.LoginFormButton>
             <S.Links>
               <S.LinksText>
                 Não tem uma conta?{' '}
