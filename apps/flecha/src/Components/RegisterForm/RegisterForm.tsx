@@ -97,15 +97,8 @@ export const RegisterForm = () => {
 
   const onPasswordBlur = useCallback(
     (e: any) => {
-      if (e.target.value.length === 0 || e.target.value.length < 6) {
-        setPassword({
-          value: e.target.value,
-          error: true,
-          errorMessage: 'Campo obrigatório',
-        });
-      } else {
-        setPassword({ value: e.target.value, error: false, errorMessage: '' });
-      }
+      let regexpResult = validatePassword(e.target.value);
+      setPassword(regexpResult);
     },
     [password]
   );
@@ -185,7 +178,13 @@ export const RegisterForm = () => {
                 autoComplete="password"
                 name="password"
               />
-              <S.RegisterFormButton disabled={disabled} onClick={onRegister}>
+              <S.RegisterFormButton
+                disabled={disabled}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onRegister();
+                }}
+              >
                 Cadastrar
               </S.RegisterFormButton>
               <S.Links>
