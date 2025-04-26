@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as S from './Pagination.styles';
+import { ArrowLeftIcon, ArrowRightIcon } from 'apps/flecha/public/icons/icon';
 
 interface PaginationProps {
   paginationTotal: number;
@@ -29,21 +30,9 @@ export default function Pagination(props: PaginationProps) {
   }, [paginationTotal, currentPage]);
   return (
     <S.Pagination>
-      <S.PaginationChevron
-        src="/icons/chevron-left.svg"
-        alt=""
-        aria-disabled={isDisabledLeft}
-        onClick={() => setCurrentPage(currentPage - 1)}
-      />
-      <S.PaginationText>
-        {currentPage} de {paginationTotal}
-      </S.PaginationText>
-      <S.PaginationChevron
-        src="/icons/chevron-right.svg"
-        alt=""
-        aria-disabled={isDisabledRight}
-        onClick={() => setCurrentPage(currentPage + 1)}
-      />
+      <S.PaginationChevron aria-disabled={isDisabledLeft} onClick={() => setCurrentPage(currentPage - 1)} ><ArrowLeftIcon /></S.PaginationChevron>
+      <S.PaginationText>{currentPage} de {paginationTotal}</S.PaginationText>
+      <S.PaginationChevron aria-disabled={isDisabledRight} onClick={() => setCurrentPage(currentPage + 1)}><ArrowRightIcon /></S.PaginationChevron>
     </S.Pagination>
   );
 }

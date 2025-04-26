@@ -89,7 +89,7 @@ export const LoginForm = () => {
     try {
       const res = await trigger(loginData);
       showSuccess('Login realizado com sucesso!');
-      router.push('/');
+      router.push('/dashboard');
     } catch (error: any) {
       console.log('Erro ao realizar login:', error);
       showError(error.data?.error || error.message || 'Erro ao realizar login');
@@ -107,6 +107,8 @@ export const LoginForm = () => {
       deactivateLoadAnimation();
     }
   }, [email, password]);
+
+  const isDisabled = !email.value || !password.value || email.error || password.error || isMutating;
 
   return (
     <>
@@ -143,7 +145,7 @@ export const LoginForm = () => {
               name="password"
               autoComplete="current-password"
             />
-            <S.LoginFormButton onClick={onLogin}>Login</S.LoginFormButton>
+            <S.LoginFormButton disabled={isDisabled} onClick={onLogin}>Login</S.LoginFormButton>
             <S.Links>
               <S.LinksText>
                 Não tem uma conta?{' '}
