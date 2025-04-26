@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div<{ isFixed: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,6 +11,8 @@ export const HeaderContainer = styled.div`
   width: 100%;
   height: 140px;
   border-bottom: 4px solid ${({ theme }) => theme.brandColors.primary700};
+  background-color: ${({ theme }) => theme.brandColors.backgroundBlack}; 
+  position: fixed;
 `;
 
 export const HeaderContents = styled.div`
