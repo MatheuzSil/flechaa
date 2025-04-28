@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
 
 export const Paragraph = styled.p<any>`
-  ${({ theme , $fontSize, $textAlign, $lineHeight, $fontWeight, $fontColor, $clamp, $fontStyle  }) => css`
+  ${({ theme , $fontSize, $textAlign, $lineHeight, $fontWeight, $fontColor, $clamp, $fontStyle, $fontFamily }) => css`
     font-size: ${$fontSize || '12px'};
     text-align: ${$textAlign || 'left'};
     font-weight: ${$fontWeight || 'normal'};
+    font-family: ${$fontFamily || theme?.fonts?.poppins};
     color: ${$fontColor || theme?.colors?.blackDark};
     font-style: ${$fontStyle || 'normal'};
     line-height: ${$lineHeight || '1.2'};

@@ -17,6 +17,7 @@ const brandColors = {
   primary800: '#004488',
   primary900: '#004477',
   primary950: '#002244',
+  primary975: '#001122',
   backgroundBlack: '#222222',
   backgroundWhite: '#F0F8FF'
 };

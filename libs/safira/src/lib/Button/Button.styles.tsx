@@ -21,10 +21,11 @@ const Ghost = css`
 
 const Outline = css`
   ${({ theme }) => css`
-    border: 1px solid ${theme.brandColors.brand};
-    color: ${theme.brandColors.brand};
-
+    border: 1px solid ${theme.brandColors.primary50};
+    color: ${theme.brandColors.primary50};
+    background-color: transparent;
     &:hover {
+      background-color: transparent;
     }
 
     &:disabled {
