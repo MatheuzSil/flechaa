@@ -12,7 +12,7 @@ export default function DashboardFooter() {
           <S.FooterContactText>email_richard@dominio.tld</S.FooterContactText>
         </S.FooterContactContainer>
       </S.FooterContents>
-      <S.FooterPoweredBy>powered by richard & matheus</S.FooterPoweredBy>
+      <S.FooterPoweredBy>powered by Richard & Matheus</S.FooterPoweredBy>
     </S.FooterContainer>
   );
 }
