@@ -61,6 +61,7 @@ export const FiltroList = styled.select`
   font-family: ${({ theme }) => theme.fonts.poppins};
   color: ${({ theme }) => theme.brandColors.primary50};
   border: none;
+  cursor: pointer;
 
   & option {
     background-color: ${({ theme }) => theme.brandColors.backgroundBlack};

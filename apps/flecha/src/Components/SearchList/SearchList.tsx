@@ -51,9 +51,9 @@ export default function SearchList() {
         <S.FiltroSelectContainer>
           <S.FiltroSelectTitle>Modo:</S.FiltroSelectTitle>
           <S.FiltroList>
-            <option value="1">Busca (Nome, idade, turma)</option>
+            <option value="1">Nome</option>
             <option value="2">Idade</option>
-            <option value="3">Data de Cadastro</option>
+            <option value="3">Turma</option>
           </S.FiltroList>
         </S.FiltroSelectContainer>
       </S.FiltrosContainer>
