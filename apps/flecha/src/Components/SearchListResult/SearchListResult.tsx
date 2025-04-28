@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as S from './SearchListResult.styles';
-import { ModalCard } from '../ModalCard/ModalCard';
+import { ModalCard } from '../../Containers/ModalCard/ModalCard';
 
 interface SearchListResultProps {
   results: searchResultObject[];
