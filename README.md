@@ -39,9 +39,7 @@ Este projeto foi construído com as seguintes tecnologias modernas:
 | 🗃️ **PostgreSQL** | Banco de dados relacional robusto |
 | 🔌 **Prisma ORM** | ORM moderno para PostgreSQL |
 | 💬 **WhatsApp API** | Integração para comunicação direta |
-| 🎨 **Tailwind CSS** | Estilização responsiva e moderna |
-| 📊 **Chart.js / Recharts** | Visualização de dados e estatísticas |
-| 🧩 **Headless UI** | Componentes de interface acessíveis |
+| 🎨 **Styled-components** | Estilização responsiva e moderna |
 
 ---
 
