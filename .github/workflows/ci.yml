@@ -14,42 +14,38 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout repository with full history for Nx Affected
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Important for nx affected base/head detection
+          fetch-depth: 0
 
-      # 2. Start Nx Cloud Run (optional but recommended for distributed tasks)
-      #    Run this early, before installing dependencies.
-      - name: Start Nx Cloud CI Run
-        run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
-        env:
-          NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }} # Add your Nx Cloud token if private
+      # This enables task distribution via Nx Cloud
+      - run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
 
-      # 3. Setup Node.js environment
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      # Set up Node.js and Yarn
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20 # Or your project's required Node version
-          cache: 'yarn'   # Enable caching based on yarn.lock
+          node-version: 20
+          cache: 'yarn'
 
-      # 4. Enable Corepack (required for Yarn v2+)
-      #    This lets Node.js use the Yarn version specified in your package.json
-      - name: Enable Corepack
-        run: corepack enable
+      # Enable Corepack and use project's specified Yarn version
+      - run: corepack enable
+      
+      # Cache .yarn/cache for faster builds
+      - name: Cache .yarn/cache
+        uses: actions/cache@v3
+        with:
+          path: .yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-      # 5. Install Dependencies using Yarn
-      #    '--immutable' ensures yarn.lock isn't modified and PnP/cache is used correctly.
-      - name: Install Dependencies
-        run: yarn install --immutable
+      # Install dependencies with Yarn
+      - run: yarn install --immutable
 
-      # 6. Set Base and Head SHAs for Nx Affected
-      #    This action reads Git history and sets NX_BASE / NX_HEAD env vars.
-      - name: Set Nx SHAs
-        uses: nrwl/nx-set-shas@v4
+      - uses: nrwl/nx-set-shas@v4
 
-      # 7. Run Nx Affected Commands
-      #    Execute lint, test, build, and e2e-ci targets for affected projects.
-      - name: Run Affected Tasks
-        run: npx nx affected -t lint test build e2e-ci --verbose
+      # Ensure @nx/workspace is installed
+      - run: yarn add @nx/workspace
+
+      # Run affected commands
+      - run: npx nx affected -t lint test build e2e-ci --verbose
