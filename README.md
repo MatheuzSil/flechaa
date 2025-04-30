@@ -50,6 +50,7 @@ Este projeto foi construído com as seguintes tecnologias modernas:
 A Flecha está sendo construída com ❤️ por pessoas comprometidas com a missão de servir melhor as igrejas.
 
 | [![user1](https://github.com/MatheuzSil.png?size=80)](https://github.com/MatheuzSil) | [![user2](https://github.com/richardnascimento18.png?size=80)](https://github.com/richardnascimento18) |
+|:--:|:--:|:--:|
 | [**@user1**](https://github.com/MatheuzSil) | [**@user2**](https://github.com/richardnascimento18) |
 
 ---
