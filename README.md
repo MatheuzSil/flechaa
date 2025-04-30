@@ -1,82 +1,108 @@
-# MeuWorkspace
+# 🎯 Flecha
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+![GitHub repo size](https://img.shields.io/github/repo-size/MatheuzSil/meu-workspace?color=4CAF50&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/MatheuzSil/meu-workspace?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/MatheuzSil/meu-workspace?style=flat-square)
+![GitHub license](https://img.shields.io/github/license/MatheuzSil/meu-workspace?style=flat-square)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+> Uma plataforma moderna para o cuidado infantil nas igrejas
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+---
 
-## Finish your CI setup
+## ✨ Funcionalidades Principais
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/PeWz5OYxmz)
+### 👨‍💼 Área do Administrador
 
+- Cadastro de crianças (nome, idade, turma, condições médicas, responsáveis)
+- Geração de **card digital**
+- Estatísticas e histórico de entradas
+- Envio de mensagens via **WhatsApp** com templates prontos
+- Interface responsiva e acessível
 
-## Run tasks
+### 👨‍👩‍👧 Área dos Pais *(opcional)*
 
-To run the dev server for your app, use:
+- Cadastro parental (acesso aos dados dos filhos)
+- Acesso via link seguro no WhatsApp
+- Visualização do card da criança
+- Botão de contato direto com administradores
 
-```sh
-npx nx dev meu-workspace
-```
+---
 
-To create a production bundle:
+## 🧱 Tech Stack
 
-```sh
-npx nx build meu-workspace
-```
+Este projeto foi construído com as seguintes tecnologias modernas:
 
-To see all available targets to run for a project, run:
+| Tecnologia | Descrição |
+|------------|-----------|
+| 🧠 **Next.js** | Framework React full-stack |
+| 🗃️ **PostgreSQL** | Banco de dados relacional robusto |
+| 🔌 **Prisma ORM** | ORM moderno para PostgreSQL |
+| 💬 **WhatsApp API** | Integração para comunicação direta |
+| 🎨 **Styled-components** | Estilização responsiva e moderna |
 
-```sh
-npx nx show project meu-workspace
-```
-        
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+---
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 🙌 Colaboradores
 
-## Add new projects
+A Flecha está sendo construída com ❤️ por pessoas comprometidas com a missão de servir melhor as igrejas.
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+| [![user1](https://github.com/MatheuzSil.png?size=80)](https://github.com/MatheuzSil) | [![user2](https://github.com/richardnascimento18.png?size=80)](https://github.com/richardnascimento18) |
+|:--:|:--:|
+| [**@Matheus**](https://github.com/MatheuzSil) | [**@Richard**](https://github.com/richardnascimento18) |
 
-Use the plugin's generator to create new projects.
+---
 
-To generate a new application, use:
+## 💡 Por que o Flecha?
 
-```sh
-npx nx g @nx/next:app demo
-```
+Durante cultos e eventos, muitos ministérios infantis enfrentam desafios como:
 
-To generate a new library, use:
+- Falta de controle sobre os dados das crianças
+- Dificuldade na comunicação com os pais
+- Ausência de um sistema confiável e acessível
 
-```sh
-npx nx g @nx/react:lib mylib
-```
+O **Flecha** resolve isso com:
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+- Centralização das informações
+- Comunicação facilitada com os responsáveis
+- Um sistema acessível e seguro
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
+## 🚧 Versão Atual: MVP em Desenvolvimento
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Atualmente, o **Flecha** está em fase inicial de desenvolvimento, com foco na criação de um **MVP (Produto Mínimo Viável)** funcional e direto ao ponto.
 
-## Install Nx Console
+### ✅ Funcionalidades em construção:
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+- 🧒 Cadastro de crianças
+- 💳 Geração de card digital
+- 📈 Visualização de estatísticas
+- 💬 Integração com WhatsApp
+- 🛠️ Painel administrativo responsivo
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Nosso objetivo é validar rapidamente a solução em contextos reais de igreja, ouvir os usuários e **evoluir com base no que realmente importa: as pessoas**.
 
-## Useful links
+🔄 O projeto está em constante progresso e aberto a colaborações!
 
-Learn more:
+---
 
-- [Learn more about this workspace setup](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 🙏 Para quem é o Flecha?
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- Igrejas e ministérios infantis de todos os tamanhos
+- Voluntários que buscam mais organização
+- Pais que desejam mais segurança sobre seus filhos
+
+---
+
+## 📬 Contato
+
+Fale com a gente ou acompanhe nosso progresso:
+
+- 📧 Email: contato@flecha.app
+- 🐙 GitHub: [github.com/MatheuzSil/meu-workspace](https://github.com/MatheuzSil/meu-workspace)
+
+---
+
+> _"Como flechas na mão do guerreiro são os filhos nascidos na juventude."_  
+> — Salmo 127:4
