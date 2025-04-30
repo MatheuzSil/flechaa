@@ -41,4 +41,8 @@ jobs:
 
       - uses: nrwl/nx-set-shas@v4
 
-      - run: npx nx affected -t lint test build e2e-ci
+      # Ensure @nx/workspace is installed
+      - run: yarn add @nx/workspace
+
+      # Run affected commands
+      - run: npx nx affected -t lint test build e2e-ci --verbose
