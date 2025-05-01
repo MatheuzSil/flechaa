@@ -7,16 +7,14 @@ import { useSearch } from '../../graphql/hooks/useSearch';
 export default function SearchList() {
   const [query, setQuery] = useState('');
   const { results, search } = useSearch();
-  let paginationTotal = 0;
+  const [paginationTotal, setPaginationTotal] = useState(0);
 
   useEffect(() => {
     search({ variables: { query: query } });
+    if(results.length < 5) {
+      setPaginationTotal(1);
+    }
   }, [query]);
-
-  if(results.length > 0) {
-    paginationTotal = results.length / 5;
-  }
-
 
   return (
       <S.SearchContainer>

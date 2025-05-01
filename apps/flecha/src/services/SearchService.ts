@@ -14,5 +14,9 @@ export async function searchService(query: string) {
       name: true,
       age: true,
     },
+    take: 5,
+    orderBy: {
+      name: 'asc',
+    },
   });
 }
