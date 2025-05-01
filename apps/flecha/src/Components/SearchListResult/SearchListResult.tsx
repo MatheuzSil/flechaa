@@ -9,13 +9,12 @@ interface SearchListResultProps {
 export default function SearchListResult(props: SearchListResultProps) {
   const [ modalCardOpen, setModalCardOpen ] = useState(false);
 
-
   return (
     <>
       {props.results.map((result) => (
         <S.CardContainer key={result.id}>
           <S.CardInfo>
-            <S.CardImage src="/icons/profile_placehoolder.svg" />
+            <S.CardImage src="/icons/profile_placeholder.svg" />
             <S.CardName>{result.name}</S.CardName>
             <S.CardAgeAndClass>
               0{result.age} ANOS - Turma A

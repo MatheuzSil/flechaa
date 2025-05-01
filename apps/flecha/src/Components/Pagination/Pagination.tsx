@@ -14,7 +14,11 @@ export default function Pagination(props: PaginationProps) {
   const { paginationTotal } = props;
 
   useEffect(() => {
-    if (paginationTotal === 1) {
+    if (paginationTotal === 0) {
+      setIsDisabledRight(true);
+      setIsDisabledLeft(true);
+      setCurrentPage(0);
+    } else if (paginationTotal === 1) {
       setIsDisabledRight(true);
       setIsDisabledLeft(true);
     } else if (currentPage === paginationTotal) {
