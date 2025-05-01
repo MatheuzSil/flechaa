@@ -36,6 +36,6 @@ model Child {
   age Int
   birthDate String
   medicalConditions String[]
-  parent Parent @relation(fields: [parentEmail], references: [email])
-  parentEmail String @unique
+  parent Parent @relation(fields: [parentId], references: [id])
+  parentId String @unique
 }
