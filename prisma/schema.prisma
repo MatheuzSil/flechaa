@@ -7,19 +7,35 @@
 generator client {
   provider = "prisma-client-js"
 }
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id    Int     @id @default(autoincrement())
-  name  String
-  password String
-  email String  @unique
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
-  
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  createAt  DateTime @default(now())
+  updateAt  DateTime @updatedAt
+}
+
+model Parent {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  child Child?
+  createAt  DateTime @default(now())
+}
+
+model Child {
+  id        String   @id @default(uuid())
+  name String
+  age Int
+  birthDate String
+  medicalConditions String[]
+  parent Parent @relation(fields: [parentId], references: [id])
+  parentId String @unique
 }
