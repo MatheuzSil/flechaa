@@ -3,25 +3,20 @@ import * as S from './SearchList.styles';
 import Pagination from '../Pagination/Pagination';
 import { useEffect, useState } from 'react';
 import { useSearch } from '../../graphql/hooks/useSearch';
-import debounce from 'lodash.debounce';
 
 export default function SearchList() {
   const [query, setQuery] = useState('');
   const { results, search } = useSearch();
-
-  const debouncedSearch = debounce((value: string) => {
-    if (value.length >= 2) {
-      search({ variables: { query: value } });
-    }
-  }, 300);
+  let paginationTotal = 0;
 
   useEffect(() => {
-    debouncedSearch(query);
-    console.log(results);
-    return debouncedSearch.cancel;
+    search({ variables: { query: query } });
   }, [query]);
 
-  const paginationTotal = results.length / 1;
+  if(results.length > 0) {
+    paginationTotal = results.length / 5;
+  }
+
 
   return (
       <S.SearchContainer>
