@@ -28,6 +28,7 @@ model Parent {
   password  String
   child Child?
   createAt  DateTime @default(now())
+  updateAt  DateTime @updatedAt
 }
 
 model Child {
@@ -38,4 +39,7 @@ model Child {
   medicalConditions String[]
   parent Parent @relation(fields: [parentId], references: [id])
   parentId String @unique
+  createAt  DateTime @default(now())
+  updateAt  DateTime @updatedAt
 }
+
