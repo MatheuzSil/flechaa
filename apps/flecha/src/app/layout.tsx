@@ -6,6 +6,8 @@ import { Providers } from '../Components/Providers/Providers';
 import { Bounce, ToastContainer } from 'react-toastify';
 import { useLoadingStore } from '../store/store';
 import dynamic from 'next/dynamic';
+import { ApolloProvider } from '@apollo/client';
+import { apolloClient } from '../lib/apollo-client';
 
 const Loading = dynamic(() => import('../Components/Loading/Loading'), {
   ssr: false,
@@ -36,21 +38,23 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <Providers>
-            <Loading isLoading={isLoading} />
-            <ToastContainer
-              position="top-right"
-              autoClose={3000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable={false}
-              pauseOnHover
-              theme="dark"
-              transition={Bounce}
-            />
-            {children}
+            <ApolloProvider client={apolloClient}>
+              <Loading isLoading={isLoading} />
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable={false}
+                pauseOnHover
+                theme="dark"
+                transition={Bounce}
+              />
+              {children}
+            </ApolloProvider>
           </Providers>
         </StyledComponentsRegistry>
       </body>

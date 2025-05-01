@@ -1,61 +1,59 @@
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 async function main() {
-  const parents = await Promise.all(
-    Array.from({ length: 20 }).map((_, i) => {
-      return prisma.parent.create({
-        data: {
-          name: `Parent ${i + 1}`,
-          email: `parent${i + 1}@example.com`,
-          password: `password${i + 1}`,
+  const childrenData: { name: string; age: number }[] = [
+    { name: 'Alice Andrade', age: 7 },
+    { name: 'Arthur Almeida', age: 8 },
+    { name: 'Bruna Barbosa', age: 6 },
+    { name: 'Bruno Borges', age: 9 },
+    { name: 'Carla Costa', age: 5 },
+    { name: 'Caio Carvalho', age: 10 },
+    { name: 'Daniela Dias', age: 6 },
+    { name: 'Diego Duarte', age: 8 },
+    { name: 'Eduarda Esteves', age: 7 },
+    { name: 'Enzo Elias', age: 9 },
+    { name: 'Fernanda Ferreira', age: 6 },
+    { name: 'Felipe Farias', age: 7 },
+    { name: 'Gabriela Gomes', age: 8 },
+    { name: 'Gustavo Galvão', age: 10 },
+    { name: 'Helena Henriques', age: 7 },
+    { name: 'Henrique Horta', age: 9 },
+    { name: 'Isabela Inácio', age: 6 },
+    { name: 'Igor Italo', age: 8 },
+    { name: 'Juliana Justino', age: 5 },
+    { name: 'João Jordão', age: 7 },
+  ];
+
+  for (let i = 0; i < childrenData.length; i++) {
+    const { name, age } = childrenData[i];
+
+    const parent = await prisma.parent.create({
+      data: {
+        name: `Responsável de ${name}`,
+        email: `parent${i + 1}@gmail.com`,
+        password: 'senhaSegura123',
+        child: {
+          create: {
+            name,
+            age,
+            birthDate: `201${Math.floor(Math.random() * 5) + 3}-0${Math.floor(Math.random() * 9) + 1}-1${Math.floor(Math.random() * 9)}`,
+            medicalConditions: ['Nenhuma'],
+          },
         },
-      })
-    })
-  )
+      },
+    });
 
-  const childrenNames = [
-    // A
-    ['Amanda Silva', 'Arthur Pereira'],
-    // B
-    ['Bruna Costa', 'Bruno Almeida'],
-    // C
-    ['Carlos Souza', 'Camila Rocha'],
-    // D
-    ['Daniela Teixeira', 'Diego Gomes'],
-    // E
-    ['Eduarda Ramos', 'Enzo Oliveira'],
-    // F
-    ['Fernanda Melo', 'Felipe Lima'],
-    // G
-    ['Gabriela Duarte', 'Guilherme Barbosa'],
-    // H
-    ['Helena Freitas', 'Henrique Castro'],
-    // I
-    ['Isabela Nunes', 'Igor Martins'],
-    // J
-    ['João Lucas', 'Julia Fernandes'],
-  ].flat()
-
-  const childData = childrenNames.map((name, i) => ({
-    name,
-    age: Math.floor(Math.random() * 10) + 5,
-    birthDate: `201${Math.floor(Math.random() * 5)}-0${Math.floor(Math.random() * 9) + 1}-1${Math.floor(Math.random() * 9)}`,
-    medicalConditions: ['Asma', 'Alergia'],
-    parentId: parents[i].id,
-  }))
-
-  await Promise.all(
-    childData.map(child => prisma.child.create({ data: child }))
-  )
-
-  console.log('✅ Seeded 20 parents and 20 children.')
+    console.log(`Criado: ${parent.name}`);
+  }
 }
 
 main()
-  .then(() => prisma.$disconnect())
-  .catch(e => {
-    console.error(e)
-    prisma.$disconnect()
-    process.exit(1)
+  .then(() => {
+    console.log('✅ Seed finalizado com sucesso!');
+    return prisma.$disconnect();
   })
+  .catch((e) => {
+    console.error('❌ Erro no seed:', e);
+    return prisma.$disconnect();
+  });

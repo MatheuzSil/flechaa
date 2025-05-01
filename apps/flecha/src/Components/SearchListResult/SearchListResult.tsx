@@ -15,10 +15,10 @@ export default function SearchListResult(props: SearchListResultProps) {
       {props.results.map((result) => (
         <S.CardContainer key={result.id}>
           <S.CardInfo>
-            <S.CardImage src={result.imageUrl} />
+            <S.CardImage src="/icons/profile_placehoolder.svg" />
             <S.CardName>{result.name}</S.CardName>
             <S.CardAgeAndClass>
-              0{result.age} ANOS - {result.class}
+              0{result.age} ANOS - Turma A
             </S.CardAgeAndClass>
           </S.CardInfo>
           <S.CardButton onClick={(() => setModalCardOpen(true))}>Ver Mais</S.CardButton>
