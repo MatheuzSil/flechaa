@@ -4,35 +4,31 @@ import { ArrowLeftIcon, ArrowRightIcon } from 'apps/flecha/public/icons/icon';
 
 interface PaginationProps {
   paginationTotal: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
 }
 
-export default function Pagination(props: PaginationProps) {
+export default function Pagination({ paginationTotal, currentPage, onPageChange }: PaginationProps) {
   const [isDisabledRight, setIsDisabledRight] = useState(false);
-  const [isDisabledLeft, setIsDisabledLeft] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const { paginationTotal } = props;
+  const [isDisabledLeft, setIsDisabledLeft] = useState(true);
 
   useEffect(() => {
-    if (paginationTotal === 1) {
-      setIsDisabledRight(true);
-      setIsDisabledLeft(true);
-    } else if (currentPage === paginationTotal) {
-      setIsDisabledRight(true);
-      setIsDisabledLeft(false);
-    } else if (currentPage === 1) {
-      setIsDisabledRight(false);
-      setIsDisabledLeft(true);
-    } else if (currentPage < paginationTotal) {
-      setIsDisabledRight(false);
-      setIsDisabledLeft(false);
+    setIsDisabledLeft(currentPage === 1);
+    setIsDisabledRight(currentPage === paginationTotal || paginationTotal === 0);
+  }, [currentPage, paginationTotal]);
+
+  const goToPage = (newPage: number) => {
+    if(newPage >= 1 && newPage <= paginationTotal){
+      onPageChange(newPage);
     }
-  }, [paginationTotal, currentPage]);
+  };
+
   return (
     <S.Pagination>
-      <S.PaginationChevron aria-disabled={isDisabledLeft} onClick={() => setCurrentPage(currentPage - 1)} ><ArrowLeftIcon /></S.PaginationChevron>
+      <S.PaginationChevron aria-disabled={isDisabledLeft} onClick={() => goToPage(currentPage - 1)} ><ArrowLeftIcon /></S.PaginationChevron>
       <S.PaginationText>{currentPage} de {paginationTotal}</S.PaginationText>
-      <S.PaginationChevron aria-disabled={isDisabledRight} onClick={() => setCurrentPage(currentPage + 1)}><ArrowRightIcon /></S.PaginationChevron>
+      <S.PaginationChevron aria-disabled={isDisabledRight} onClick={() => goToPage(currentPage + 1)}><ArrowRightIcon /></S.PaginationChevron>
     </S.Pagination>
   );
+
 }

@@ -1,8 +1,10 @@
 import { prisma } from '../lib/prisma';
 
-export async function searchService(query: string) {
+export async function searchService(query: string, page = 1, limit = 5) {
+  const skip = (page - 1) * limit;
 
-  return await prisma.child.findMany({
+  const [results, totalCount] = await Promise.all([
+  prisma.child.findMany({
     where: {
       name: {
         startsWith: query,
@@ -14,9 +16,24 @@ export async function searchService(query: string) {
       name: true,
       age: true,
     },
-    take: 5,
+    skip: skip,
+    take: limit,
     orderBy: {
       name: 'asc',
     },
-  });
+
+  }),
+  prisma.child.count({
+    where: {
+      name: {
+        startsWith: query,
+        mode: 'insensitive',
+      },
+    },
+  }),
+])
+return{
+  results,
+  totalCount,
+}
 }

@@ -6,15 +6,22 @@ import { useSearch } from '../../graphql/hooks/useSearch';
 
 export default function SearchList() {
   const [query, setQuery] = useState('');
-  const { results, search } = useSearch();
+  const [page, setPage] = useState(1);
+  const limit = 5;
+  const { results, totalCount, search } = useSearch();
   const [paginationTotal, setPaginationTotal] = useState(0);
 
   useEffect(() => {
-    search({ variables: { query: query } });
-    if(results.length < 5) {
-      setPaginationTotal(1);
-    }
-  }, [query]);
+    search({ variables: { query: query, page: page, limit: limit } });
+    // if(results.length < 5) {
+    //   setPaginationTotal(1);
+    // }
+  }, [query, page]);
+
+  
+  useEffect(() => {
+    setPaginationTotal(Math.ceil(totalCount / limit));
+  }, [totalCount]);
 
   return (
       <S.SearchContainer>
@@ -32,7 +39,7 @@ export default function SearchList() {
         </S.FiltrosContainer>
         <S.SearchResultContainer>
           <SearchListResult results={results} />
-          <Pagination paginationTotal={paginationTotal} />
+          <Pagination paginationTotal={paginationTotal} currentPage={page} onPageChange={(newPage) => setPage(newPage)} />
         </S.SearchResultContainer>
       </S.SearchContainer>
   );
