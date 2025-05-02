@@ -14,9 +14,10 @@ export default function SearchList() {
 
   useEffect(() => {
     search({ variables: { query: query, page: page, limit: limit } });
-    // if(results.length < 5) {
-    //   setPaginationTotal(1);
-    // }
+    if(results.length < 5) {
+      setPaginationTotal(1);
+      setPage(1);
+    }
   }, [query, page]);
 
   
