@@ -1,6 +1,6 @@
 import { prisma } from '../lib/prisma';
 
-export async function searchService(query: string, page = 1, limit = 5) {
+export async function searchService(query: string, page: number, limit: number) {
   const skip = (page - 1) * limit;
 
   const [results, totalCount] = await Promise.all([
