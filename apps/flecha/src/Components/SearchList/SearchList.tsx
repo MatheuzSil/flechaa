@@ -1,10 +1,15 @@
-import SearchListResult from '../SearchListResult/SearchListResult';
+// Styles
 import * as S from './SearchList.styles';
-import Pagination from '../Pagination/Pagination';
+
+// Hooks
 import { useEffect, useState } from 'react';
 import { useSearch } from '../../graphql/hooks/useSearch';
-import { Paragraph } from '@meu-workspace/safira';
+
+// Components
 import Search from '../Search/Search';
+import SearchNotFound from '../SearchNotFound/SearchNotFound';
+import Pagination from '../Pagination/Pagination';
+import SearchListResult from '../SearchListResult/SearchListResult';
 
 export default function SearchList() {
   const [query, setQuery] = useState('');
@@ -42,6 +47,7 @@ export default function SearchList() {
         </S.FiltrosContainer>
         <S.SearchResultContainer>
           <Search isSearching={loading} />
+          {results.length === 0 && !loading && <SearchNotFound />}
           <SearchListResult results={results} />
           <Pagination paginationTotal={paginationTotal} currentPage={page} onPageChange={(newPage) => setPage(newPage)} />
         </S.SearchResultContainer>
