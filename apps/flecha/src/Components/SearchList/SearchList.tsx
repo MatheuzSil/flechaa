@@ -1,8 +1,11 @@
 // Styles
 import * as S from './SearchList.styles';
 
+// Libs
+import debounce from 'lodash.debounce';
+
 // Hooks
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useSearch } from '../../graphql/hooks/useSearch';
 
 // Components
@@ -18,12 +21,17 @@ export default function SearchList() {
   const { results, totalCount, search, loading } = useSearch();
   const [paginationTotal, setPaginationTotal] = useState(0);
 
+  const debouncedSearch = useMemo(() => debounce((query, page) => {
+    search({ variables: { query, page, limit } });
+  }, 400), []);
+
   useEffect(() => {
-    search({ variables: { query: query, page: page, limit: limit } });
+    debouncedSearch(query, page);
     if(results.length < 5) {
       setPaginationTotal(1);
       setPage(1);
     }
+    return debouncedSearch.cancel;
   }, [query, page]);
 
   
