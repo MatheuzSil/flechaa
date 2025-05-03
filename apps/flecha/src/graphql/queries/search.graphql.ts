@@ -1,11 +1,14 @@
 import { gql } from '@apollo/client';
 
 export const SEARCH_QUERY = gql`
-  query Search($query: String!) {
-    search(query: $query) {
-      id
-      name
-      age
+  query Search($query: String!, $page: Int, $limit: Int) {
+    search(query: $query, page: $page, limit: $limit) {
+      results {
+        id
+        name
+        age
+      }
+      totalCount
     }
   }
 `;

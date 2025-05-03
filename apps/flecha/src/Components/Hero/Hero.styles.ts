@@ -12,6 +12,7 @@ export const HeroContainer = styled.div`
 export const HeroListContainer = styled.section`
   display: flex;
   max-width: 1430px;
+  min-height: 662px;
   width: 100%;
   flex-direction: row;
   align-items: flex-start;

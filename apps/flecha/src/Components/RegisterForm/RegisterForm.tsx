@@ -115,7 +115,7 @@ export const RegisterForm = () => {
     try {
       await trigger(registerData);
       showSuccess('Cadastro realizado com sucesso!');
-      router.push('/');
+      router.push('/dashboard');
     } catch (error: any) {
       showError(error.data?.error || error.message || 'Erro ao cadastrar');
     } finally {

@@ -10,8 +10,13 @@ const typeDefs = gql`
     age: Int!
   }
 
+  type SearchResponse {
+    results: [SearchResult!]!
+    totalCount: Int!
+  }
+
   type Query {
-    search(query: String!): [SearchResult!]!
+    search(query: String!, page: Int, limit: Int): SearchResponse!
   }
 `;
 
