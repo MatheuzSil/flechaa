@@ -4,6 +4,7 @@ import Pagination from '../Pagination/Pagination';
 import { useEffect, useState } from 'react';
 import { useSearch } from '../../graphql/hooks/useSearch';
 import { Paragraph } from '@meu-workspace/safira';
+import Search from '../Search/Search';
 
 export default function SearchList() {
   const [query, setQuery] = useState('');
@@ -40,7 +41,7 @@ export default function SearchList() {
           </S.FiltroSelectContainer>
         </S.FiltrosContainer>
         <S.SearchResultContainer>
-          {loading && <Paragraph $fontColor="#fff">Carregando...</Paragraph>}
+          <Search isSearching={loading} />
           <SearchListResult results={results} />
           <Pagination paginationTotal={paginationTotal} currentPage={page} onPageChange={(newPage) => setPage(newPage)} />
         </S.SearchResultContainer>
