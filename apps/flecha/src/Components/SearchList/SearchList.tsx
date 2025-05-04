@@ -26,15 +26,15 @@ export default function SearchList() {
   }, 400), []);
 
   useEffect(() => {
+    setPage(1);
+  },[query])
+
+
+  useEffect(() => {
     debouncedSearch(query, page);
-    if(results.length < 5) {
-      setPaginationTotal(1);
-      setPage(1);
-    }
     return debouncedSearch.cancel;
   }, [query, page]);
 
-  
   useEffect(() => {
     setPaginationTotal(Math.ceil(totalCount / limit));
   }, [totalCount]);
