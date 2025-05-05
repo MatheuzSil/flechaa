@@ -4,7 +4,8 @@ import { IoIosSettings } from "react-icons/io";
 import { ModalChildInfo } from '../../Components/ModalChildInfo/ModalChildInfo';
 
 
-export const ModalCard = ({onClose}:any) => {
+export const ModalCard = ({onClose, childInfo}:any) => {
+  console.log(childInfo)
 
   return(
     <>
@@ -16,7 +17,7 @@ export const ModalCard = ({onClose}:any) => {
             </S.ButtonContainer>
             <IoIosSettings size={30} color="#222222" />
           </S.ModalHeader>
-          <ModalChildInfo />
+          <ModalChildInfo childInfo={childInfo} />
           <div style={{borderTop: "1px solid #8F95A6", opacity: "20%"}}></div>
         </S.ModalContainer>
       </S.ModalOverlay>
