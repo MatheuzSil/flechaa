@@ -1,6 +1,10 @@
-import animationData from '../../../public/animations/flecha_loading.json';
 import * as S from './Loading.styles';
-import Lottie from 'react-lottie';
+
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), {
+  ssr: false,
+});
+import animationData from '../../../public/animations/flecha_loading.json';
 
 interface LoadingProps {
   isLoading: boolean;
@@ -8,20 +12,12 @@ interface LoadingProps {
 
 export default function Loading(loadingProps: LoadingProps) {
   const { isLoading } = loadingProps;
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-  };
 
   return (
     <>
       {isLoading && (
         <S.LoadingContainer>
-          <Lottie options={defaultOptions} height={400} width={400} />
+          <Lottie animationData={animationData} autoplay loop style={{ width: 600, height: 600 }} />
         </S.LoadingContainer>
       )}
     </>
