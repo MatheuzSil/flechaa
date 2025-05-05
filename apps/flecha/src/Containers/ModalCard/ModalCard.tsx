@@ -9,8 +9,8 @@ export const ModalCard = ({onClose, childInfo}:any) => {
 
   return(
     <>
-      <S.ModalOverlay>
-        <S.ModalContainer >
+      <S.ModalOverlay onClick={onClose}>
+        <S.ModalContainer onClick={(e) => e.stopPropagation()}>
           <S.ModalHeader>
             <S.ButtonContainer>
               <HiOutlineX size={30} color="#222222" onClick={onClose} />
@@ -18,7 +18,6 @@ export const ModalCard = ({onClose, childInfo}:any) => {
             <IoIosSettings size={30} color="#222222" />
           </S.ModalHeader>
           <ModalChildInfo childInfo={childInfo} />
-          <div style={{borderTop: "1px solid #8F95A6", opacity: "20%"}}></div>
         </S.ModalContainer>
       </S.ModalOverlay>
     </>

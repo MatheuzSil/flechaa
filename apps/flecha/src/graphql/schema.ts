@@ -8,6 +8,7 @@ const typeDefs = gql`
     id: String!
     name: String!
     age: Int!
+    class: String!
   }
 
   type SearchResponse {
@@ -17,6 +18,23 @@ const typeDefs = gql`
 
   type Query {
     search(query: String!, page: Int, limit: Int): SearchResponse!
+  }
+
+  type Parent {
+    id: String!
+    name: String!
+    phone: String!
+    emergencyContact: String!
+  }
+
+  type ChildModal {
+    birthDate: String!
+    medicalConditions: [String!]!
+    parent: Parent!
+  }
+
+  extend type Query {
+    getChildModal(childId: String!): ChildModal!
   }
 `;
 
