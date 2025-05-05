@@ -1,8 +1,6 @@
 import { Button, Paragraph, Title } from "@meu-workspace/safira";
 import styled from "styled-components";
 
-
-
 export const ModalChildInfoContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -10,7 +8,6 @@ export const ModalChildInfoContainer = styled.div`
   width: 100%;
   padding: 40px 20px;
 `
-
 
 export const ChildPhotoContainer = styled.div`
   display: flex;
@@ -20,7 +17,6 @@ export const ChildPhoto = styled.img`
   width: 128px;
   height: 128px;
 `
-
 
 export const ChildInfoContainer = styled.div`
   display: flex;
@@ -37,7 +33,6 @@ export const ClassAndAgeContainer = styled.div`
   align-items: start;
 ` 
 
-
 export const ChildInfoContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,7 +45,6 @@ export const ChildName = styled(Title)`
   color: ${({ theme }) => theme.brandColors.backgroundBlack};
   font-weight: bold;
 `
-
 
 export const ChildAge = styled(Paragraph)`
   font-family: ${({ theme }) => theme.fonts.poppins};
@@ -95,7 +89,6 @@ export const CallButton = styled(Button)`
 
 `
 
-
 export const CallButtonEmergency = styled(Button)`
   background-color: #CE0000 ;
   color: ${({ theme }) => theme.brandColors.primary50};
@@ -115,7 +108,6 @@ export const CallButtonEmergency = styled(Button)`
 
 `
 
-
 export const OtherInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -123,4 +115,22 @@ export const OtherInfoContainer = styled.div`
   padding-top: 15px;
   padding-left: 20px;
   gap: 30px;
+`
+
+export const MoreInfoContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+
+  & div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    & p {
+      font-size: 18px;
+    }
+  }
 `

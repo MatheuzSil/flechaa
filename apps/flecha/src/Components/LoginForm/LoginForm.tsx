@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import * as S from './LoginForm.styles';
-import { Paragraph } from '@meu-workspace/safira';
 import Link from 'next/link';
 import useSWRMutation from 'swr/mutation';
 import { useRouter } from 'next/navigation';

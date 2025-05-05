@@ -7,10 +7,7 @@ interface SearchListResultProps {
 }
 
 export default function SearchListResult(props: SearchListResultProps) {
-  const [ modalCardOpen, setModalCardOpen ] = useState(false);
   const [selectedChild, setSelectedChild] = useState<searchResultObject | null>(null);
-
-
 
   return (
     <>
@@ -20,7 +17,7 @@ export default function SearchListResult(props: SearchListResultProps) {
             <S.CardImage src="/icons/profile_placeholder.svg" />
             <S.CardName>{result.name}</S.CardName>
             <S.CardAgeAndClass>
-              0{result.age} ANOS - Turma A
+              {result.age} ANOS - {result.class}
             </S.CardAgeAndClass>
           </S.CardInfo>
           <S.CardButton onClick={() => setSelectedChild(result)}>Ver Mais</S.CardButton>
