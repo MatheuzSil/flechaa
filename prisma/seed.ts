@@ -1,50 +1,106 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
+const condicoesGraves: string[] = [
+  'Diabetes Tipo 1',
+  'Asma Grave',
+  'Epilepsia',
+  'Alergia Severa a Amendoim',
+  'Doença Celíaca',
+  'Autismo',
+  'Síndrome de Down',
+  'Problema Cardíaco Congênito',
+];
+
+const condicoesLeves: string[] = [
+  'Miopia',
+  'Alergia a Pólen',
+  'Dermatite Atópica',
+  'Rinite Alérgica',
+  'Intolerância à Lactose',
+  'Bronquite Leve',
+  'Anemia Leve',
+  'Enxaqueca Infantil',
+];
+
+const gerarCondicoesMedicas = (): string[] => {
+  const chance = Math.random();
+  if (chance < 0.3) {
+    const condicoes: string[] = [];
+    const temCondicaoGrave = Math.random() < 0.5;
+
+    if (temCondicaoGrave) {
+      condicoes.push(condicoesGraves[Math.floor(Math.random() * condicoesGraves.length)]);
+    } else {
+      condicoes.push(condicoesLeves[Math.floor(Math.random() * condicoesLeves.length)]);
+    }
+
+    if (Math.random() < 0.5) {
+      condicoes.push(condicoesLeves[Math.floor(Math.random() * condicoesLeves.length)]);
+    }
+
+    return condicoes;
+  }
+
+  return ['Nenhuma'];
+};
+
+const turmasIgreja = [
+  'Jardim 1',
+  'Jardim 2',
+  'Pré Primário',
+  'Primários',
+  'Juniores',
+  'Adolescentes',
+];
+
 async function main() {
-  const childrenData: { name: string; age: number }[] = [
-    { name: 'Alice Andrade', age: 7 },
-    { name: 'Arthur Almeida', age: 8 },
-    { name: 'Bruna Barbosa', age: 6 },
-    { name: 'Bruno Borges', age: 9 },
-    { name: 'Carla Costa', age: 5 },
-    { name: 'Caio Carvalho', age: 10 },
-    { name: 'Daniela Dias', age: 6 },
-    { name: 'Diego Duarte', age: 8 },
-    { name: 'Eduarda Esteves', age: 7 },
-    { name: 'Enzo Elias', age: 9 },
-    { name: 'Fernanda Ferreira', age: 6 },
-    { name: 'Felipe Farias', age: 7 },
-    { name: 'Gabriela Gomes', age: 8 },
-    { name: 'Gustavo Galvão', age: 10 },
-    { name: 'Helena Henriques', age: 7 },
-    { name: 'Henrique Horta', age: 9 },
-    { name: 'Isabela Inácio', age: 6 },
-    { name: 'Igor Italo', age: 8 },
-    { name: 'Juliana Justino', age: 5 },
-    { name: 'João Jordão', age: 7 },
+  const dadosCriancas = [
+    { nome: 'Alice Andrade', idade: 7 },
+    { nome: 'Arthur Almeida', idade: 8 },
+    { nome: 'Bruna Barbosa', idade: 6 },
+    { nome: 'Bruno Borges', idade: 9 },
+    { nome: 'Carla Costa', idade: 5 },
+    { nome: 'Caio Carvalho', idade: 10 },
+    { nome: 'Daniela Dias', idade: 6 },
+    { nome: 'Diego Duarte', idade: 8 },
+    { nome: 'Eduarda Esteves', idade: 7 },
+    { nome: 'Enzo Elias', idade: 9 },
+    { nome: 'Fernanda Ferreira', idade: 6 },
+    { nome: 'Felipe Farias', idade: 7 },
+    { nome: 'Gabriela Gomes', idade: 8 },
+    { nome: 'Gustavo Galvão', idade: 10 },
+    { nome: 'Helena Henriques', idade: 7 },
+    { nome: 'Henrique Horta', idade: 9 },
+    { nome: 'Isabela Inácio', idade: 6 },
+    { nome: 'Igor Italo', idade: 8 },
+    { nome: 'Juliana Justino', idade: 5 },
+    { nome: 'João Jordão', idade: 7 },
   ];
 
-  for (let i = 0; i < childrenData.length; i++) {
-    const { name, age } = childrenData[i];
+  for (let i = 0; i < dadosCriancas.length; i++) {
+    const { nome, idade } = dadosCriancas[i];
 
-    const parent = await prisma.parent.create({
+    const pai = await prisma.parent.create({
       data: {
-        name: `Responsável de ${name}`,
-        email: `parent${i + 1}@gmail.com`,
+        name: `Responsável de ${nome}`,
+        email: `responsavel${i + 1}@gmail.com`,
         password: 'senhaSegura123',
+        phone: `+5591999999${(100 + i).toString().slice(-3)}`,
+        emergencyContact: `+5591988888${(200 + i).toString().slice(-3)}`,
         child: {
           create: {
-            name,
-            age,
+            name: nome,
+            age: idade,
             birthDate: `201${Math.floor(Math.random() * 5) + 3}-0${Math.floor(Math.random() * 9) + 1}-1${Math.floor(Math.random() * 9)}`,
-            medicalConditions: ['Nenhuma'],
+            medicalConditions: gerarCondicoesMedicas(),
+            class: turmasIgreja[i % turmasIgreja.length],
           },
         },
       },
     });
 
-    console.log(`Criado: ${parent.name}`);
+    console.log(`Responsável criado: ${pai.name}`);
   }
 }
 
@@ -54,6 +110,6 @@ main()
     return prisma.$disconnect();
   })
   .catch((e) => {
-    console.error('❌ Erro no seed:', e);
+    console.error('❌ Erro ao executar o seed:', e);
     return prisma.$disconnect();
   });

@@ -26,6 +26,8 @@ model Parent {
   name      String
   email     String   @unique
   password  String
+  phone     String
+  emergencyContact String
   child Child?
   createAt  DateTime @default(now())
   updateAt  DateTime @updatedAt
@@ -37,6 +39,7 @@ model Child {
   age Int
   birthDate String
   medicalConditions String[]
+  class String
   parent Parent @relation(fields: [parentId], references: [id])
   parentId String @unique
   createAt  DateTime @default(now())
