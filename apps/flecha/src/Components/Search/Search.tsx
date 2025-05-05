@@ -1,27 +1,22 @@
-import animationData from '../../../public/animations/flecha_search.json';
 import * as S from './Search.styles';
-import Lottie from 'react-lottie';
 
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), {
+  ssr: false,
+});
+import animationData from '../../../public/animations/flecha_search.json';
 interface LoadingProps {
   isSearching: boolean;
 }
 
 export default function Search(loadingProps: LoadingProps) {
   const { isSearching } = loadingProps;
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-  };
 
   return (
     <>
       {isSearching && (
         <S.SearchContainer>
-          <Lottie options={defaultOptions} />
+          <Lottie animationData={animationData} loop autoplay />
         </S.SearchContainer>
       )}
     </>

@@ -1,64 +1,81 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { verifyToken } from '../src/utils/auth'; // Função para verificar o token
+import { verifyToken } from '../src/utils/auth';
 
-// Lista de rotas que não precisam de autenticação
+// Lista de rotas públicas (onde usuários não autenticados podem acessar)
 const publicRoutes = ['/login', '/cadastrar'];
+const dashboardRoute = '/dashboard';
+const loginRoute = '/login';
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const token = req.cookies.get('token')?.value;
 
-  if(
+  if (
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/static/') ||
-    pathname === '/favicon.ico' ||
-    pathname.startsWith('/icons/') ||      // se guardou seu SVG em public/icons
-    pathname.endsWith('.svg') ||            // qualquer SVG
+    pathname.startsWith('/api/') || // Permitir rotas de API
+    pathname.startsWith('/icons/') ||
+    pathname.endsWith('.svg') ||
     pathname.endsWith('.png') ||
     pathname.endsWith('.jpg') ||
     pathname.endsWith('.css') ||
-    pathname.endsWith('.js')
-  ){
-    return NextResponse.next(); // Permite o carregamento de arquivos estáticos
+    pathname.endsWith('.js') ||
+    pathname === '/favicon.ico'
+  ) {
+    return NextResponse.next();
   }
 
-  // Verifica se a rota atual não é uma rota pública
-  if (!publicRoutes.includes(pathname)) {
-    const token = req.cookies.get('token')?.value;
-
-    if (!token) {
-      // Redireciona para a página de login se o token não existir
-      return NextResponse.redirect(new URL('/login', req.url));
-    }
-
+  let decoded = null;
+  let isTokenValid = false;
+  if (token) {
     try {
-      // Verifica se o token é válido
-      const decoded = await verifyToken(token);
-      if (!decoded) {
-        // Redireciona para a página de login se o token for inválido
-        return NextResponse.redirect(new URL('/login', req.url));
+      decoded = await verifyToken(token); // Tenta verificar o token
+      if (decoded) {
+        isTokenValid = true; // Marcar como válido se a verificação for bem-sucedida
       }
-
-      // Adiciona o userId ao cabeçalho da requisição para uso posterior
-      const requestHeaders = new Headers(req.headers);
-      requestHeaders.set('userId', decoded.userId);
-
-      return NextResponse.next({
-        request: {
-          headers: requestHeaders,
-        },
-      });
     } catch (error) {
-      console.error('Token verification failed:', error);
-      return NextResponse.redirect(new URL('/login', req.url));
+      console.error('Falha na verificação do token:', error);
     }
   }
 
-  // Se for uma rota pública, permite a requisição continuar
-  return NextResponse.next();
+  if (isTokenValid) {
+    // Se tentar acessar rotas públicas (login/cadastro) OU a raiz '/', redireciona para o dashboard
+    if (publicRoutes.includes(pathname) || pathname === '/') {
+      return NextResponse.redirect(new URL(dashboardRoute, req.url));
+    }
+
+    // Se logado e acessando qualquer outra rota protegida, adiciona headers e permite
+    const requestHeaders = new Headers(req.headers);
+    // Certifique-se que seu verifyToken retorna um objeto com userId
+    if (decoded && typeof decoded === 'object' && 'userId' in decoded) {
+       requestHeaders.set('userId', decoded.userId as string);
+    }
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    });
+  } else {
+    // Se tentar acessar uma rota protegida (não pública), redireciona para login
+    if (!publicRoutes.includes(pathname)) {
+      const response = NextResponse.redirect(new URL(loginRoute, req.url));
+      // Se havia um token, mas ele era inválido, remove o cookie
+      if (token) {
+        response.cookies.delete('token');
+      }
+      return response;
+    }
+
+    // Se não logado e acessando uma rota pública, permite o acesso
+    return NextResponse.next();
+  }
 }
 
-// Configuração do middleware para aplicar apenas em rotas específicas
+// Configuração do middleware
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+     '/'
+  ],
 };

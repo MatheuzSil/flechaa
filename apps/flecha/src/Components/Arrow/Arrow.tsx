@@ -1,7 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Lottie from 'react-lottie';
+
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), {
+  ssr: false,
+});
 import animationData from '../../../public/animations/flecha_arrow.json';
 
 export default function Arrow() {
@@ -23,15 +27,6 @@ export default function Arrow() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-  };
-
   return (
     <div
       style={{
@@ -45,9 +40,10 @@ export default function Arrow() {
       }}
     >
       <Lottie
-        options={defaultOptions}
-        height={100}
-        width={100}
+        animationData={animationData}
+        style={{ width: 100, height: 100 }}
+        autoplay
+        loop
       />
     </div>
   );
