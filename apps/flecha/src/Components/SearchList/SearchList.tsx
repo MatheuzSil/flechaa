@@ -1,10 +1,18 @@
-import SearchListResult from '../SearchListResult/SearchListResult';
+// Styles
 import * as S from './SearchList.styles';
-import Pagination from '../Pagination/Pagination';
-import { useEffect, useState } from 'react';
+
+// Libs
+import debounce from 'lodash.debounce';
+
+// Hooks
+import { useEffect, useState, useMemo } from 'react';
 import { useSearch } from '../../graphql/hooks/useSearch';
-import { Paragraph } from '@meu-workspace/safira';
+
+// Components
 import Search from '../Search/Search';
+import SearchNotFound from '../SearchNotFound/SearchNotFound';
+import Pagination from '../Pagination/Pagination';
+import SearchListResult from '../SearchListResult/SearchListResult';
 
 export default function SearchList() {
   const [query, setQuery] = useState('');
@@ -13,15 +21,20 @@ export default function SearchList() {
   const { results, totalCount, search, loading } = useSearch();
   const [paginationTotal, setPaginationTotal] = useState(0);
 
+  const debouncedSearch = useMemo(() => debounce((query, page) => {
+    search({ variables: { query, page, limit } });
+  }, 400), []);
+
   useEffect(() => {
-    search({ variables: { query: query, page: page, limit: limit } });
-    if(results.length < 5) {
-      setPaginationTotal(1);
-      setPage(1);
-    }
+    setPage(1);
+  },[query])
+
+
+  useEffect(() => {
+    debouncedSearch(query, page);
+    return debouncedSearch.cancel;
   }, [query, page]);
 
-  
   useEffect(() => {
     setPaginationTotal(Math.ceil(totalCount / limit));
   }, [totalCount]);
@@ -42,6 +55,7 @@ export default function SearchList() {
         </S.FiltrosContainer>
         <S.SearchResultContainer>
           <Search isSearching={loading} />
+          {results.length === 0 && !loading && <SearchNotFound />}
           <SearchListResult results={results} />
           <Pagination paginationTotal={paginationTotal} currentPage={page} onPageChange={(newPage) => setPage(newPage)} />
         </S.SearchResultContainer>
