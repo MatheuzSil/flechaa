@@ -17,7 +17,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    search(query: String!, page: Int, limit: Int): SearchResponse!
+    search(query: String!, page: Int, limit: Int, searchType: String): SearchResponse!
   }
 
   type Parent {
