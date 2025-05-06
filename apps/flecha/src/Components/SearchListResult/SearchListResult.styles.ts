@@ -31,6 +31,7 @@ export const CardImage = styled.img`
 export const CardName = styled.h2`
   font-size: 26px;
   margin-right: 26px;
+  min-width: 230px;
   font-weight: 500;
   color: ${({ theme }) => theme.brandColors.backgroundBlack};
   font-family: ${({ theme }) => theme.fonts.poppins};
