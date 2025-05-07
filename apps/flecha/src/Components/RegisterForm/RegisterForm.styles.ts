@@ -49,7 +49,9 @@ export const RegisterFormTitle = styled(Title)`
   font-family: ${({ theme }) => theme.fonts.craftyGirls};
   font-size: 48px;
   font-weight: 400;
-  color: ${({ theme }) => theme.brandColors.primary400};
+  background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+  color: transparent;
+  background-clip: text;
   margin-top: 48px;
 
   @media screen and (max-width: 425px) {
@@ -102,7 +104,15 @@ export const RegisterFormInput = styled<any>(Field)`
   border-radius: 5px;
 
   & input {
-    border: 1px solid #888888;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 8px 12px;
+    background-image: 
+      linear-gradient(white, white),
+      linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-sizing: border-box;
     height: 64px;
   }
 
@@ -117,20 +127,32 @@ export const RegisterFormInput = styled<any>(Field)`
 export const RegisterFormButton = styled.button<{ disabled: boolean }>`
   font-family: ${({ theme }) => theme.fonts.poppins};
   color: ${({ theme }) => theme.brandColors.primary50};
-  background-color: ${({ theme }) => theme.brandColors.primary400};
   font-size: 18px;
   font-weight: 400;
   border-radius: 10px;
   padding: 12px 48px;
   margin: 48px 0px;
+  padding: 14px 48px;
+  background: linear-gradient(
+    90deg,
+    rgba(56, 172, 255, 1),
+    rgba(160, 51, 255, 1),
+    rgba(255, 112, 51, 1)
+  );
+  background-size: 200%;
+  background-position: left center;
+  transition: background-position 0.5s ease, transform 0.2s ease;
 
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
   transition: background-color 0.2s ease, opacity 0.2s ease;
+  transition: background-position 0.5s ease, transform 0.2s ease;
 
   &:hover {
     background-color: ${({ theme, disabled }) =>
-      disabled ? theme.brandColors.primary200 : theme.brandColors.primary500};
+      disabled && theme.brandColors.primary200};
+    background-position: right center;
+    transform: scale(1.03);
   }
 
   @media screen and (max-width: 1024px) {
@@ -162,7 +184,9 @@ export const LinksText = styled.p`
   color: #222222;
 
   a {
-    color: ${({ theme }) => theme.brandColors.primary400};
+    background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+    color: transparent;
+    background-clip: text;
     text-decoration: none;
     font-family: ${({ theme }) => theme.fonts.poppins};
   }
