@@ -4,10 +4,12 @@ import { StyledComponentsRegistry } from './registry';
 import { themes } from '@meu-workspace/safira';
 import { Providers } from '../Components/Providers/Providers';
 import { Bounce, ToastContainer } from 'react-toastify';
-import { useLoadingStore } from '../store/store';
+import { useEmergencyMessage, useLoadingStore, useMessage } from '../store/store';
 import dynamic from 'next/dynamic';
 import { ApolloProvider } from '@apollo/client';
 import { apolloClient } from '../lib/apollo-client';
+import WarningMessage from '../Components/WarningMessage/WarningMessage';
+import Message from '../Components/Message/Message';
 
 const Loading = dynamic(() => import('../Components/Loading/Loading'), {
   ssr: false,
@@ -25,6 +27,8 @@ export default function RootLayout({
   );
 
   const isLoading = useLoadingStore((state) => state.isActive);
+  const isEmergencyMessageSending = useEmergencyMessage((state) => state.isSending);
+  const isMessageSending = useMessage((state) => state.isSending);
   return (
     <html lang="pt-br">
       <head>
@@ -40,6 +44,8 @@ export default function RootLayout({
           <Providers>
             <ApolloProvider client={apolloClient}>
               <Loading isLoading={isLoading} />
+              <WarningMessage isSending={isEmergencyMessageSending} />
+              <Message isSending={isMessageSending} />
               <ToastContainer
                 position="top-right"
                 autoClose={3000}
