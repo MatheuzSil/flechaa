@@ -1,9 +1,6 @@
 // app/api/me/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyToken } from '../../../utils/auth';
-import { UserRepository } from 'apps/flecha/src/repositories/UserRepository';
-
-const userRepository = new UserRepository();
 
 export async function GET(req: NextRequest) {
   const token = req.cookies.get('token')?.value;
@@ -19,13 +16,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const user = await userRepository.findById(decoded.userId as string);
-
-    if (!user) {
-      return NextResponse.json({ error: 'User not found' }, { status: 404 });
-    }
-
-    return NextResponse.json({ name: user.name }, { status: 200 });
+    return NextResponse.json({ name: decoded.name }, { status: 200 });
   } catch (err) {
     console.error('Failed to fetch user:', err);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
