@@ -59,7 +59,9 @@ export const LoginFormTitle = styled(Title)`
   font-size: 48px;
   text-align: center;
   font-weight: 400;
-  color: ${({ theme }) => theme.brandColors.primary400};
+  background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+  color: transparent;
+  background-clip: text;
   margin-top: 48px;
   padding: 0 10px;
 
@@ -118,7 +120,15 @@ export const LoginFormInput = styled<any>(Field)`
   border-radius: 5px;
 
   & input {
-    border: 1px solid #888888;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 8px 12px;
+    background-image: 
+      linear-gradient(white, white),
+      linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-sizing: border-box;
     height: 64px;
   }
 
@@ -136,19 +146,29 @@ export const LoginFormInput = styled<any>(Field)`
   }
 `;
 
-export const LoginFormButton = styled(Button)`
+export const LoginFormButton = styled.button`
   margin-top: 20px;
   margin: 40px;
   color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-size: 16px;
+  border-radius: 5px;
   font-weight: 600;
-  width: 100%;
-  background-color: ${({ theme }) => theme.brandColors.primary400};
-  max-width: 600px;
-  padding: 12px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  
+  padding: 14px 48px;
+  background: linear-gradient(
+    90deg,
+    rgba(56, 172, 255, 1),
+    rgba(160, 51, 255, 1),
+    rgba(255, 112, 51, 1)
+  );
+  background-size: 200%;
+  background-position: left center;
+  transition: background-position 0.5s ease, transform 0.2s ease;
+  cursor: pointer;
+
   &:hover {
-    background-color: ${({ theme }) => theme.brandColors.primary600};
+    background-position: right center;
+    transform: scale(1.03);
   }
 
   @media screen and (max-width: 425px) {
@@ -175,7 +195,9 @@ export const LinksText = styled.p`
   color: #222222;
 
   a {
-    color: ${({ theme }) => theme.brandColors.primary400};
+    background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+    color: transparent;
+    background-clip: text;
     text-decoration: none;
     font-family: ${({ theme }) => theme.fonts.poppins};
     font-weight: 400;
