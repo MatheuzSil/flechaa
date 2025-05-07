@@ -4,6 +4,9 @@ import { Paragraph } from '@meu-workspace/safira';
 import { useChildModal } from '../../graphql/hooks/useChildModal';
 import { ModalChildInfoSkeleton } from './ModalChildInfoSkeleton';
 import { formatMedicalConditions } from '../../utils/general';
+import { sendWhatsappMessage } from '../../utils/sendWhatsappMessage';
+import { useUserStore } from '../../store/store';
+import { useToast } from '../../hooks/useToast';
 
 interface ChildInfoProps {
   childInfo: {
@@ -15,11 +18,25 @@ interface ChildInfoProps {
 }
 
 export const ModalChildInfo = (props: ChildInfoProps) => {
-  const {name, age, id, class: childclass} = props.childInfo;
+  const {name, age, id, class: childclass, } = props.childInfo;
   const { data, loading, error } = useChildModal(id);
+  const adminUser = useUserStore((state) => state.name);
+  const { showError, showSuccess } = useToast();
   
+
   if (error || !data || !data.getChildModal || loading) return <ModalChildInfoSkeleton />;
   const { birthDate, medicalConditions, parent } = data.getChildModal;
+
+  const sendMessage = async () => {
+    try{
+      const result = await sendWhatsappMessage({number: parent.number, message: `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar que seu filho(a) ${name} está com uma condição médica. Por favor, entre em contato comigo para mais informações.`});
+      showSuccess("Mensagem enviada com sucesso!");
+      console.log(result);
+    }catch (error) {
+      console.error(error);
+      showError("Erro ao enviar mensagem. Tente novamente mais tarde.");
+    }
+  }
 
   return(
     <>
@@ -35,7 +52,7 @@ export const ModalChildInfo = (props: ChildInfoProps) => {
               <S.ChildClass>Turma: {childclass}</S.ChildClass>
             </S.ClassAndAgeContainer>
             <S.CallButtonsContainer>
-              <S.CallButton><WhastappIcon /> Contatar Pais</S.CallButton>
+              <S.CallButton onClick={ async () => await sendMessage() }><WhastappIcon /> Contatar Pais</S.CallButton>
               <S.CallButtonEmergency><EmergencyButtonIcon/> Acionar Emergência</S.CallButtonEmergency>
             </S.CallButtonsContainer>
           </S.ChildInfoContent>
