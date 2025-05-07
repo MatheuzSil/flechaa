@@ -23,7 +23,7 @@ export const Header = () => {
   return (
     <S.HeaderContainer isFixed={isFixed}>
       <S.HeaderContents>
-        <S.HeaderFlechaIcon src="/flecha_logo3.svg" alt="Flecha" />
+        <S.HeaderFlechaIcon src="/flecha_logo.svg" alt="Flecha" />
         <S.HeaderProfileContainer>
           <ProfileIcon />
           <S.HeaderProfileName>{name}</S.HeaderProfileName>
