@@ -1,5 +1,4 @@
 import { Button, Paragraph } from '@meu-workspace/safira';
-import { PersonIcon, PersonsIcon } from 'apps/flecha/public/icons/icon';
 import styled from 'styled-components';
 
 export const FastRegisterBox = styled.div`
@@ -19,7 +18,8 @@ export const FastRegisterBoxContainer = styled.div`
   height: 100%;
   padding: 50px 80px;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.brandColors.primary950};
+  background: #38ACFF;
+  background: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
 `;
 
 export const FastRegisterBoxTitle = styled.h1`
@@ -55,13 +55,12 @@ export const FastRegisterBoxText = styled(Paragraph)`
 export const FastRegisterButton = styled(Button)`
   display: flex;
   gap: 5px;
-  width: 190px;
   height: 42px;
   padding: 12px 24px;
   font-family: ${({ theme }) => theme.fonts.poppins};
   background-color: ${({ theme }) => theme.brandColors.primary400};
   color: ${({ theme }) => theme.brandColors.primary950};
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
 
   &:hover {
@@ -72,13 +71,12 @@ export const FastRegisterButton = styled(Button)`
 export const FastRegisterButtonParents = styled(Button)`
   display: flex;
   gap: 5px;
-  width: 190px;
   height: 42px;
-  background-color: ${({ theme }) => theme.brandColors.primary50};
-  color: ${({ theme }) => theme.brandColors.primary950};
-  font-size: 12px;
-  font-weight: 700;
   font-family: ${({ theme }) => theme.fonts.poppins};
+  background-color: ${({ theme }) => theme.brandColors.primary50};
+  font-weight: 700;
+  font-size: 14px;
+  color: ${({ theme }) => theme.brandColors.primary950};
 
   &:hover {
     background-color: ${({ theme }) => theme.brandColors.primary100};

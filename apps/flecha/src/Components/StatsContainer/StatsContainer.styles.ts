@@ -56,7 +56,6 @@ export const StatsTitleAndIconContainer = styled.div`
 
 export const StatsListBoxIcon = styled.div``
 
-
 export const StatsListBoxTitle = styled(Title)`
   font-family: ${({ theme }) => theme.fonts.poppins};
   font-size: 16px;
