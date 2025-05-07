@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 const Lottie = dynamic(() => import('lottie-react'), {
   ssr: false,
 });
-import animationData from '../../../public/animations/flecha_message.json';
+import animationData from '../../../../public/animations/flecha_message.json';
 
 interface MessageProps {
   isSending: boolean;

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 const Lottie = dynamic(() => import('lottie-react'), {
   ssr: false,
 });
-import animationData from '../../../public/animations/flecha_search.json';
+import animationData from '../../../../public/animations/flecha_search.json';
 interface LoadingProps {
   isSearching: boolean;
 }

@@ -4,7 +4,7 @@ import DashboardFooter from '../../Components/DashboardFooter/DashboardFooter';
 import { FastRegisterBox } from '../../Components/FastRegisterBox/FastRegisterBox';
 
 import dynamic from 'next/dynamic';
-const Arrow = dynamic(() => import('../../Components/Arrow/Arrow'), {
+const Arrow = dynamic(() => import('../../Components/Animations/Arrow/Arrow'), {
   ssr: false,
 });
 

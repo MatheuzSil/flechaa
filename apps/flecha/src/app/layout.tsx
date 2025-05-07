@@ -8,10 +8,10 @@ import { useEmergencyMessage, useLoadingStore, useMessage } from '../store/store
 import dynamic from 'next/dynamic';
 import { ApolloProvider } from '@apollo/client';
 import { apolloClient } from '../lib/apollo-client';
-import WarningMessage from '../Components/WarningMessage/WarningMessage';
-import Message from '../Components/Message/Message';
+import WarningMessage from '../Components/Animations/WarningMessage/WarningMessage';
+import Message from '../Components/Animations/Message/Message';
 
-const Loading = dynamic(() => import('../Components/Loading/Loading'), {
+const Loading = dynamic(() => import('../Components/Animations/Loading/Loading'), {
   ssr: false,
 });
 
