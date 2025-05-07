@@ -1,8 +1,6 @@
 import { PersonIconBlack, PersonsIconBlack } from 'apps/flecha/public/icons/icon'
 import * as S from './FastRegisterBox.styles'
 
-
-
 export const FastRegisterBox = () => {
 
   return(
@@ -15,7 +13,6 @@ export const FastRegisterBox = () => {
           <S.ButtonsContainer>
             <S.FastRegisterButton><PersonIconBlack /> Cadastrar Criança</S.FastRegisterButton>
             <S.FastRegisterButtonParents><PersonsIconBlack /> Cadastrar Responsável</S.FastRegisterButtonParents>
-            
           </S.ButtonsContainer>
         </S.TextAndButtonsContainer>
       </S.FastRegisterBoxContainer>

@@ -1,72 +1,30 @@
-import { prisma } from '../lib/prisma';
-import { redis } from '../lib/redis';
+import { cacheService } from './CacheService';
+import { childRepository } from '../lib/repositories';
 
-export async function searchService(query: string, page: number, limit: number) {
+export async function searchService(query: string, page: number, limit: number, searchType: 'name' | 'age' | 'class') {
   const skip = (page - 1) * limit;
-
   const isBaseQuery = query.trim() === '';
 
   if (isBaseQuery) {
-    const cacheKey = `children:all:page:${page}:limit:${limit}`;
-    const cached = await redis.get<typeof response>(cacheKey);
+    const cacheKey = `children:all:query:${query}:page:${page}:limit:${limit}`;
+    const cached = await cacheService.get<{ results: any[]; totalCount: number }>(cacheKey);
 
-    if (cached) {
-      return cached;
-    }
+    if (cached) return cached;
 
     const [results, totalCount] = await Promise.all([
-      prisma.child.findMany({
-        select: {
-          id: true,
-          name: true,
-          age: true,
-          class: true,
-        },
-        skip,
-        take: limit,
-        orderBy: {
-          name: 'asc',
-        },
-      }),
-      prisma.child.count(),
+      childRepository.findAllPaginated(skip, limit),
+      childRepository.countAll(),
     ]);
 
     const response = { results, totalCount };
-
-    await redis.set(cacheKey, response, { ex: 600 });
+    await cacheService.set(cacheKey, response, 600);
 
     return response;
   }
 
-  // Normal query (non-cached)
   const [results, totalCount] = await Promise.all([
-    prisma.child.findMany({
-      where: {
-        name: {
-          startsWith: query,
-          mode: 'insensitive',
-        },
-      },
-      select: {
-        id: true,
-        name: true,
-        age: true,
-        class: true,
-      },
-      skip,
-      take: limit,
-      orderBy: {
-        name: 'asc',
-      },
-    }),
-    prisma.child.count({
-      where: {
-        name: {
-          startsWith: query,
-          mode: 'insensitive',
-        },
-      },
-    }),
+    childRepository.searchByField(searchType, query, skip, limit),
+    childRepository.countByField(searchType, query),
   ]);
 
   return { results, totalCount };

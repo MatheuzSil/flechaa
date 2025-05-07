@@ -35,7 +35,7 @@ export async function middleware(req: NextRequest) {
         isTokenValid = true; // Marcar como válido se a verificação for bem-sucedida
       }
     } catch (error) {
-      console.error('Falha na verificação do token:', error);
+      return NextResponse.redirect(new URL(loginRoute, req.url));
     }
   }
 
@@ -47,7 +47,7 @@ export async function middleware(req: NextRequest) {
 
     // Se logado e acessando qualquer outra rota protegida, adiciona headers e permite
     const requestHeaders = new Headers(req.headers);
-    // Certifique-se que seu verifyToken retorna um objeto com userId
+    
     if (decoded && typeof decoded === 'object' && 'userId' in decoded) {
        requestHeaders.set('userId', decoded.userId as string);
     }

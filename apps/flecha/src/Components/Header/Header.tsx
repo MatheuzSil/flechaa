@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import * as S from './Header.styles';
 import { ArrowIcon, ProfileIcon } from 'apps/flecha/public/icons/icon';
+import { useUserStore } from '../../store/store';
 
 export const Header = () => {
   const [isFixed, setIsFixed] = useState(false);
+  const name = useUserStore((state) => state.name);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +26,7 @@ export const Header = () => {
         <S.HeaderFlechaIcon src="/flecha_logo3.svg" alt="Flecha" />
         <S.HeaderProfileContainer>
           <ProfileIcon />
-          <S.HeaderProfileName>Nome do Usuário</S.HeaderProfileName>
+          <S.HeaderProfileName>{name}</S.HeaderProfileName>
           <ArrowIcon />
         </S.HeaderProfileContainer>
       </S.HeaderContents>

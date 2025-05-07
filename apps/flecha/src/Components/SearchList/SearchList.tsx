@@ -5,7 +5,7 @@ import * as S from './SearchList.styles';
 import debounce from 'lodash.debounce';
 
 // Hooks
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, use } from 'react';
 import { useSearch } from '../../graphql/hooks/useSearch';
 
 // Components
@@ -20,20 +20,20 @@ export default function SearchList() {
   const limit = 5;
   const { results, totalCount, search, loading } = useSearch();
   const [paginationTotal, setPaginationTotal] = useState(0);
+  const [searchType, setSearchType] = useState('name');
 
-  const debouncedSearch = useMemo(() => debounce((query, page) => {
-    search({ variables: { query, page, limit } });
+  const debouncedSearch = useMemo(() => debounce((query, page, searchType) => {
+    search({ variables: { query, page, limit, searchType } });
   }, 400), []);
 
   useEffect(() => {
     setPage(1);
-  },[query])
-
+  },[query]);
 
   useEffect(() => {
-    debouncedSearch(query, page);
+    debouncedSearch(query, page, searchType);
     return debouncedSearch.cancel;
-  }, [query, page]);
+  }, [query, page, searchType]);
 
   useEffect(() => {
     setPaginationTotal(Math.ceil(totalCount / limit));
@@ -46,16 +46,16 @@ export default function SearchList() {
           <S.FiltroInput placeholder="Buscar..." value={query} onChange={(e) => setQuery(e.target.value)} />
           <S.FiltroSelectContainer>
             <S.FiltroSelectTitle>Modo:</S.FiltroSelectTitle>
-            <S.FiltroList>
-              <option value="1">Nome</option>
-              <option value="2">Idade</option>
-              <option value="3">Turma</option>
+            <S.FiltroList onChange={(e) => setSearchType((e.target as HTMLSelectElement).value)} value={searchType}>
+              <option value="name">Nome</option>
+              <option value="age">Idade</option>
+              <option value="class">Turma</option>
             </S.FiltroList>
           </S.FiltroSelectContainer>
         </S.FiltrosContainer>
         <S.SearchResultContainer>
           <Search isSearching={loading} />
-          {results.length === 0 && !loading && <SearchNotFound />}
+          {results.length === 0 && !loading && <SearchNotFound searchType={searchType} />}
           <SearchListResult results={results} />
           <Pagination paginationTotal={paginationTotal} currentPage={page} onPageChange={(newPage) => setPage(newPage)} />
         </S.SearchResultContainer>
