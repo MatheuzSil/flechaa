@@ -171,6 +171,12 @@ export const LoginFormButton = styled.button`
     transform: scale(1.03);
   }
 
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: ${({ theme }) => theme.brandColors.primary200};
+  }
+
   @media screen and (max-width: 425px) {
     margin: 12px 0px;
   }

@@ -9,7 +9,7 @@ import { useEffect, useState, useMemo, use } from 'react';
 import { useSearch } from '../../graphql/hooks/useSearch';
 
 // Components
-import Search from '../Search/Search';
+import Search from '../Animations/Search/Search';
 import SearchNotFound from '../SearchNotFound/SearchNotFound';
 import Pagination from '../Pagination/Pagination';
 import SearchListResult from '../SearchListResult/SearchListResult';

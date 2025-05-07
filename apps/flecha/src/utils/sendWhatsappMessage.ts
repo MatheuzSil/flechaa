@@ -1,9 +1,7 @@
-
 interface SendMessageProps {
   message: string;
   number: string; 
 }
-
 
 export async function sendWhatsappMessage({ message, number }: SendMessageProps) {
   const instance = "chatpro-nhlp2p997e";
@@ -12,7 +10,7 @@ export async function sendWhatsappMessage({ message, number }: SendMessageProps)
 
   const payload = {
     message,
-    number, 
+    number,
   };
   
   const response = await fetch(url, {

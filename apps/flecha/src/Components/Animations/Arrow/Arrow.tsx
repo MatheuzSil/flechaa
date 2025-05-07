@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 const Lottie = dynamic(() => import('lottie-react'), {
   ssr: false,
 });
-import animationData from '../../../public/animations/flecha_arrow.json';
+import animationData from '../../../../public/animations/flecha_arrow.json';
 
 export default function Arrow() {
   const [isVisible, setIsVisible] = useState(true);

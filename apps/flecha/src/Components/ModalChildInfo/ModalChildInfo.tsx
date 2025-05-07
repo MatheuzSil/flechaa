@@ -5,7 +5,7 @@ import { useChildModal } from '../../graphql/hooks/useChildModal';
 import { ModalChildInfoSkeleton } from './ModalChildInfoSkeleton';
 import { formatMedicalConditions } from '../../utils/general';
 import { sendWhatsappMessage } from '../../utils/sendWhatsappMessage';
-import { useUserStore } from '../../store/store';
+import { useEmergencyMessage, useMessage, useUserStore } from '../../store/store';
 import { useToast } from '../../hooks/useToast';
 
 interface ChildInfoProps {
@@ -22,19 +22,41 @@ export const ModalChildInfo = (props: ChildInfoProps) => {
   const { data, loading, error } = useChildModal(id);
   const adminUser = useUserStore((state) => state.name);
   const { showError, showSuccess } = useToast();
-  
+
+  const activateSendingEmergency = useEmergencyMessage((state) => state.activateSendingEmergency);
+  const deactivateSendingEmergency = useEmergencyMessage((state) => state.deactivateSendingEmergency);
+
+  const activateSendingMessage = useMessage((state) => state.activateSendingMessage);
+  const deactivateSendingMessage = useMessage((state) => state.deactivateSendingMessage);
 
   if (error || !data || !data.getChildModal || loading) return <ModalChildInfoSkeleton />;
   const { birthDate, medicalConditions, parent } = data.getChildModal;
 
   const sendMessage = async () => {
+    activateSendingMessage();
     try{
-      const result = await sendWhatsappMessage({number: parent.number, message: `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar que seu filho(a) ${name} está com uma condição médica. Por favor, entre em contato comigo para mais informações.`});
+      const result = await sendWhatsappMessage({number: parent.phone, message: `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar que seu filho(a) ${name} está com uma condição médica. Por favor, entre em contato comigo para mais informações.`});
       showSuccess("Mensagem enviada com sucesso!");
       console.log(result);
     }catch (error) {
       console.error(error);
       showError("Erro ao enviar mensagem. Tente novamente mais tarde.");
+    } finally {
+      deactivateSendingMessage();
+    }
+  }
+
+  const sendMessageEmergency = async () => {
+    activateSendingEmergency();
+    try{
+      const result = await sendWhatsappMessage({number: parent.emergencyContact, message: `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar de uma emergência que seu filho(a) ${name} está passando. Por favor, entre em contato comigo para mais informações.`});
+      showSuccess("Mensagem de Emergência enviada com sucesso!");
+      console.log(result);
+    }catch (error) {
+      console.error(error);
+      showError("Erro ao enviar mensagem. Tente novamente mais tarde.");
+    } finally {
+      deactivateSendingEmergency();
     }
   }
 
@@ -53,7 +75,7 @@ export const ModalChildInfo = (props: ChildInfoProps) => {
             </S.ClassAndAgeContainer>
             <S.CallButtonsContainer>
               <S.CallButton onClick={ async () => await sendMessage() }><WhastappIcon /> Contatar Pais</S.CallButton>
-              <S.CallButtonEmergency><EmergencyButtonIcon/> Acionar Emergência</S.CallButtonEmergency>
+              <S.CallButtonEmergency onClick={ async () => await sendMessageEmergency() }><EmergencyButtonIcon/> Acionar Emergência</S.CallButtonEmergency>
             </S.CallButtonsContainer>
           </S.ChildInfoContent>
           
