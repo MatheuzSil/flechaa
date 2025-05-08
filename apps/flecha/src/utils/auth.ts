@@ -13,8 +13,8 @@ export const comparePassword = async (
   return await bcrypt.compare(password, hashedPassword);
 };
 
-export const generateToken = async (userId: any): Promise<any> => {
-  const payload = { userId };
+export const generateToken = async (userId: string, name: string): Promise<any> => {
+  const payload = { userId, name };
   const secret = process.env.AUTH_SECRET;
   const expiresIn = '1d';
 
