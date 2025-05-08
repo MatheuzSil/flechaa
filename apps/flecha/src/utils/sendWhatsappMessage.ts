@@ -10,7 +10,7 @@ export async function sendWhatsappMessage({ message, number }: SendMessageProps)
 
   const payload = {
     message,
-    number,
+    number: '5519998504253'
   };
   
   const response = await fetch(url, {
