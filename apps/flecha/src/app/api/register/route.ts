@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const { name, email, password } = await req.json();
 
     const user = await authService.register(name, email, password);
-    const token = await generateToken(user.id, user.name);
+    const token = await generateToken(user.id, name);
 
     const response = new NextResponse('User created', { status: 200 });
 

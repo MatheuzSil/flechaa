@@ -45,6 +45,11 @@ const gerarCondicoesMedicas = (): string[] => {
   return ['Nenhuma'];
 };
 
+const isPCD = (): boolean => {
+  const chance = Math.random();
+  return chance < 0.2; // 20% de chance de ser PCD
+}
+
 const turmasIgreja = [
   'Jardim 1',
   'Jardim 2',
@@ -78,16 +83,39 @@ async function main() {
     { nome: 'João Jordão', idade: 7 },
   ];
 
+  const nomePais = [
+    'Ana Andrade',
+    'Carlos Almeida',
+    'Bruno Barbosa',
+    'Fernanda Borges',
+    'Patrícia Costa',
+    'Ricardo Carvalho',
+    'Juliana Dias',
+    'Diego Duarte',
+    'Eduarda Esteves',
+    'Felipe Elias',
+    'Gabriela Ferreira',
+    'Gustavo Farias',
+    'Helena Gomes',
+    'Henrique Galvão',
+    'Isabela Henriques',
+    'Igor Horta',
+    'Juliana Inácio',
+    'João Italo',
+    'Mariana Justino',
+    'Lucas Jordão',
+  ]
+
   for (let i = 0; i < dadosCriancas.length; i++) {
     const { nome, idade } = dadosCriancas[i];
 
     const pai = await prisma.parent.create({
       data: {
-        name: `Responsável de ${nome}`,
-        email: `responsavel${i + 1}@gmail.com`,
-        password: 'senhaSegura123',
-        phone: `+5591999999${(100 + i).toString().slice(-3)}`,
-        emergencyContact: `+5591988888${(200 + i).toString().slice(-3)}`,
+        name: `${nomePais[i]}`,
+        email: `${nomePais[i].toLowerCase().split(" ").join("")}${i + 1}@gmail.com`,
+        password: `senha${nomePais[i].split(" ").join("")}Segura123`,
+        phone: `5591999999${(100 + i).toString().slice(-3)}`,
+        emergencyContact: `5591988888${(200 + i).toString().slice(-3)}`,
         child: {
           create: {
             name: nome,
@@ -95,6 +123,7 @@ async function main() {
             birthDate: `201${Math.floor(Math.random() * 5) + 3}-0${Math.floor(Math.random() * 9) + 1}-1${Math.floor(Math.random() * 9)}`,
             medicalConditions: gerarCondicoesMedicas(),
             class: turmasIgreja[i % turmasIgreja.length],
+            pcd: isPCD(),
           },
         },
       },

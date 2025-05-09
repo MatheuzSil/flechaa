@@ -1,39 +1,40 @@
 "use client"
 import { BuildingIcon, HeartIcon, PersonIcon, PersonsIcon, SmileIcon } from 'apps/flecha/public/icons/icon';
 import * as S from './StatsContainer.styles';
-import { useStatsStore } from '../../store/store';
-import { usePlatformStats } from '../../hooks/usePlatformStats';
-import { use, useEffect } from 'react';
+import { useDashboardStore } from '../../store/store';
+
 
 export default function StatsContainer() {
   usePlatformStats(); // Chama o hook para buscar as estatísticas da plataforma
   const { totalCriancas, totalSalas, totalResponsaveis, totalComSaude, totalEspeciais } = useStatsStore(); // Pegamos um valor para comparar
   
 
+  const {totalChildren, totalClasses, totalParents, totalChildrenWithMedicalConditions, totalSpecialChildren} = useDashboardStore((state) => state.statistics);
+
   const stats = [
     {
       title: 'Total de crianças cadastradas',
-      value: totalCriancas,
+      value: totalChildren,
       icon: <PersonIcon />
     },
     {
       title: 'Total de turmas/salas:',
-      value: totalSalas,
+      value: totalClasses,
       icon: <BuildingIcon />
     },
     {
       title: 'Total de responsáveis cadastrados',
-      value: totalResponsaveis,
+      value: totalParents,
       icon: <PersonsIcon />
     },
     {
       title: 'Total de crianças com condições de saude',
-      value: totalComSaude,
+      value: totalChildrenWithMedicalConditions,
       icon: <HeartIcon />
     },
     {
       title: 'Total de crianças especiais',
-      value: totalEspeciais,
+      value: totalSpecialChildren,
       icon: <SmileIcon />
     },
     

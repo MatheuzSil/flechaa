@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { DashboardStatistics } from '../types/dashboardStatistics';
 
 type LoadingStore = {
   isActive: boolean;
@@ -46,30 +47,18 @@ export const useUserStore = create<UserState>((set) => ({
   setName: (name) => set({ name }),
 }));
 
-
-interface UserStats {
-  totalCriancas: number | null;
-  totalSalas: number | null;
-  totalResponsaveis: number | null;
-  totalComSaude: number | null;
-  totalEspeciais: number | null;
-  
-  setStats: (stats: Partial<Omit<UserStats, 'setStats'>>) => void;
+interface DashboardStatisticsStore {
+  statistics: DashboardStatistics;
+  setStatistics: (statistics: DashboardStatistics) => void;
 }
 
-export const useStatsStore = create<UserStats>((set) => ({
-  totalCriancas: 0,
-  totalSalas: 0,
-  totalResponsaveis: 0,
-  totalComSaude: 0,
-  totalEspeciais: 0,
-
-  setStats: (stats) => set((state) => {
-    // Verifica se há mudanças antes de atualizar
-    const hasChanges = Object.keys(stats).some(
-      key => state[key as keyof UserStats] !== stats[key as keyof typeof stats]
-    );
-    return hasChanges ? stats : state;
-  })
-
+export const useDashboardStore = create<DashboardStatisticsStore>((set) => ({
+  statistics: {
+    totalChildren: 0,
+    totalClasses: 0,
+    totalParents: 0,
+    totalChildrenWithMedicalConditions: 0,
+    totalSpecialChildren: 0,
+  },
+  setStatistics: (statistics: DashboardStatistics) => set({ statistics }),
 }));
