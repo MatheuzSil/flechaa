@@ -9,3 +9,5 @@ export const formatMedicalConditions = (conditions: string[]): string => {
     return "Nenhuma Condição Médica Adicional"
   }
 }
+
+export const fetcher = (url: string) => fetch(url).then(res => res.json());
