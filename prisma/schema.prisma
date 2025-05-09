@@ -40,6 +40,7 @@ model Child {
   birthDate String
   medicalConditions String[]
   class String
+  pcd Boolean
   parent Parent @relation(fields: [parentId], references: [id])
   parentId String @unique
   createAt  DateTime @default(now())

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { DashboardStatistics } from '../types/dashboardStatistics';
 
 type LoadingStore = {
   isActive: boolean;
@@ -44,4 +45,20 @@ interface UserState {
 export const useUserStore = create<UserState>((set) => ({
   name: null,
   setName: (name) => set({ name }),
+}));
+
+interface DashboardStatisticsStore {
+  statistics: DashboardStatistics;
+  setStatistics: (statistics: DashboardStatistics) => void;
+}
+
+export const useDashboardStore = create<DashboardStatisticsStore>((set) => ({
+  statistics: {
+    totalChildren: 0,
+    totalClasses: 0,
+    totalParents: 0,
+    totalChildrenWithMedicalConditions: 0,
+    totalSpecialChildren: 0,
+  },
+  setStatistics: (statistics: DashboardStatistics) => set({ statistics }),
 }));

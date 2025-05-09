@@ -1,4 +1,3 @@
-// hooks/useUserInfo.ts
 import { useEffect } from 'react';
 import { useUserStore } from '../store/store';
 
