@@ -5,8 +5,6 @@ import { useDashboardStore } from '../../store/store';
 
 
 export default function StatsContainer() {
-  usePlatformStats(); // Chama o hook para buscar as estatísticas da plataforma
-  const { totalCriancas, totalSalas, totalResponsaveis, totalComSaude, totalEspeciais } = useStatsStore(); // Pegamos um valor para comparar
   
 
   const {totalChildren, totalClasses, totalParents, totalChildrenWithMedicalConditions, totalSpecialChildren} = useDashboardStore((state) => state.statistics);
