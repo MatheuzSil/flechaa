@@ -4,6 +4,7 @@ import StatsContainer from '../StatsContainer/StatsContainer';
 import * as S from './Hero.styles';
 
 export default function Hero() {
+  
   return (
     <S.HeroContainer>
       <S.HeroListContainer>
