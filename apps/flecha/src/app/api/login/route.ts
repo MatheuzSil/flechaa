@@ -1,12 +1,11 @@
 import { NextResponse } from 'next/server';
-import { UserRepository } from '../../../repositories/UserRepository';
-import { AuthService } from '../../../services/AuthService';
+import { userRepository } from 'apps/flecha/src/lib/repositories';
+import { AuthService } from 'apps/flecha/src/services/AuthService';
 
 export async function POST(req: Request) {
   const { email, password } = await req.json();
 
-  const userRepo = new UserRepository();
-  const authService = new AuthService(userRepo);
+  const authService = new AuthService(userRepository);
 
   const result = await authService.login(email, password);
 

@@ -1,11 +1,9 @@
-
-import { DashboardRepository } from 'apps/flecha/src/repositories/DashboardRepository';
+import { dashboardRepository } from 'apps/flecha/src/lib/repositories';
 import { StatisticsService } from 'apps/flecha/src/services/StatisticsService';
 import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
-  const dashboardRepo = new DashboardRepository();
-  const statisticsService = new StatisticsService(dashboardRepo);
+  const statisticsService = new StatisticsService(dashboardRepository);
 
   try {
     const statistics = await statisticsService.getStats();
