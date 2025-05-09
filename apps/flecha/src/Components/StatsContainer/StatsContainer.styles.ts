@@ -69,3 +69,12 @@ export const StatsListBoxValue = styled(Paragraph)`
   color: ${({ theme }) => theme.brandColors.primary400};
   font-weight: bold;
 `
+
+export const Disclaimer = styled(Paragraph)`
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-size: 16px;
+  color: #888888;
+  font-weight: 700;
+  margin-top: 20px;
+  text-align: center;
+`

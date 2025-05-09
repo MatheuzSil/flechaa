@@ -1,21 +1,24 @@
 import { useEffect } from 'react';
 import { useUserStore } from '../store/store';
+import useSWR from 'swr';
+import { fetcher } from '../utils/general';
 
 export const useUserInfo = () => {
   const setName = useUserStore((state) => state.setName);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await fetch('/api/me');
-        if (!res.ok) return;
-        const data = await res.json();
-        setName(data.name);
-      } catch (error) {
-        console.error('Failed to fetch user info:', error);
-      }
-    };
+  const { data, error } = useSWR('/api/dashboard/me', fetcher, {
+    revalidateOnFocus: false,
+  });
 
-    fetchUser();
-  }, [setName]);
+  useEffect(() => {
+    if (data?.name) {
+      setName(data.name);
+    }
+  }, [data, setName]);
+
+  return {
+    name: data?.name,
+    error,
+    isLoading: !data && !error,
+  };
 };

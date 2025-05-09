@@ -55,6 +55,7 @@ export default function StatsContainer() {
           </S.StatsListBox>
         ))}
       </S.StatsListBoxsContainer>
+      <S.Disclaimer>* Estatísticas atualizadas a cada 1 semana.</S.Disclaimer>
     </S.StatsContainer>
   );
 }
