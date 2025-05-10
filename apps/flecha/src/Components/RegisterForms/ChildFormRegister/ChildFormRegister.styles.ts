@@ -1,3 +1,4 @@
+import { Field } from '@meu-workspace/safira';
 import { BlurballIcon } from 'apps/flecha/public/icons/icon';
 import styled from 'styled-components';
 
@@ -57,4 +58,51 @@ export const ChildFormRegisterSubtitle = styled.p`
   font-size: 1rem;
   text-align: center;
   color: #ccc;
+`;
+
+
+
+export const ChildFormContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  z-index: 1;
+  margin-top: 2rem;
+  padding: 0 20px;
+`;
+
+
+export const ChildFormSubtitle = styled.label`
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: ${({ theme }) => theme.fonts.poppins};
+`;
+
+
+export const ChildFormInput = styled(Field)`
+  width: 100%;
+  max-width: 560px;
+  height: 50px;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  box-shadow: rgb(14, 77, 252) 0px 4px 0px 0px;
+  z-index: 1;
+  
+`;
+
+
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+  margin-top: 2rem;
+  padding: 0 20px;
 `;
