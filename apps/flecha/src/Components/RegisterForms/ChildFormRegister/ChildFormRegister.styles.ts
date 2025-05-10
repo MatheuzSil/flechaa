@@ -28,6 +28,7 @@ export const ChildFormRegisterContainer = styled.div`
   max-width: 1400px;
   height: 100%;
   max-height: 918px;
+  border: 2px solid ${({ theme }) => theme.brandColors.primary200};
   padding: 3rem;
   z-index: 1;
   border-radius: 20px;
@@ -36,7 +37,6 @@ export const ChildFormRegisterContainer = styled.div`
 
   /* Borda e sombra suave */
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.05);
 
   /* Efeito de desfoque interno suave (opcional) */
   backdrop-filter: blur(8px);
