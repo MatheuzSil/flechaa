@@ -120,9 +120,9 @@ export const LoginFormInput = styled<any>(Field)`
   border-radius: 5px;
 
   & input {
-    border: 2px solid transparent;
-    border-radius: 5px;
     padding: 8px 12px;
+    border-radius: 5px;
+    border: 2px solid transparent;
     background-image: 
       linear-gradient(white, white),
       linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);

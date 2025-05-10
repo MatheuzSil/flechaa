@@ -115,12 +115,40 @@ export const EmergencyButtonIcon = ({props}:any) => {
   )
 }
 
-
-
-
+export const BlurBallIconSecond = (props:any) => {
+  return (
+    <svg {...props} width="584" height="565" viewBox="0 0 584 565" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_di_221_6233)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M288.208 98.5535C316.329 92.6355 347.541 97.0197 372.34 111.545C396.851 125.901 405.605 156.332 423.927 178.046C442.79 200.4 476.401 213.352 482.405 241.984C488.427 270.698 468.268 298.367 454.604 324.326C442.955 346.455 423.163 362.052 408.529 382.328C393.14 403.649 387.793 433.097 365.753 447.43C343.493 461.908 314.738 461.601 288.208 460.579C262.2 459.578 236.051 454.541 213.485 441.568C191.513 428.937 179.198 405.525 161.27 387.607C141.205 367.552 105.586 357.085 100.949 329.09C96.2218 300.547 130.17 279.822 138.848 252.223C146.691 227.28 133.654 196.444 149.254 175.465C164.797 154.564 196.769 156.31 219.553 143.698C243.82 130.267 261.069 104.265 288.208 98.5535Z" fill="url(#paint0_linear_221_6233)"/>
+      </g>
+      <defs>
+        <filter id="filter0_di_221_6233" x="0.5" y="0" width="583" height="565" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+          <feOffset dy="4"/>
+          <feGaussianBlur stdDeviation="50"/>
+          <feComposite in2="hardAlpha" operator="out"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0.941176 0 0 0 0 0.972549 0 0 0 0 1 0 0 0 0.3 0"/>
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_221_6233"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_221_6233" result="shape"/>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+          <feOffset dy="4"/>
+          <feGaussianBlur stdDeviation="10"/>
+          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+          <feBlend mode="normal" in2="shape" result="effect2_innerShadow_221_6233"/>
+        </filter>
+        <linearGradient id="paint0_linear_221_6233" x1="100.5" y1="278.5" x2="483.5" y2="278.5" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#38ACFF"/>
+          <stop offset="0.5" stop-color="#8833FF"/>
+          <stop offset="1" stop-color="#FF7033"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+}
 
 export const BlurballIcon = (props:any) => {
-
   return(
     <svg {...props} width="584" height="584" viewBox="0 0 584 584" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_di_221_6234)">
@@ -150,7 +178,62 @@ export const BlurballIcon = (props:any) => {
       </linearGradient>
       </defs>
     </svg>
-
   )
+}
 
+export const PlusIcon = (props: any) => {
+  return (
+    <svg {...props} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_221_6287)">
+        <g clip-path="url(#clip1_221_6287)">
+          <g clip-path="url(#clip2_221_6287)">
+            <path d="M29 23H23V29H21V23H15V21H21V15H23V21H29V23Z" fill="#33AAFF"/>
+          </g>
+        </g>
+      </g>
+      <defs>
+        <clipPath id="clip0_221_6287">
+          <path d="M0 22C0 9.84974 9.84974 0 22 0C34.1503 0 44 9.84974 44 22C44 34.1503 34.1503 44 22 44C9.84974 44 0 34.1503 0 22Z" fill="white"/>
+        </clipPath>
+        <clipPath id="clip1_221_6287">
+          <rect width="44" height="44" rx="22" fill="white"/>
+        </clipPath>
+        <clipPath id="clip2_221_6287">
+          <rect width="24" height="24" fill="white" transform="translate(10 10)"/>
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}
+
+export const ArrowButtonIcon = (props:any) => {
+  return (
+    <svg {...props} width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21.6453 8.89453L30.7503 17.9995L21.6453 27.1045" stroke="#F0F8FF" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5.25 18H30.495" stroke="#F0F8FF" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+
+export const DateIcon = (props: any) => {
+  return (
+    <svg {...props} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 13H29V12C29 11.45 28.55 11 28 11C27.45 11 27 11.45 27 12V13H17V12C17 11.45 16.55 11 16 11C15.45 11 15 11.45 15 12V13H14C12.9 13 12 13.9 12 15V31C12 32.1 12.9 33 14 33H30C31.1 33 32 32.1 32 31V15C32 13.9 31.1 13 30 13ZM29 31H15C14.45 31 14 30.55 14 30V18H30V30C30 30.55 29.55 31 29 31Z" fill="#33AAFF"/>
+    </svg>
+  )
+}
+
+export const ResetFieldIcon = (props: any) => {
+  return (
+    <svg {...props} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_221_6265)">
+        <path d="M22 12C27.53 12 32 16.47 32 22C32 27.53 27.53 32 22 32C16.47 32 12 27.53 12 22C12 16.47 16.47 12 22 12ZM20.1104 18.7002C19.7204 18.3102 19.0902 18.3102 18.7002 18.7002C18.3102 19.0902 18.3102 19.7204 18.7002 20.1104L20.5898 22L18.7002 23.8896C18.3102 24.2796 18.3102 24.9098 18.7002 25.2998C19.0902 25.6898 19.7204 25.6898 20.1104 25.2998L22 23.4102L23.8896 25.2998C24.2796 25.6898 24.9098 25.6898 25.2998 25.2998C25.6898 24.9098 25.6898 24.2796 25.2998 23.8896L23.4102 22L25.2998 20.1104C25.6898 19.7204 25.6898 19.0902 25.2998 18.7002C24.9098 18.3202 24.2696 18.3202 23.8896 18.7002L22 20.5898L20.1104 18.7002Z" fill="#33AAFF"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_221_6265">
+          <rect width="24" height="24" fill="white" transform="translate(10 10)"/>
+        </clipPath>
+      </defs>
+    </svg>
+  )
 }
