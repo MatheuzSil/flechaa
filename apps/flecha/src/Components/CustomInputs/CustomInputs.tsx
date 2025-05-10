@@ -4,6 +4,7 @@ import { format, parse, isValid } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import { useState } from 'react';
 import 'react-day-picker/dist/style.css';
+import { P } from '@upstash/redis/zmscore-CjoCv9kz';
 
 interface CustomInputsProps {
   type: 'date' | 'add';
@@ -47,6 +48,8 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate }: CustomInputsP
       } else {
         onSelectDate?.(undefined);
       }
+    } else {
+      clearDateInput();
     }
   };
 
