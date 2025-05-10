@@ -13,6 +13,7 @@ export const HeaderContainer = styled.div<{ isFixed: boolean }>`
   background: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%) left bottom ${({ theme }) => theme.brandColors.backgroundBlack} no-repeat;
   background-size: 100% 4px;
   position: fixed;
+  z-index: 1000;
 `;
 
 export const HeaderContents = styled.div`

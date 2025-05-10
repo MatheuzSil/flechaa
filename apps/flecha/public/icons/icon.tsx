@@ -114,3 +114,43 @@ export const EmergencyButtonIcon = ({props}:any) => {
     </svg>
   )
 }
+
+
+
+
+
+export const BlurballIcon = (props:any) => {
+
+  return(
+    <svg {...props} width="584" height="584" viewBox="0 0 584 584" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_di_221_6234)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M290.925 102.904C318.225 106.942 341.181 122.299 367.756 129.739C404.528 140.034 456.117 123.453 477.462 155.128C498.226 185.941 458.887 225.737 457.469 262.871C456.127 298.039 483.278 333.619 469.413 365.964C455.537 398.335 416.192 409.553 386.488 428.461C355.484 448.197 327.371 484.287 290.925 479.581C253.687 474.773 237.509 429.483 208.615 405.495C185.256 386.102 155.288 376.013 136.989 351.783C117.381 325.819 97.399 295.223 100.902 262.871C104.384 230.719 137.96 211.838 155.112 184.426C171.518 158.208 173.242 120.807 199.755 104.893C226.272 88.9761 260.333 98.3801 290.925 102.904Z" fill="url(#paint0_linear_221_6234)"/>
+      </g>
+      <defs>
+      <filter id="filter0_di_221_6234" x="0.5" y="0" width="583" height="584" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="50"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.941176 0 0 0 0 0.972549 0 0 0 0 1 0 0 0 0.3 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_221_6234"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_221_6234" result="shape"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="10"/>
+      <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+      <feBlend mode="normal" in2="shape" result="effect2_innerShadow_221_6234"/>
+      </filter>
+      <linearGradient id="paint0_linear_221_6234" x1="100.5" y1="288" x2="483.5" y2="288" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38ACFF"/>
+      <stop offset="0.5" stop-color="#8833FF"/>
+      <stop offset="1" stop-color="#FF7033"/>
+      </linearGradient>
+      </defs>
+    </svg>
+
+  )
+
+}
