@@ -1,27 +1,38 @@
-import { DateIcon, PlusIcon, ResetFieldIcon } from 'apps/flecha/public/icons/icon';
-import * as S from './CustomInputs.styles';
+import { CloseIcon, DateIcon, PlusIcon, ResetFieldIcon, SendFillIcon } from 'apps/flecha/public/icons/icon';
 import { format, parse, isValid } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'react-day-picker/dist/style.css';
-import { P } from '@upstash/redis/zmscore-CjoCv9kz';
+import * as S from './CustomInputs.styles';
 
 interface CustomInputsProps {
-  type: 'date' | 'add';
-  selectedDate?: Date | undefined;
-  onSelectDate?: (date: Date | undefined) => void;
+  type: 'date' | 'add' | 'select-class' | 'select-parent';
+  selectedDate?: string | undefined;
+  onSelectDate?: (date: string | undefined) => void;
+
+  additions?: string[];
+  onAddItem?: (items: string[] | undefined) => void;
+
+  selectClassItem?: string | undefined;
+  onAddClass?: (selectedClass: string | undefined) => void;
+
+  selectParent?: CustomInputSearchResult | undefined;
+  onSelectParent?: (selectedParent: CustomInputSearchResult | undefined) => void;
+  parentResult?: CustomInputSearchResult[] | [];
+  searchParent?: (query: string) => void;
 }
 
-export const CustomInputs = ({ type, selectedDate, onSelectDate }: CustomInputsProps) => {
-  const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(
-    selectedDate ? format(selectedDate, 'dd/MM/yyyy') : ''
-  );
+export const CustomInputs = ({ type, selectedDate, onSelectDate, additions, onAddItem, onAddClass, onSelectParent, parentResult, searchParent }: CustomInputsProps) => {
 
-  const handleCalendarSelect = (date: Date | undefined) => {
+  // Date Input
+  const [open, setOpen] = useState(false);
+  const [inputValue, setInputValue] = useState(selectedDate ?? '');
+
+ const handleCalendarSelect = (date: Date | undefined) => {
     if (date) {
-      onSelectDate?.(date);
-      setInputValue(format(date, 'dd/MM/yyyy'));
+      const formatted = format(date, 'dd/MM/yyyy');
+      onSelectDate?.(formatted);
+      setInputValue(formatted);
       setOpen(false);
     }
   };
@@ -40,13 +51,13 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate }: CustomInputsP
       const year = numeric.slice(4);
 
       const formatted = `${day}/${month}/${year}`;
-      const parsed = parse(formatted, 'dd/MM/yyyy', new Date());
+      const parsed: Date | string = parse(formatted, 'dd/MM/yyyy', new Date());
 
       if (isValid(parsed)) {
-        onSelectDate?.(parsed);
+        onSelectDate?.(formatted);
         setInputValue(formatted);
       } else {
-        onSelectDate?.(undefined);
+        clearDateInput();
       }
     } else {
       clearDateInput();
@@ -57,6 +68,91 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate }: CustomInputsP
     setInputValue('');
     onSelectDate?.(undefined);
   };
+
+  // Add Input
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [additionInput, setAdditionInput] = useState('');
+
+  const handleAddition = () => {
+    const trimmed = additionInput.trim();
+    if (!trimmed || !onAddItem) return;
+
+    const updated = [...(additions ?? []), trimmed];
+    setShowDropdown(false);
+    onAddItem(updated);
+    setAdditionInput('');
+  };
+
+  const clearAddInput = () => {
+    onAddItem?.(undefined)
+  }
+
+  // Select Class
+  const classesList = ['Juniores', 'Jardim 1', 'Jardim 2', 'Pré Primário', 'Adolescentes', 'Primários'];
+  const [showClassesList, setShowClassesList] = useState(false);
+  const [selectedClass, setSelectedClass] = useState('');
+
+  const showClasses = () => {
+    return (
+      <S.SelectClassListWrapper>
+        <S.SelectClassList>
+          {classesList.map((c) => (
+            <S.ClassListItem key={c} onClick={() => {handleSelectClass(c)}}>
+              {c}
+            </S.ClassListItem>
+          ))}
+        </S.SelectClassList>
+      </S.SelectClassListWrapper>
+    );
+  };
+
+  const handleSelectClass = (c: string) => {
+    setShowClassesList(false);
+    setSelectedClass(c);
+    onAddClass?.(c);
+  }
+
+  // Select Parent
+  const [showParentList, setShowParentList] = useState(false)
+  const [selectedParent, setSelectedParent] = useState<CustomInputSearchResult | undefined>();
+  const [query, setQuery] = useState('');
+
+  const handleSelectParent = (parent: CustomInputSearchResult) => {
+    setShowParentList(false);
+    setSelectedParent(parent);
+    onSelectParent?.(parent);
+  }
+
+  useEffect(() => {
+    if (searchParent && query.trim() !== '') {
+      searchParent(query);
+    }
+  }, [query]);
+
+  const showParentResults = () => {
+    return (
+      <S.SelectClassListWrapper>
+        <S.SelectClassList>
+          {parentResult!.length > 0 ? parentResult?.map((p) => (
+            <S.ClassListItem key={p.parentName} onClick={() => {handleSelectParent(p)}}>
+              <img src={p.imgUrl} alt="" />
+              <span>{p.parentName}</span>
+            </S.ClassListItem>
+          )) : (
+            <S.ClassListItem>
+              <span>Nenhum Responsável Pesquisado</span>
+            </S.ClassListItem>
+          )}
+        </S.SelectClassList>
+      </S.SelectClassListWrapper>
+    );
+  };
+
+  const clearSelectedParent = () => {
+    setShowParentList(false);
+    setSelectedParent(undefined);
+    onSelectParent?.(undefined)
+  }
 
   switch (type) {
     case 'date':
@@ -77,7 +173,7 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate }: CustomInputsP
             <S.CalendarPopup>
               <DayPicker
                 mode="single"
-                selected={selectedDate}
+                selected={selectedDate ? parse(selectedDate, 'dd/MM/yyyy', new Date()) : undefined}
                 onSelect={handleCalendarSelect}
                 weekStartsOn={1}
               />
@@ -85,15 +181,69 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate }: CustomInputsP
           )}
         </S.CustomInputsWrapper>
       );
+    
+    case 'select-class':
+      return (
+        <>
+          <S.CustomInputsWrapper>
+            <input type="text" readOnly placeholder="Nenhuma" value={selectedClass}  />
+            <S.IconsContainer>
+              <S.RotatableSelectIcon onClick={() => setShowClassesList(!showClassesList)} rotated={showClassesList} />
+            </S.IconsContainer>
+          </S.CustomInputsWrapper>
+          {showClassesList && showClasses()}
+        </>
+      );
+
+    case 'select-parent':
+      return (
+        <>
+          <S.CustomInputsWrapper>
+            {selectedParent ? (
+              <S.SelectedParentContainer>
+                <img src={selectedParent.imgUrl} alt="" />
+                <span>{selectedParent.parentName}</span>
+              </S.SelectedParentContainer>
+            ) : (
+              <input type="text" placeholder="Nenhuma" value={query} onChange={(e) => setQuery(e.target.value)}  />
+            )}
+            <S.IconsContainer>
+              <ResetFieldIcon onClick={clearSelectedParent} />
+              <S.RotatableSelectIcon onClick={() => setShowParentList(!showParentList)} rotated={showParentList} />
+            </S.IconsContainer>
+          </S.CustomInputsWrapper>
+          {showParentList && showParentResults()}
+        </>
+      );
 
     case 'add':
       return (
-        <S.CustomInputsWrapper>
-          <input type="text" placeholder="Nenhuma" />
-          <S.IconsContainer>
-            <PlusIcon />
-          </S.IconsContainer>
-        </S.CustomInputsWrapper>
+        <>
+          <S.CustomInputsWrapper>
+            <input
+              type="text"
+              readOnly
+              placeholder="Nenhuma"
+              value={additions?.join(', ') ?? ''}
+            />
+            <S.IconsContainer>
+              <ResetFieldIcon onClick={clearAddInput} />
+              {showDropdown ? <CloseIcon onClick={() => setShowDropdown(false)} /> : <PlusIcon onClick={() => setShowDropdown(true)} /> }
+            </S.IconsContainer>
+          </S.CustomInputsWrapper>
+
+          {showDropdown && (
+            <S.CustomInputsWrapper>
+              <input
+                type="text"
+                placeholder="Ex.: Asma"
+                value={additionInput}
+                onChange={(e) => setAdditionInput(e.target.value)}
+              />
+              <SendFillIcon onClick={handleAddition} />
+            </S.CustomInputsWrapper>
+          )}
+        </>
       );
   }
 };

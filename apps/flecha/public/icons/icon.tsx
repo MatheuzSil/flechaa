@@ -119,11 +119,11 @@ export const BlurBallIconSecond = (props:any) => {
   return (
     <svg {...props} width="584" height="565" viewBox="0 0 584 565" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_di_221_6233)">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M288.208 98.5535C316.329 92.6355 347.541 97.0197 372.34 111.545C396.851 125.901 405.605 156.332 423.927 178.046C442.79 200.4 476.401 213.352 482.405 241.984C488.427 270.698 468.268 298.367 454.604 324.326C442.955 346.455 423.163 362.052 408.529 382.328C393.14 403.649 387.793 433.097 365.753 447.43C343.493 461.908 314.738 461.601 288.208 460.579C262.2 459.578 236.051 454.541 213.485 441.568C191.513 428.937 179.198 405.525 161.27 387.607C141.205 367.552 105.586 357.085 100.949 329.09C96.2218 300.547 130.17 279.822 138.848 252.223C146.691 227.28 133.654 196.444 149.254 175.465C164.797 154.564 196.769 156.31 219.553 143.698C243.82 130.267 261.069 104.265 288.208 98.5535Z" fill="url(#paint0_linear_221_6233)"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M288.208 98.5535C316.329 92.6355 347.541 97.0197 372.34 111.545C396.851 125.901 405.605 156.332 423.927 178.046C442.79 200.4 476.401 213.352 482.405 241.984C488.427 270.698 468.268 298.367 454.604 324.326C442.955 346.455 423.163 362.052 408.529 382.328C393.14 403.649 387.793 433.097 365.753 447.43C343.493 461.908 314.738 461.601 288.208 460.579C262.2 459.578 236.051 454.541 213.485 441.568C191.513 428.937 179.198 405.525 161.27 387.607C141.205 367.552 105.586 357.085 100.949 329.09C96.2218 300.547 130.17 279.822 138.848 252.223C146.691 227.28 133.654 196.444 149.254 175.465C164.797 154.564 196.769 156.31 219.553 143.698C243.82 130.267 261.069 104.265 288.208 98.5535Z" fill="url(#paint0_linear_221_6233)"/>
       </g>
       <defs>
-        <filter id="filter0_di_221_6233" x="0.5" y="0" width="583" height="565" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <filter id="filter0_di_221_6233" x="0.5" y="0" width="583" height="565" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
           <feOffset dy="4"/>
           <feGaussianBlur stdDeviation="50"/>
@@ -139,9 +139,9 @@ export const BlurBallIconSecond = (props:any) => {
           <feBlend mode="normal" in2="shape" result="effect2_innerShadow_221_6233"/>
         </filter>
         <linearGradient id="paint0_linear_221_6233" x1="100.5" y1="278.5" x2="483.5" y2="278.5" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#38ACFF"/>
-          <stop offset="0.5" stop-color="#8833FF"/>
-          <stop offset="1" stop-color="#FF7033"/>
+          <stop stopColor="#38ACFF"/>
+          <stop offset="0.5" stopColor="#8833FF"/>
+          <stop offset="1" stopColor="#FF7033"/>
         </linearGradient>
       </defs>
     </svg>
@@ -152,11 +152,11 @@ export const BlurballIcon = (props:any) => {
   return(
     <svg {...props} width="584" height="584" viewBox="0 0 584 584" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_di_221_6234)">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M290.925 102.904C318.225 106.942 341.181 122.299 367.756 129.739C404.528 140.034 456.117 123.453 477.462 155.128C498.226 185.941 458.887 225.737 457.469 262.871C456.127 298.039 483.278 333.619 469.413 365.964C455.537 398.335 416.192 409.553 386.488 428.461C355.484 448.197 327.371 484.287 290.925 479.581C253.687 474.773 237.509 429.483 208.615 405.495C185.256 386.102 155.288 376.013 136.989 351.783C117.381 325.819 97.399 295.223 100.902 262.871C104.384 230.719 137.96 211.838 155.112 184.426C171.518 158.208 173.242 120.807 199.755 104.893C226.272 88.9761 260.333 98.3801 290.925 102.904Z" fill="url(#paint0_linear_221_6234)"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M290.925 102.904C318.225 106.942 341.181 122.299 367.756 129.739C404.528 140.034 456.117 123.453 477.462 155.128C498.226 185.941 458.887 225.737 457.469 262.871C456.127 298.039 483.278 333.619 469.413 365.964C455.537 398.335 416.192 409.553 386.488 428.461C355.484 448.197 327.371 484.287 290.925 479.581C253.687 474.773 237.509 429.483 208.615 405.495C185.256 386.102 155.288 376.013 136.989 351.783C117.381 325.819 97.399 295.223 100.902 262.871C104.384 230.719 137.96 211.838 155.112 184.426C171.518 158.208 173.242 120.807 199.755 104.893C226.272 88.9761 260.333 98.3801 290.925 102.904Z" fill="url(#paint0_linear_221_6234)"/>
       </g>
       <defs>
-      <filter id="filter0_di_221_6234" x="0.5" y="0" width="583" height="584" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <filter id="filter0_di_221_6234" x="0.5" y="0" width="583" height="584" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+      <feFlood floodOpacity="0" result="BackgroundImageFix"/>
       <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
       <feOffset dy="4"/>
       <feGaussianBlur stdDeviation="50"/>
@@ -172,9 +172,9 @@ export const BlurballIcon = (props:any) => {
       <feBlend mode="normal" in2="shape" result="effect2_innerShadow_221_6234"/>
       </filter>
       <linearGradient id="paint0_linear_221_6234" x1="100.5" y1="288" x2="483.5" y2="288" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#38ACFF"/>
-      <stop offset="0.5" stop-color="#8833FF"/>
-      <stop offset="1" stop-color="#FF7033"/>
+      <stop stopColor="#38ACFF"/>
+      <stop offset="0.5" stopColor="#8833FF"/>
+      <stop offset="1" stopColor="#FF7033"/>
       </linearGradient>
       </defs>
     </svg>
@@ -184,9 +184,9 @@ export const BlurballIcon = (props:any) => {
 export const PlusIcon = (props: any) => {
   return (
     <svg {...props} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_221_6287)">
-        <g clip-path="url(#clip1_221_6287)">
-          <g clip-path="url(#clip2_221_6287)">
+      <g clipPath="url(#clip0_221_6287)">
+        <g clipPath="url(#clip1_221_6287)">
+          <g clipPath="url(#clip2_221_6287)">
             <path d="M29 23H23V29H21V23H15V21H21V15H23V21H29V23Z" fill="#33AAFF"/>
           </g>
         </g>
@@ -209,8 +209,8 @@ export const PlusIcon = (props: any) => {
 export const ArrowButtonIcon = (props:any) => {
   return (
     <svg {...props} width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.6453 8.89453L30.7503 17.9995L21.6453 27.1045" stroke="#F0F8FF" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M5.25 18H30.495" stroke="#F0F8FF" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M21.6453 8.89453L30.7503 17.9995L21.6453 27.1045" stroke="#F0F8FF" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M5.25 18H30.495" stroke="#F0F8FF" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
@@ -226,11 +226,57 @@ export const DateIcon = (props: any) => {
 export const ResetFieldIcon = (props: any) => {
   return (
     <svg {...props} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_221_6265)">
+      <g clipPath="url(#clip0_221_6265)">
         <path d="M22 12C27.53 12 32 16.47 32 22C32 27.53 27.53 32 22 32C16.47 32 12 27.53 12 22C12 16.47 16.47 12 22 12ZM20.1104 18.7002C19.7204 18.3102 19.0902 18.3102 18.7002 18.7002C18.3102 19.0902 18.3102 19.7204 18.7002 20.1104L20.5898 22L18.7002 23.8896C18.3102 24.2796 18.3102 24.9098 18.7002 25.2998C19.0902 25.6898 19.7204 25.6898 20.1104 25.2998L22 23.4102L23.8896 25.2998C24.2796 25.6898 24.9098 25.6898 25.2998 25.2998C25.6898 24.9098 25.6898 24.2796 25.2998 23.8896L23.4102 22L25.2998 20.1104C25.6898 19.7204 25.6898 19.0902 25.2998 18.7002C24.9098 18.3202 24.2696 18.3202 23.8896 18.7002L22 20.5898L20.1104 18.7002Z" fill="#33AAFF"/>
       </g>
       <defs>
         <clipPath id="clip0_221_6265">
+          <rect width="24" height="24" fill="white" transform="translate(10 10)"/>
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}
+
+export const ChevronDownIcon = (props: any) => {
+  return (
+    <svg {...props} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clipPath="url(#clip0_221_6255)">
+        <path d="M8.32278 13.1383L11.1426 10.3185C11.5672 9.89385 12.2531 9.89385 12.6777 10.3185L15.4975 13.1383C16.1834 13.8242 15.6935 15 14.7245 15H9.0849C8.11592 15 7.63688 13.8242 8.32278 13.1383Z" fill="#33AAFF"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_221_6255">
+        <rect width="24" height="24" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}
+
+export const SendFillIcon = (props: any) => {
+  return (
+    <svg {...props} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M29.9642 14.6857C30.0385 14.5 29.995 14.2879 29.8536 14.1465C29.7121 14.005 29.5 13.9615 29.3143 14.0358L14.7672 19.8546L14.7657 19.8552L14.3143 20.0358C14.1401 20.1054 14.0196 20.2667 14.0022 20.4535C13.9847 20.6403 14.0733 20.8211 14.2316 20.9218L14.6412 21.1825L14.6431 21.1837L19.6378 24.3622L22.8163 29.3569L22.8178 29.3593L23.0782 29.7685C23.1789 29.9267 23.3597 30.0153 23.5465 29.9978C23.7333 29.9804 23.8946 29.8599 23.9642 29.6857L29.9642 14.6857ZM28.1311 16.576L20.6372 24.0699L20.4218 23.7316C20.3825 23.6698 20.3302 23.6175 20.2684 23.5782L19.9301 23.3628L27.4239 15.869L28.6025 15.3975L28.1311 16.576Z" fill="#33AAFF"/>
+    </svg>
+  )
+}
+
+export const CloseIcon = (props: any) => {
+  return (
+    <svg {...props} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.1464 16.8536C15.9512 16.6583 15.9512 16.3417 16.1464 16.1464C16.3417 15.9512 16.6583 15.9512 16.8536 16.1464L22 21.2929L27.1464 16.1464C27.3417 15.9512 27.6583 15.9512 27.8536 16.1464C28.0488 16.3417 28.0488 16.6583 27.8536 16.8536L22.7071 22L27.8536 27.1464C28.0488 27.3417 28.0488 27.6583 27.8536 27.8536C27.6583 28.0488 27.3417 28.0488 27.1464 27.8536L22 22.7071L16.8536 27.8536C16.6583 28.0488 16.3417 28.0488 16.1464 27.8536C15.9512 27.6583 15.9512 27.3417 16.1464 27.1464L21.2929 22L16.1464 16.8536Z" fill="#33AAFF"/>
+    </svg>
+  )
+}
+
+export const SelectIcon = (props: any) => {
+  return (
+    <svg {...props} width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clipPath="url(#clip0_221_6254)">
+        <path d="M18.3228 23.1383L21.1426 20.3185C21.5672 19.8938 22.2531 19.8938 22.6777 20.3185L25.4975 23.1383C26.1834 23.8242 25.6935 25 24.7245 25H19.0849C18.1159 25 17.6369 23.8242 18.3228 23.1383Z" fill="#33AAFF"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_221_6254">
           <rect width="24" height="24" fill="white" transform="translate(10 10)"/>
         </clipPath>
       </defs>

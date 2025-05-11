@@ -103,10 +103,12 @@ export const ChildFormInput = styled(Field)`
   padding: 0.5rem;
   outline: none;
 
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  color: ${({ theme }) => theme.brandColors.backgroundBlack};
+  input {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: ${({ theme }) => theme.fonts.poppins};
+    color: ${({ theme }) => theme.brandColors.backgroundBlack};
+  }
 
   // border
   border-radius: 20px;
@@ -118,6 +120,66 @@ export const ChildFormInput = styled(Field)`
   background-clip: padding-box, border-box;
   box-sizing: border-box;
   z-index: 1;
+`;
+
+export const TermsAndConditionsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 36px;
+`
+
+export const CheckboxLabel = styled.label`
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({ theme }) => theme.brandColors.primary50};
+  margin-right: 16px;
+`
+
+export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+`;
+
+export const StyledCheckbox = styled.div<{ checked: boolean }>`
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 16px;
+  border-radius: 5px;
+  background-image: 
+    linear-gradient(white, white),
+    linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border: 4px solid transparent;
+  box-sizing: border-box;
+  transition: all 150ms;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: ${({ checked }) => (checked ? '#222222' : 'transparent')};
+  }
+`;
+
+export const CheckboxContainer = styled.label`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
 `;
 
 export const ChildFormButttonContainer = styled.div`
@@ -132,7 +194,7 @@ export const ChildFormButton = styled.button`
   align-items: center;
   color: ${({ theme }) => theme.brandColors.primary50};
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 24px;
+  font-size: 18px;
   border-radius: 5px;
   font-weight: 500;
   padding: 16px 36px;
