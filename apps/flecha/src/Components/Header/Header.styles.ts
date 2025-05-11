@@ -29,6 +29,7 @@ export const HeaderContents = styled.div`
 export const HeaderFlechaIcon = styled.img`
   width: 200px;
   height: 100px;
+  cursor: pointer
 `
 
 export const HeaderProfileContainer = styled.div`

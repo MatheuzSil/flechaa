@@ -2,17 +2,57 @@ import * as S from './ChildFormRegister.styles'
 import { CustomInputs } from '../../CustomInputs/CustomInputs'
 import { useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash.debounce';
+import useSWRMutation from 'swr/mutation';
+import { useToast } from 'apps/flecha/src/hooks/useToast';
+import { an } from '@upstash/redis/zmscore-CjoCv9kz';
+import { useLoadingStore } from 'apps/flecha/src/store/store';
 
 export const ChildFormRegister = () => {
   const [childName, setChildName] = useState<string>('');
-  const [childAge, setChildAge] = useState<Number>(0);
+  const [childAge, setChildAge] = useState<number>(0);
   const [birthDate, setBirthDate] = useState<string | undefined>(undefined);
-  const [additions, setAdditions] = useState<string[] | undefined>(undefined);
+  const [medicalConditions, setAdditions] = useState<string[] | undefined>(undefined);
   const [selectedClass, setSelectedClass] = useState<string| undefined>(undefined);
   const [selectedParent, setSelectedParent] = useState<CustomInputSearchResult | undefined>(undefined);
   const [parentResult, setParentResult] = useState<CustomInputSearchResult[] | []>([]);
   const [isPcd, setIsPcd] = useState<boolean>(false);
   const [termsAndConditions, setTermsAndConditions] = useState<boolean>(false);
+  const { showError, showSuccess } = useToast();
+  
+  const activateLoadAnimation = useLoadingStore(
+      (state) => state.activateLoadAnimation
+    );
+    const deactivateLoadAnimation = useLoadingStore(
+      (state) => state.deactivateLoadAnimation
+    );
+  
+
+  const childRegister = async (url: any, { arg }: {arg: ChildRegisterPayload}) => {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(arg),
+    });
+
+    let data;
+    try {
+      data = await response.json();
+    } catch (error) {
+      console.warn('Failed to parse JSON:', error);
+      data = null;
+    }
+
+    if (!response.ok) {
+      const error = new Error(data?.error || 'Erro ao cadastrar criança') as any;
+      error.response = response;
+      error.data = data;
+      throw error;
+    }
+
+    return data;
+  };
+
+  const { trigger, isMutating } = useSWRMutation('api/childRegister', childRegister);
 
   const stringIntoIntergerConverter = (value: string) => {
     const age = Number.parseInt(value);
@@ -60,6 +100,40 @@ export const ChildFormRegister = () => {
     };
   }, []);
 
+  type ChildRegisterPayload = {
+    childName: string;
+    childAge: number;
+    birthDate?: string;
+    medicalConditions?: string[];
+    selectedClass?: string;
+    selectedParent?: CustomInputSearchResult;
+    isPcd: boolean;
+  };
+
+
+  const onChildRegister = async () => {
+    
+    activateLoadAnimation();
+    
+    const data: ChildRegisterPayload =  {
+      childName,
+      childAge,
+      birthDate,
+      medicalConditions,
+      selectedClass,
+      selectedParent,
+      isPcd
+    }
+
+    try {
+      await trigger(data);
+      showSuccess('Criança cadastrada com sucesso!');
+    } catch (error: any) {
+      showError(error.data?.error || error.message || 'Erro ao cadastrar criança');
+    }
+    deactivateLoadAnimation();
+  }
+
   return(
     <>
       <S.ChildFormRegister>
@@ -83,7 +157,7 @@ export const ChildFormRegister = () => {
               <S.ChildFormSubtitle>Selecionar Responsável</S.ChildFormSubtitle>
               <CustomInputs type='select-parent' selectParent={selectedParent} onSelectParent={setSelectedParent} parentResult={parentResult} searchParent={debouncedParentSearch}  />
               <S.ChildFormSubtitle>Adicionar Condição Médica</S.ChildFormSubtitle>
-              <CustomInputs type='add' additions={additions} onAddItem={setAdditions} />
+              <CustomInputs type='add' medicalConditions={medicalConditions} onAddItem={setAdditions} />
             </S.Wrapper>
           </S.ChildFormContainer>
           <S.TermsAndConditionsContainer>
@@ -100,7 +174,7 @@ export const ChildFormRegister = () => {
             </S.CheckboxContainer>
           </S.TermsAndConditionsContainer>
           <S.ChildFormButttonContainer>
-            <S.ChildFormButton>Cadastrar <S.ArrowButtonIconContainer /></S.ChildFormButton>
+            <S.ChildFormButton onClick={onChildRegister}>Cadastrar <S.ArrowButtonIconContainer /></S.ChildFormButton>
           </S.ChildFormButttonContainer>
         </S.ChildFormRegisterContainer>
       </S.ChildFormRegister>

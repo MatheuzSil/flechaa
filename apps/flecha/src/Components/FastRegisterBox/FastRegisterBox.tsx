@@ -1,8 +1,10 @@
 import { PersonIconBlack, PersonsIconBlack } from 'apps/flecha/public/icons/icon'
 import * as S from './FastRegisterBox.styles'
+import { useRouter } from 'next/navigation'
 
 export const FastRegisterBox = () => {
-
+  const router = useRouter()
+  
   return(
   <>
     <S.FastRegisterBox>
@@ -11,7 +13,7 @@ export const FastRegisterBox = () => {
         <S.TextAndButtonsContainer>
           <S.FastRegisterBoxText>Quer cadastrar alguém rápidamente? Escolha uma das opções <br/> abaixo e preencha o formulário de forma rápida e fácil! </S.FastRegisterBoxText>
           <S.ButtonsContainer>
-            <S.FastRegisterButton><PersonIconBlack /> Cadastrar Criança</S.FastRegisterButton>
+            <S.FastRegisterButton onClick={() => router.push("dashboard/cadastro-criancas")}><PersonIconBlack/> Cadastrar Criança</S.FastRegisterButton>
             <S.FastRegisterButtonParents><PersonsIconBlack /> Cadastrar Responsável</S.FastRegisterButtonParents>
           </S.ButtonsContainer>
         </S.TextAndButtonsContainer>
