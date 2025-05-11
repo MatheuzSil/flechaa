@@ -13,10 +13,6 @@ export const ChildFormRegister = () => {
   const [parentResult, setParentResult] = useState<CustomInputSearchResult[] | []>([]);
   const [isPcd, setIsPcd] = useState<boolean>(false);
   const [termsAndConditions, setTermsAndConditions] = useState<boolean>(false);
-  
-  useEffect(() => {
-    console.log(isPcd, termsAndConditions);
-  }, [isPcd, termsAndConditions])
 
   const stringIntoIntergerConverter = (value: string) => {
     const age = Number.parseInt(value);
