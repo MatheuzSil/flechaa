@@ -8,26 +8,17 @@ import { an } from '@upstash/redis/zmscore-CjoCv9kz';
 import { useLoadingStore } from 'apps/flecha/src/store/store';
 import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
 
-export const ChildFormRegister = () => {
-  const [childName, setChildName] = useState<string>('');
-  const [childAge, setChildAge] = useState<number>(0);
-  const [birthDate, setBirthDate] = useState<string | undefined>(undefined);
-  const [medicalConditions, setAdditions] = useState<string[] | undefined>(undefined);
-  const [selectedClass, setSelectedClass] = useState<string| undefined>(undefined);
-  const [selectedParent, setSelectedParent] = useState<CustomInputSearchResult | undefined>(undefined);
-  const [isPcd, setIsPcd] = useState<boolean>(false);
-  const [termsAndConditions, setTermsAndConditions] = useState<boolean>(false);
-  const { showError, showSuccess } = useToast();
-  
-  const activateLoadAnimation = useLoadingStore(
-      (state) => state.activateLoadAnimation
-    );
-    const deactivateLoadAnimation = useLoadingStore(
-      (state) => state.deactivateLoadAnimation
-    );
-  
+  type ChildRegisterPayload = {
+    childName: string;
+    childAge: number;
+    birthDate?: string;
+    medicalConditions?: string[];
+    selectedClass?: string;
+    selectedParent?: CustomInputSearchResult;
+    isPcd: boolean;
+  };
 
-  const childRegister = async (url: any, { arg }: {arg: ChildRegisterPayload}) => {
+ const childRegister = async (url: any, { arg }: {arg: ChildRegisterPayload}) => {
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -52,7 +43,29 @@ export const ChildFormRegister = () => {
     return data;
   };
 
-  const { trigger, isMutating } = useSWRMutation('api/childRegister', childRegister);
+
+export const ChildFormRegister = () => {
+  const [childName, setChildName] = useState<string>('');
+  const [childAge, setChildAge] = useState<number>(0);
+  const [birthDate, setBirthDate] = useState<string | undefined>(undefined);
+  const [medicalConditions, setAdditions] = useState<string[] | undefined>(undefined);
+  const [selectedClass, setSelectedClass] = useState<string| undefined>(undefined);
+  const [selectedParent, setSelectedParent] = useState<CustomInputSearchResult | undefined>(undefined);
+  const [isPcd, setIsPcd] = useState<boolean>(false);
+  const [termsAndConditions, setTermsAndConditions] = useState<boolean>(false);
+  const { showError, showSuccess } = useToast();
+  
+  const activateLoadAnimation = useLoadingStore(
+      (state) => state.activateLoadAnimation
+    );
+    const deactivateLoadAnimation = useLoadingStore(
+      (state) => state.deactivateLoadAnimation
+    );
+  
+
+ 
+
+  const { trigger, isMutating } = useSWRMutation('../api/dashboard/childregister', childRegister);
 
   const { getParentResult, parentResult, loading } = useSearchParentResult();
 
