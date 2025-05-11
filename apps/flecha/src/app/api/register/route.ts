@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { AuthService } from '../../../services/AuthService';
-import { UserRepository } from '../../../repositories/UserRepository';
+import { userRepository } from 'apps/flecha/src/lib/repositories';
 import { generateToken } from '../../../utils/auth';
 
-const authService = new AuthService(new UserRepository());
+const authService = new AuthService(userRepository);
 
 export async function POST(req: Request) {
   try {
