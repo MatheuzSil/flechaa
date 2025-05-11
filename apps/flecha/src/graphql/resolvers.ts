@@ -1,5 +1,6 @@
 import { searchService } from '../services/SearchService';
 import { searchModalService } from '../services/SearchModalService';
+import { SearchParentResult } from '../services/SearchParentResult';
 
 export const resolvers = {
   Query: {
@@ -9,5 +10,8 @@ export const resolvers = {
     getChildModal: async (_: any, { childId }: { childId: string }) => {
       return await searchModalService(childId);
     },
+    getParentResult: async(_: any, {query}: { query: string }) => {
+      return await SearchParentResult(query);
+    }
   },
 };

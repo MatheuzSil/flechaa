@@ -36,6 +36,19 @@ const typeDefs = gql`
   extend type Query {
     getChildModal(childId: String!): ChildModal!
   }
+
+  type ParentSelectResult {
+    id: String!
+    name: String!
+  }
+
+  type ParentResult {
+    parentResult: [ParentSelectResult!]!
+  }
+
+  extend type Query {
+    getParentResult(query: String!): ParentResult!
+  }
 `;
 
 export const schema = makeExecutableSchema({

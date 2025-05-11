@@ -1,4 +1,5 @@
 interface CustomInputSearchResult {
-  imgUrl: string;
+  id: string;
   parentName: string;
+  imgUrl: string;
 }

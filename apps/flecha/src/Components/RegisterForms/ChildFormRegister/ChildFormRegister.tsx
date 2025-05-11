@@ -6,6 +6,7 @@ import useSWRMutation from 'swr/mutation';
 import { useToast } from 'apps/flecha/src/hooks/useToast';
 import { an } from '@upstash/redis/zmscore-CjoCv9kz';
 import { useLoadingStore } from 'apps/flecha/src/store/store';
+import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
 
 export const ChildFormRegister = () => {
   const [childName, setChildName] = useState<string>('');
@@ -14,7 +15,6 @@ export const ChildFormRegister = () => {
   const [medicalConditions, setAdditions] = useState<string[] | undefined>(undefined);
   const [selectedClass, setSelectedClass] = useState<string| undefined>(undefined);
   const [selectedParent, setSelectedParent] = useState<CustomInputSearchResult | undefined>(undefined);
-  const [parentResult, setParentResult] = useState<CustomInputSearchResult[] | []>([]);
   const [isPcd, setIsPcd] = useState<boolean>(false);
   const [termsAndConditions, setTermsAndConditions] = useState<boolean>(false);
   const { showError, showSuccess } = useToast();
@@ -54,6 +54,8 @@ export const ChildFormRegister = () => {
 
   const { trigger, isMutating } = useSWRMutation('api/childRegister', childRegister);
 
+  const { getParentResult, parentResult, loading } = useSearchParentResult();
+
   const stringIntoIntergerConverter = (value: string) => {
     const age = Number.parseInt(value);
     if(isNaN(age)) {
@@ -63,35 +65,11 @@ export const ChildFormRegister = () => {
     }
   }
   
-  // example function and array just to see if stuff works
-  const parents = [
-    {
-      imgUrl: "/icons/profile_placeholder.svg",
-      parentName: "Julio Augusto"
-    },
-    {
-      imgUrl: "/icons/profile_placeholder.svg",
-      parentName: "Juliana Prado"
-    }
-  ]
-  const searchParent = (query: string) => {
-    if (query.trim() === '') {
-      setParentResult([]); // clear if query is empty
-      return;
-    }
-
-    // perform your actual search logic
-    const filtered = parents.filter(p =>
-      p.parentName.toLowerCase().includes(query.toLowerCase())
-    );
-    setParentResult(filtered);
-  };
-  
   // keep this
   const debouncedParentSearch = useMemo(() => 
-    debounce((query: string) => {
-      searchParent(query);
-    }, 300), []
+    debounce(async (query: string) => {
+      await getParentResult({ variables: { query } });
+    }, 300), [getParentResult]
   );
 
   useEffect(() => {
@@ -112,7 +90,7 @@ export const ChildFormRegister = () => {
 
 
   const onChildRegister = async () => {
-    
+
     activateLoadAnimation();
     
     const data: ChildRegisterPayload =  {
