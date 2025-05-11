@@ -2,7 +2,6 @@ import * as S from './ChildFormRegister.styles'
 import { CustomInputs } from '../../CustomInputs/CustomInputs'
 import { useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash.debounce';
-import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
 import useSWRMutation from 'swr/mutation';
 import { useToast } from 'apps/flecha/src/hooks/useToast';
 import { useLoadingStore } from 'apps/flecha/src/store/store';
