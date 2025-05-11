@@ -5,6 +5,7 @@ export const useSearchParentResult = () => {
   const [getParentResult, { data, loading, error }] = useLazyQuery(SEARCH_PARENT_QUERY);
 
   const formattedResults: CustomInputSearchResult[] = data?.getParentResult.parentResult.map((parent: any) => ({
+    id: parent.id,
     parentName: parent.name,
     imgUrl: '/icons/profile_placeholder.svg'
   })) ?? [];
