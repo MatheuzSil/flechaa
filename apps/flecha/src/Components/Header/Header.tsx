@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import * as S from './Header.styles';
 import { ArrowIcon, ProfileIcon } from 'apps/flecha/public/icons/icon';
 import { useUserStore } from '../../store/store';
+import { useRouter } from 'next/navigation';
 
 export const Header = () => {
   const [isFixed, setIsFixed] = useState(false);
   const name = useUserStore((state) => state.name);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +21,11 @@ export const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  
   return (
     <S.HeaderContainer isFixed={isFixed}>
       <S.HeaderContents>
-        <S.HeaderFlechaIcon src="/flecha_logo.svg" alt="Flecha" />
+        <S.HeaderFlechaIcon onClick={() => router.push("/dashboard")} src="/flecha_logo.svg" alt="Flecha" />
         <S.HeaderProfileContainer>
           <ProfileIcon />
           <S.HeaderProfileName>{name}</S.HeaderProfileName>

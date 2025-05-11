@@ -10,7 +10,7 @@ interface CustomInputsProps {
   selectedDate?: string | undefined;
   onSelectDate?: (date: string | undefined) => void;
 
-  additions?: string[];
+  medicalConditions?: string[];
   onAddItem?: (items: string[] | undefined) => void;
 
   selectClassItem?: string | undefined;
@@ -22,7 +22,7 @@ interface CustomInputsProps {
   searchParent?: (query: string) => void;
 }
 
-export const CustomInputs = ({ type, selectedDate, onSelectDate, additions, onAddItem, onAddClass, onSelectParent, parentResult, searchParent }: CustomInputsProps) => {
+export const CustomInputs = ({ type, selectedDate, onSelectDate, medicalConditions, onAddItem, onAddClass, onSelectParent, parentResult, searchParent }: CustomInputsProps) => {
 
   // Date Input
   const [open, setOpen] = useState(false);
@@ -77,7 +77,7 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate, additions, onAd
     const trimmed = additionInput.trim();
     if (!trimmed || !onAddItem) return;
 
-    const updated = [...(additions ?? []), trimmed];
+    const updated = [...(medicalConditions ?? []), trimmed];
     setShowDropdown(false);
     onAddItem(updated);
     setAdditionInput('');
@@ -128,6 +128,18 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate, additions, onAd
       searchParent(query);
     }
   }, [query]);
+
+
+  //Parent Input
+
+  const onParentInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+    setShowParentList(true);
+    setQuery(raw);
+    if (searchParent) {
+      searchParent(raw);
+    }
+  };
 
   const showParentResults = () => {
     return (
@@ -205,7 +217,7 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate, additions, onAd
                 <span>{selectedParent.parentName}</span>
               </S.SelectedParentContainer>
             ) : (
-              <input type="text" placeholder="Nenhuma" value={query} onChange={(e) => setQuery(e.target.value)}  />
+              <input type="text" placeholder="Nenhuma" value={query} onChange={onParentInputChange}  />
             )}
             <S.IconsContainer>
               <ResetFieldIcon onClick={clearSelectedParent} />
@@ -224,7 +236,7 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate, additions, onAd
               type="text"
               readOnly
               placeholder="Nenhuma"
-              value={additions?.join(', ') ?? ''}
+              value={medicalConditions?.join(', ') ?? ''}
             />
             <S.IconsContainer>
               <ResetFieldIcon onClick={clearAddInput} />
