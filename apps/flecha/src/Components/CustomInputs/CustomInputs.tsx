@@ -4,6 +4,7 @@ import { DayPicker } from 'react-day-picker';
 import { useEffect, useState } from 'react';
 import 'react-day-picker/dist/style.css';
 import * as S from './CustomInputs.styles';
+import Scanning from '../Animations/Scanning/Scanning';
 
 interface CustomInputsProps {
   type: 'date' | 'add' | 'select-class' | 'select-parent';
@@ -20,9 +21,10 @@ interface CustomInputsProps {
   onSelectParent?: (selectedParent: CustomInputSearchResult | undefined) => void;
   parentResult?: CustomInputSearchResult[] | [];
   searchParent?: (query: string) => void;
+  isLoading?: boolean
 }
 
-export const CustomInputs = ({ type, selectedDate, onSelectDate, medicalConditions, onAddItem, onAddClass, onSelectParent, parentResult, searchParent }: CustomInputsProps) => {
+export const CustomInputs = ({ type, selectedDate, onSelectDate, medicalConditions, onAddItem, onAddClass, onSelectParent, parentResult, searchParent, isLoading }: CustomInputsProps) => {
 
   // Date Input
   const [open, setOpen] = useState(false);
@@ -224,7 +226,8 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate, medicalConditio
               <S.RotatableSelectIcon onClick={() => setShowParentList(!showParentList)} rotated={showParentList} />
             </S.IconsContainer>
           </S.CustomInputsWrapper>
-          {showParentList && showParentResults()}
+          {isLoading && <Scanning isScanning={isLoading}  />}
+          {showParentList && !isLoading && showParentResults()}
         </>
       );
 
