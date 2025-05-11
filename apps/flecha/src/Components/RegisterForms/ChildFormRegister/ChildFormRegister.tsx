@@ -132,7 +132,7 @@ export const ChildFormRegister = () => {
               <S.ChildFormSubtitle>Idade da Criança</S.ChildFormSubtitle>
               <S.ChildFormInput type="text" placeholder="Digite a idade da criança" value={childAge} onChange={(e: any) => stringIntoIntergerConverter(e.target.value) } />
               <S.ChildFormSubtitle>Selecionar Responsável</S.ChildFormSubtitle>
-              <CustomInputs type='select-parent' selectParent={selectedParent} onSelectParent={setSelectedParent} parentResult={parentResult} searchParent={debouncedParentSearch}  />
+              <CustomInputs type='select-parent' selectParent={selectedParent} onSelectParent={setSelectedParent} parentResult={parentResult} searchParent={debouncedParentSearch} isLoading={loading} />
               <S.ChildFormSubtitle>Adicionar Condição Médica</S.ChildFormSubtitle>
               <CustomInputs type='add' medicalConditions={medicalConditions} onAddItem={setAdditions} />
             </S.Wrapper>
@@ -145,7 +145,7 @@ export const ChildFormRegister = () => {
             </S.CheckboxContainer>
 
             <S.CheckboxContainer>
-              <S.HiddenCheckbox checked={termsAndConditions} onClick={() => setTermsAndConditions(!termsAndConditions)} type='checkbox' id='termsAndConditions' required />
+              <S.HiddenCheckbox checked={termsAndConditions} onChange={() => setTermsAndConditions(!termsAndConditions)} type='checkbox' id='termsAndConditions' required />
               <S.StyledCheckbox checked={termsAndConditions} />
               <S.CheckboxLabel htmlFor="termsAndConditions">Aceita os termos e condições?</S.CheckboxLabel>
             </S.CheckboxContainer>

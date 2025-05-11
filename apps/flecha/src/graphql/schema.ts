@@ -43,7 +43,7 @@ const typeDefs = gql`
   }
 
   type ParentResult {
-    parentResult: [ParentSelectResult!]!
+    parentResult: [ParentSelectResult]
   }
 
   extend type Query {
