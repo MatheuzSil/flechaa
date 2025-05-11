@@ -2,6 +2,7 @@ import * as S from './ChildFormRegister.styles'
 import { CustomInputs } from '../../CustomInputs/CustomInputs'
 import { useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash.debounce';
+import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
 
 export const ChildFormRegister = () => {
   const [childName, setChildName] = useState<string>('');
@@ -10,9 +11,10 @@ export const ChildFormRegister = () => {
   const [additions, setAdditions] = useState<string[] | undefined>(undefined);
   const [selectedClass, setSelectedClass] = useState<string| undefined>(undefined);
   const [selectedParent, setSelectedParent] = useState<CustomInputSearchResult | undefined>(undefined);
-  const [parentResult, setParentResult] = useState<CustomInputSearchResult[] | []>([]);
   const [isPcd, setIsPcd] = useState<boolean>(false);
   const [termsAndConditions, setTermsAndConditions] = useState<boolean>(false);
+
+  const { getParentResult, parentResult, loading } = useSearchParentResult();
 
   const stringIntoIntergerConverter = (value: string) => {
     const age = Number.parseInt(value);
@@ -23,35 +25,11 @@ export const ChildFormRegister = () => {
     }
   }
   
-  // example function and array just to see if stuff works
-  const parents = [
-    {
-      imgUrl: "/icons/profile_placeholder.svg",
-      parentName: "Julio Augusto"
-    },
-    {
-      imgUrl: "/icons/profile_placeholder.svg",
-      parentName: "Juliana Prado"
-    }
-  ]
-  const searchParent = (query: string) => {
-    if (query.trim() === '') {
-      setParentResult([]); // clear if query is empty
-      return;
-    }
-
-    // perform your actual search logic
-    const filtered = parents.filter(p =>
-      p.parentName.toLowerCase().includes(query.toLowerCase())
-    );
-    setParentResult(filtered);
-  };
-  
   // keep this
   const debouncedParentSearch = useMemo(() => 
-    debounce((query: string) => {
-      searchParent(query);
-    }, 300), []
+    debounce(async (query: string) => {
+      await getParentResult({ variables: { query } });
+    }, 300), [getParentResult]
   );
 
   useEffect(() => {
