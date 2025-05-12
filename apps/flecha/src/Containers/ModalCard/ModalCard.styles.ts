@@ -15,7 +15,7 @@ export const ModalOverlay = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  z-index: 999;
+  z-index: 2000;
 `
 
 

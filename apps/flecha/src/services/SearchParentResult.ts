@@ -11,7 +11,8 @@ export async function SearchParentResult(query: string) {
     },
     select: {
       id: true,
-      name: true
+      name: true,
+      phone: true,
     }
   });
 

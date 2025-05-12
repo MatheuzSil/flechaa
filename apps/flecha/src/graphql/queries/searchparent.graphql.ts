@@ -6,6 +6,7 @@ export const SEARCH_PARENT_QUERY = gql`
       parentResult {
         id
         name
+        phone
       }
     }
   }

@@ -6,6 +6,7 @@ import useSWRMutation from 'swr/mutation';
 import { useToast } from 'apps/flecha/src/hooks/useToast';
 import { useLoadingStore } from 'apps/flecha/src/store/store';
 import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
+import { sendWhatsappMessage } from 'apps/flecha/src/utils/sendWhatsappMessage';
 
   type ChildRegisterPayload = {
     childName: string;
@@ -100,6 +101,7 @@ export const ChildFormRegister = () => {
     isPcd: boolean;
   };
 
+  console.log('childName', selectedParent);
 
   const onChildRegister = async () => {
 
@@ -118,6 +120,7 @@ export const ChildFormRegister = () => {
     try {
       await trigger(data);
       showSuccess('Criança cadastrada com sucesso!');
+      sendWhatsappMessage({ message: `Criança cadastrada com sucesso! Nome: ${childName}, Idade: ${childAge}, Turma: ${selectedClass}, Responsável: ${selectedParent?.parentName}`, number: selectedParent?.phone });
     } catch (error: any) {
       showError(error.data?.error || error.message || 'Erro ao cadastrar criança');
     }

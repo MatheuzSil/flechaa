@@ -1,6 +1,6 @@
 interface SendMessageProps {
   message: string;
-  number: string; 
+  number: string | undefined;
 }
 
 export async function sendWhatsappMessage({ message, number }: SendMessageProps) {
@@ -10,7 +10,7 @@ export async function sendWhatsappMessage({ message, number }: SendMessageProps)
 
   const payload = {
     message,
-    number: '5519998504253'
+    number
   };
   
   const response = await fetch(url, {

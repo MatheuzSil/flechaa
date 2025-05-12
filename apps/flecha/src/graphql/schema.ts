@@ -40,6 +40,7 @@ const typeDefs = gql`
   type ParentSelectResult {
     id: String!
     name: String!
+    phone: String!
   }
 
   type ParentResult {
