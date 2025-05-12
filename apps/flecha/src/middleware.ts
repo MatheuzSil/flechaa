@@ -14,7 +14,6 @@ export async function middleware(req: NextRequest) {
   if (
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/static/') ||
-    pathname.startsWith('/api/') || // Permitir rotas de API
     pathname.startsWith('/icons/') ||
     pathname.endsWith('.svg') ||
     pathname.endsWith('.png') ||

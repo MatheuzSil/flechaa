@@ -120,7 +120,7 @@ async function main() {
           create: {
             name: nome,
             age: idade,
-            birthDate: `201${Math.floor(Math.random() * 5) + 3}-0${Math.floor(Math.random() * 9) + 1}-1${Math.floor(Math.random() * 9)}`,
+            birthDate: `1${Math.floor(Math.random() * 9)}/0${Math.floor(Math.random() * 9) + 1}/201${Math.floor(Math.random() * 5) + 3}`,
             medicalConditions: gerarCondicoesMedicas(),
             class: turmasIgreja[i % turmasIgreja.length],
             pcd: isPCD(),

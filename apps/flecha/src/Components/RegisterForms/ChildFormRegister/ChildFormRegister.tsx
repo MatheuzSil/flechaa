@@ -1,8 +1,13 @@
-import * as S from './ChildFormRegister.styles'
-import { CustomInputs } from '../../CustomInputs/CustomInputs'
-import { useEffect, useMemo, useState } from 'react';
+// libs
+import * as S from './ChildFormRegister.styles';
 import debounce from 'lodash.debounce';
 import useSWRMutation from 'swr/mutation';
+
+// Components
+import { CustomInputs } from '../../CustomInputs/CustomInputs';
+
+// Hooks
+import { useEffect, useMemo, useState } from 'react';
 import { useToast } from 'apps/flecha/src/hooks/useToast';
 import { useLoadingStore } from 'apps/flecha/src/store/store';
 import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
@@ -44,6 +49,10 @@ import { generateQRCodeBase64 } from 'apps/flecha/src/utils/generateQRCode';
     return data;
   };
 
+// utils
+import { ChildRegisterPayload } from 'apps/flecha/src/types/childRegisterPayload';
+import { childRegister } from 'apps/flecha/src/utils/register';
+import { sendWhatsappMessageToApi } from 'apps/flecha/src/utils/sendWhatsappMessageToApi';
 
 export const ChildFormRegister = () => {
   const [childName, setChildName] = useState<string>('');
@@ -56,18 +65,9 @@ export const ChildFormRegister = () => {
   const [termsAndConditions, setTermsAndConditions] = useState<boolean>(false);
   const { showError, showSuccess } = useToast();
   
-  const activateLoadAnimation = useLoadingStore(
-      (state) => state.activateLoadAnimation
-    );
-    const deactivateLoadAnimation = useLoadingStore(
-      (state) => state.deactivateLoadAnimation
-    );
-  
-
- 
-
+  const activateLoadAnimation = useLoadingStore((state) => state.activateLoadAnimation);
+  const deactivateLoadAnimation = useLoadingStore((state) => state.deactivateLoadAnimation);
   const { trigger, isMutating } = useSWRMutation('../api/dashboard/childregister', childRegister);
-
   const { getParentResult, parentResult, loading } = useSearchParentResult();
 
   const stringIntoIntergerConverter = (value: string) => {
@@ -78,8 +78,7 @@ export const ChildFormRegister = () => {
       setChildAge(age);
     }
   }
-  
-  // keep this
+
   const debouncedParentSearch = useMemo(() => 
     debounce(async (query: string) => {
       await getParentResult({ variables: { query } });
@@ -92,30 +91,25 @@ export const ChildFormRegister = () => {
     };
   }, []);
 
-  type ChildRegisterPayload = {
-    childName: string;
-    childAge: number;
-    birthDate?: string;
-    medicalConditions?: string[];
-    selectedClass?: string;
-    selectedParent?: CustomInputSearchResult;
-    isPcd: boolean;
-  };
-
-  console.log('childName', selectedParent);
-
   const onChildRegister = async () => {
-
     activateLoadAnimation();
+
+    let conditions = medicalConditions === undefined ? ['Nenhuma'] : medicalConditions;
     
     const data: ChildRegisterPayload =  {
       childName,
       childAge,
       birthDate,
-      medicalConditions,
+      medicalConditions: conditions,
       selectedClass,
       selectedParent,
       isPcd
+    }
+
+    if(!termsAndConditions){
+      deactivateLoadAnimation();
+      showError("Por favor, aceite os termos e condições!");
+      return;
     }
 
     try {
