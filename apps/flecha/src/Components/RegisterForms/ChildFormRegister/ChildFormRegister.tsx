@@ -45,9 +45,19 @@ import { generateQRCodeBase64 } from 'apps/flecha/src/utils/generateQRCode';
       error.data = data;
       throw error;
     }
-
+    // console.log('Criança cadastrada com sucesso:', data);
     return data;
   };
+
+  const previewQRCode = (base64: string) => {
+  const win = window.open();
+  if (win) {
+    const img = win.document.createElement('img');
+    img.src = base64;
+    img.style.maxWidth = '100%';
+    win.document.body.appendChild(img);
+  }
+};
 
 import { sendWhatsappMessageToApi } from 'apps/flecha/src/utils/sendWhatsappMessageToApi';
 
@@ -113,9 +123,9 @@ export const ChildFormRegister = () => {
       const childRegister = await trigger(data);
       showSuccess('Criança cadastrada com sucesso!');
 
-      const childCardUrl = `localhost:3000/dashboard/qrcode/crianca/${childRegister?.id}`;
+      const childCardUrl = `${window.location.origin}/dashboard/qrcode/crianca/${childRegister?.child.id}`;
       const childQRcode = await generateQRCodeBase64(childCardUrl);
-
+      previewQRCode(childQRcode);
       if (selectedParent?.phone) {
         await sendWhatsappMessage({ 
           message: `Criança cadastrada com sucesso! Nome: ${childName}, Idade: ${childAge}, Turma: ${selectedClass}, Responsável: ${selectedParent?.parentName}`, 

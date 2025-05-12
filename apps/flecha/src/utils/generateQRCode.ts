@@ -4,9 +4,9 @@ export async function generateQRCodeBase64(link: string): Promise<string> {
   try {
     const qrCodeDataUrl = await QRCode.toDataURL(link, {
       errorCorrectionLevel: 'H',
-      type: 'image/png',
+      type: 'image/jpeg',
       margin: 1,
-      scale: 4,
+      scale: 3,
     });
     return qrCodeDataUrl;
   } catch (err) {
