@@ -6,6 +6,11 @@ export async function searchModalService(childId: string) {
       id: childId,
     },
     select: {
+      id: true,
+      name: true,
+      age: true,
+      class: true,
+      pcd: true,
       birthDate: true,
       medicalConditions: true,
       parent: {

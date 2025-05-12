@@ -7,6 +7,7 @@ import { useToast } from 'apps/flecha/src/hooks/useToast';
 import { useLoadingStore } from 'apps/flecha/src/store/store';
 import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
 import { sendWhatsappMessage } from 'apps/flecha/src/utils/sendWhatsappMessage';
+import { generateQRCodeBase64 } from 'apps/flecha/src/utils/generateQRCode';
 
   type ChildRegisterPayload = {
     childName: string;
@@ -118,9 +119,21 @@ export const ChildFormRegister = () => {
     }
 
     try {
-      await trigger(data);
+      const childRegister = await trigger(data);
       showSuccess('Criança cadastrada com sucesso!');
-      sendWhatsappMessage({ message: `Criança cadastrada com sucesso! Nome: ${childName}, Idade: ${childAge}, Turma: ${selectedClass}, Responsável: ${selectedParent?.parentName}`, number: selectedParent?.phone });
+
+      const childCardUrl = `localhost:3000/dashboard/qrcode/crianca/${childRegister?.id}`;
+      const childQRcode = await generateQRCodeBase64(childCardUrl);
+
+      if (selectedParent?.phone) {
+        await sendWhatsappMessage({ 
+          message: `Criança cadastrada com sucesso! Nome: ${childName}, Idade: ${childAge}, Turma: ${selectedClass}, Responsável: ${selectedParent?.parentName}`, 
+          number: selectedParent.phone, 
+          image: childQRcode 
+        });
+      } else {
+        showError('Número de telefone do responsável não encontrado.');
+      }
     } catch (error: any) {
       showError(error.data?.error || error.message || 'Erro ao cadastrar criança');
     }

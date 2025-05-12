@@ -28,6 +28,11 @@ const typeDefs = gql`
   }
 
   type ChildModal {
+    id: String!
+    name: String!
+    age: Int!
+    class: String!
+    pcd: String!
     birthDate: String!
     medicalConditions: [String!]!
     parent: Parent!
