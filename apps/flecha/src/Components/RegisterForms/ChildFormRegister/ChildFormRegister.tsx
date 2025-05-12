@@ -49,9 +49,6 @@ import { generateQRCodeBase64 } from 'apps/flecha/src/utils/generateQRCode';
     return data;
   };
 
-// utils
-import { ChildRegisterPayload } from 'apps/flecha/src/types/childRegisterPayload';
-import { childRegister } from 'apps/flecha/src/utils/register';
 import { sendWhatsappMessageToApi } from 'apps/flecha/src/utils/sendWhatsappMessageToApi';
 
 export const ChildFormRegister = () => {
