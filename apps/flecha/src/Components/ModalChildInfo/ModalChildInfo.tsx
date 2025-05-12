@@ -7,6 +7,7 @@ import { formatMedicalConditions } from '../../utils/general';
 import { sendWhatsappMessage } from '../../utils/sendWhatsappMessage';
 import { useEmergencyMessage, useMessage, useUserStore } from '../../store/store';
 import { useToast } from '../../hooks/useToast';
+import { sendWhatsappMessageToApi } from '../../utils/sendWhatsappMessageToApi';
 
 interface ChildInfoProps {
   childInfo: {
@@ -35,9 +36,8 @@ export const ModalChildInfo = (props: ChildInfoProps) => {
   const sendMessage = async () => {
     activateSendingMessage();
     try{
-      const result = await sendWhatsappMessage({number: parent.phone, message: `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar que seu filho(a) ${name} está com uma condição médica. Por favor, entre em contato comigo para mais informações.`});
+      await sendWhatsappMessageToApi(parent.phone, `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar que seu filho(a) ${name} está com uma condição médica. Por favor, entre em contato comigo para mais informações.`);
       showSuccess("Mensagem enviada com sucesso!");
-      console.log(result);
     }catch (error) {
       console.error(error);
       showError("Erro ao enviar mensagem. Tente novamente mais tarde.");
@@ -49,9 +49,8 @@ export const ModalChildInfo = (props: ChildInfoProps) => {
   const sendMessageEmergency = async () => {
     activateSendingEmergency();
     try{
-      const result = await sendWhatsappMessage({number: parent.emergencyContact, message: `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar de uma emergência que seu filho(a) ${name} está passando. Por favor, entre em contato comigo para mais informações.`});
+      await sendWhatsappMessageToApi(parent.emergencyContact, `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar de uma emergência que seu filho(a) ${name} está passando. Por favor, entre em contato comigo para mais informações.`);
       showSuccess("Mensagem de Emergência enviada com sucesso!");
-      console.log(result);
     }catch (error) {
       console.error(error);
       showError("Erro ao enviar mensagem. Tente novamente mais tarde.");

@@ -4,13 +4,13 @@ interface SendMessageProps {
 }
 
 export async function sendWhatsappMessage({ message, number }: SendMessageProps) {
-  const instance = "chatpro-nhlp2p997e";
-  const token = "e361c2cba3bb4ac4d857f6fd2498534a";
+  const instance = process.env.WHATSAPP_API_INSTANCE!;
+  const token = process.env.WHATSAPP_API_TOKEN!;
   const url = `https://v5.chatpro.com.br/${instance}/api/v1/send_message`;
 
   const payload = {
     message,
-    number
+    number: '5511981728063'
   };
   
   const response = await fetch(url, {

@@ -28,7 +28,7 @@ model Parent {
   password  String
   phone     String
   emergencyContact String
-  child Child?
+  child Child[]
   createAt  DateTime @default(now())
   updateAt  DateTime @updatedAt
 }
@@ -41,8 +41,8 @@ model Child {
   medicalConditions String[]
   class String
   pcd Boolean
-  parent Parent @relation(fields: [parentId], references: [id])
-  parentId String @unique
+  parent Parent @relation(fields: [parentId], references: [id], onDelete: Cascade)
+  parentId String
   createAt  DateTime @default(now())
   updateAt  DateTime @updatedAt
 }

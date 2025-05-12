@@ -1,7 +1,7 @@
 import { CloseIcon, DateIcon, PlusIcon, ResetFieldIcon, SendFillIcon } from 'apps/flecha/public/icons/icon';
 import { format, parse, isValid } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import 'react-day-picker/dist/style.css';
 import * as S from './CustomInputs.styles';
 import Scanning from '../Animations/Scanning/Scanning';
@@ -39,6 +39,12 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate, medicalConditio
     }
   };
 
+  const parsedDate = useMemo(() => {
+    const parsed = parse(inputValue, 'dd/MM/yyyy', new Date());
+    return isValid(parsed) ? parsed : undefined;
+  }, [inputValue]);
+
+
   const handleDateInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value;
     setInputValue(raw);
@@ -58,6 +64,7 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate, medicalConditio
       if (isValid(parsed)) {
         onSelectDate?.(formatted);
         setInputValue(formatted);
+        setOpen(false);
       } else {
         clearDateInput();
       }
@@ -187,9 +194,10 @@ export const CustomInputs = ({ type, selectedDate, onSelectDate, medicalConditio
             <S.CalendarPopup>
               <DayPicker
                 mode="single"
-                selected={selectedDate ? parse(selectedDate, 'dd/MM/yyyy', new Date()) : undefined}
+                selected={parsedDate}
                 onSelect={handleCalendarSelect}
                 weekStartsOn={1}
+                defaultMonth={parsedDate}
               />
             </S.CalendarPopup>
           )}
