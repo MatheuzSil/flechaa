@@ -7,6 +7,7 @@ export const useSearchParentResult = () => {
   const formattedResults: CustomInputSearchResult[] = data?.getParentResult.parentResult?.map((parent: any) => ({
     id: parent.id,
     parentName: parent.name,
+    phone: parent.phone,
     imgUrl: '/icons/profile_placeholder.svg'
   })) ?? [];
 
