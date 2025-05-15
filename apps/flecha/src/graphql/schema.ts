@@ -37,6 +37,20 @@ const typeDefs = gql`
     getChildModal(childId: String!): ChildModal!
   }
 
+  type PreloadedModal {
+    id: String!
+    name: String!
+    age: Int!
+    class: String!
+    birthDate: String!
+    medicalConditions: [String!]!
+    parent: Parent!
+  }
+
+  extend type Query {
+    getPreloadedModal(childId: String!): PreloadedModal!
+  }
+
   type ParentSelectResult {
     id: String!
     name: String!

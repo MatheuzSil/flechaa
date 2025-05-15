@@ -11,11 +11,54 @@ import { useEffect, useMemo, useState } from 'react';
 import { useToast } from 'apps/flecha/src/hooks/useToast';
 import { useLoadingStore } from 'apps/flecha/src/store/store';
 import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
-
-// utils
-import { ChildRegisterPayload } from 'apps/flecha/src/types/childRegisterPayload';
-import { childRegister } from 'apps/flecha/src/utils/register';
+import { generateQRCodeBase64 } from 'apps/flecha/src/utils/generateQRCode';
 import { sendWhatsappMessageToApi } from 'apps/flecha/src/utils/sendWhatsappMessageToApi';
+
+  type ChildRegisterPayload = {
+    childName: string;
+    childAge: number;
+    birthDate?: string;
+    medicalConditions?: string[];
+    selectedClass?: string;
+    selectedParent?: CustomInputSearchResult;
+    isPcd: boolean;
+  };
+
+ const childRegister = async (url: any, { arg }: {arg: ChildRegisterPayload}) => {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(arg),
+    });
+
+    let data;
+    try {
+      data = await response.json();
+    } catch (error) {
+      console.warn('Failed to parse JSON:', error);
+      data = null;
+    }
+
+    if (!response.ok) {
+      const error = new Error(data?.error || 'Erro ao cadastrar criança') as any;
+      error.response = response;
+      error.data = data;
+      throw error;
+    }
+    // console.log('Criança cadastrada com sucesso:', data);
+    return data;
+  };
+
+  const previewQRCode = (base64: string) => {
+  const win = window.open();
+  if (win) {
+    const img = win.document.createElement('img');
+    img.src = base64;
+    img.style.maxWidth = '100%';
+    win.document.body.appendChild(img);
+  }
+};
+
 
 export const ChildFormRegister = () => {
   const [childName, setChildName] = useState<string>('');
@@ -76,9 +119,21 @@ export const ChildFormRegister = () => {
     }
 
     try {
-      await trigger(data);
+      const childRegister = await trigger(data);
       showSuccess('Criança cadastrada com sucesso!');
-      await sendWhatsappMessageToApi(selectedParent?.phone, `Criança cadastrada com sucesso! Nome: ${childName}, Idade: ${childAge}, Turma: ${selectedClass}, Responsável: ${selectedParent?.parentName}`);
+
+      const childCardUrl = `${window.location.origin}/dashboard/qrcode/crianca/${childRegister?.child.id}`;
+      const childQRcode = await generateQRCodeBase64(childCardUrl);
+      previewQRCode(childQRcode);
+      if (selectedParent?.phone) {
+        await sendWhatsappMessageToApi({ 
+          message: `Criança cadastrada com sucesso! Nome: ${childName}, Idade: ${childAge}, Turma: ${selectedClass}, Responsável: ${selectedParent?.parentName}`, 
+          number: selectedParent.phone, 
+          image: childQRcode
+        });
+      } else {
+        showError('Número de telefone do responsável não encontrado.');
+      }
     } catch (error: any) {
       showError(error.data?.error || error.message || 'Erro ao cadastrar criança');
     }

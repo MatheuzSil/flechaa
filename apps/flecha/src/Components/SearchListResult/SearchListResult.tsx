@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as S from './SearchListResult.styles';
 import { ModalCard } from '../../Containers/ModalCard/ModalCard';
 
 interface SearchListResultProps {
   results: searchResultObject[];
+  preloadedresult?: preloadedSearchResult | null;
 }
 
 export default function SearchListResult(props: SearchListResultProps) {
-  const [selectedChild, setSelectedChild] = useState<searchResultObject | null>(null);
+  const { preloadedresult, results } = props;
+  const [selectedChild, setSelectedChild] = useState<searchResultObject | null | boolean>(null);
+
+  useEffect(() => {
+    if(preloadedresult !== null) {
+      setSelectedChild(true);
+    }
+  }, [preloadedresult])
 
   return (
     <>
-      {props.results.map((result) => (
+      {!preloadedresult ? results.map((result) => (
         <S.CardContainer key={result.id}>
           <S.CardInfo>
             <S.CardImage src="/icons/profile_placeholder.svg" />
@@ -22,8 +30,20 @@ export default function SearchListResult(props: SearchListResultProps) {
           </S.CardInfo>
           <S.CardButton onClick={() => setSelectedChild(result)}>Ver Mais</S.CardButton>
         </S.CardContainer>
-      ))}
-      {selectedChild && <ModalCard childInfo={selectedChild} onClose={() => setSelectedChild(null)} />}   
+      )) : (
+        <S.CardContainer key={preloadedresult.id}>
+          <S.CardInfo>
+            <S.CardImage src="/icons/profile_placeholder.svg" />
+            <S.CardName>{preloadedresult.name}</S.CardName>
+            <S.CardAgeAndClass>
+              {preloadedresult.age} ANOS - {preloadedresult.class}
+            </S.CardAgeAndClass>
+          </S.CardInfo>
+          <S.CardButton onClick={() => setSelectedChild(true)}>Ver Mais</S.CardButton>
+        </S.CardContainer>
+      )}
+      {selectedChild && !preloadedresult && <ModalCard childInfo={selectedChild} onClose={() => setSelectedChild(null)} />}   
+      {preloadedresult && selectedChild === true && <ModalCard childInfo={preloadedresult} onClose={() => setSelectedChild(false)} />} 
     </>
   );
 }
