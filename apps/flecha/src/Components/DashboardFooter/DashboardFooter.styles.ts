@@ -6,7 +6,7 @@ export const FooterContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%) left top ${({ theme }) => theme.brandColors.backgroundBlack} no-repeat;
+  background: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%) left top no-repeat;
   background-size: 100% 4px;
   margin-bottom: 36px;
 `;
