@@ -11,8 +11,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useToast } from 'apps/flecha/src/hooks/useToast';
 import { useLoadingStore } from 'apps/flecha/src/store/store';
 import { useSearchParentResult } from 'apps/flecha/src/graphql/hooks/useSearchParentResult';
-import { sendWhatsappMessage } from 'apps/flecha/src/utils/sendWhatsappMessage';
 import { generateQRCodeBase64 } from 'apps/flecha/src/utils/generateQRCode';
+import { sendWhatsappMessageToApi } from 'apps/flecha/src/utils/sendWhatsappMessageToApi';
 
   type ChildRegisterPayload = {
     childName: string;
@@ -59,7 +59,6 @@ import { generateQRCodeBase64 } from 'apps/flecha/src/utils/generateQRCode';
   }
 };
 
-import { sendWhatsappMessageToApi } from 'apps/flecha/src/utils/sendWhatsappMessageToApi';
 
 export const ChildFormRegister = () => {
   const [childName, setChildName] = useState<string>('');
@@ -127,10 +126,10 @@ export const ChildFormRegister = () => {
       const childQRcode = await generateQRCodeBase64(childCardUrl);
       previewQRCode(childQRcode);
       if (selectedParent?.phone) {
-        await sendWhatsappMessage({ 
+        await sendWhatsappMessageToApi({ 
           message: `Criança cadastrada com sucesso! Nome: ${childName}, Idade: ${childAge}, Turma: ${selectedClass}, Responsável: ${selectedParent?.parentName}`, 
           number: selectedParent.phone, 
-          image: childQRcode 
+          image: childQRcode
         });
       } else {
         showError('Número de telefone do responsável não encontrado.');

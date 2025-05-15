@@ -1,10 +1,16 @@
-export const sendWhatsappMessageToApi = async (number: string | undefined, message: string) => {
+interface sendWhatsappMessageToApiProps {
+  message: string,
+  number: string | undefined,
+  image?: string | undefined
+}
+
+export const sendWhatsappMessageToApi = async ({ number, message, image }: sendWhatsappMessageToApiProps) => {
   const response = await fetch('/api/send-whatsapp', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ number, message }),
+    body: JSON.stringify({ number, message, image }),
   });
 
   if (!response.ok) {

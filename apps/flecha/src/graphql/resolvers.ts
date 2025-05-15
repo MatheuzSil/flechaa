@@ -1,6 +1,7 @@
 import { searchService } from '../services/SearchService';
 import { searchModalService } from '../services/SearchModalService';
 import { SearchParentResult } from '../services/SearchParentResult';
+import { preloadModalService } from '../services/PreloadModalService';
 
 export const resolvers = {
   Query: {
@@ -9,6 +10,9 @@ export const resolvers = {
     },
     getChildModal: async (_: any, { childId }: { childId: string }) => {
       return await searchModalService(childId);
+    },
+    getPreloadedModal: async (_: any, { childId }: { childId: string }) => {
+      return await preloadModalService(childId);
     },
     getParentResult: async(_: any, {query}: { query: string }) => {
       return await SearchParentResult(query);

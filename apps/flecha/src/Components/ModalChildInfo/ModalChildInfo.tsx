@@ -4,7 +4,6 @@ import { Paragraph } from '@meu-workspace/safira';
 import { useChildModal } from '../../graphql/hooks/useChildModal';
 import { ModalChildInfoSkeleton } from './ModalChildInfoSkeleton';
 import { formatMedicalConditions } from '../../utils/general';
-import { sendWhatsappMessage } from '../../utils/sendWhatsappMessage';
 import { useEmergencyMessage, useMessage, useUserStore } from '../../store/store';
 import { useToast } from '../../hooks/useToast';
 import { sendWhatsappMessageToApi } from '../../utils/sendWhatsappMessageToApi';
@@ -15,28 +14,47 @@ interface ChildInfoProps {
     age: number;
     id: string;
     class: string;
-  };
+  }
+  preloadedChild?: preloadedSearchResult;
+  isPreload?: boolean;
 }
 
 export const ModalChildInfo = (props: ChildInfoProps) => {
-  const {name, age, id, class: childclass, } = props.childInfo;
-  const { data, loading, error } = useChildModal(id);
   const adminUser = useUserStore((state) => state.name);
-  const { showError, showSuccess } = useToast();
-
   const activateSendingEmergency = useEmergencyMessage((state) => state.activateSendingEmergency);
   const deactivateSendingEmergency = useEmergencyMessage((state) => state.deactivateSendingEmergency);
 
   const activateSendingMessage = useMessage((state) => state.activateSendingMessage);
   const deactivateSendingMessage = useMessage((state) => state.deactivateSendingMessage);
 
-  if (error || !data || !data.getChildModal || loading) return <ModalChildInfoSkeleton />;
-  const { birthDate, medicalConditions, parent } = data.getChildModal;
+  const {name, age, id, class: childclass, } = props.childInfo;
+
+  const isPreloaded = props.isPreload;
+  const preloaded = props.preloadedChild;
+
+  const { data, loading, error } = useChildModal(id);
+
+  const childModalData = isPreloaded
+    ? preloaded
+    : data?.getChildModal;
+
+  if (!childModalData || (!isPreloaded && (loading || error))) {
+    return <ModalChildInfoSkeleton />;
+  }
+
+  const { birthDate, medicalConditions, parent } = childModalData;
+
+  const { showError, showSuccess } = useToast();
+
+
 
   const sendMessage = async () => {
     activateSendingMessage();
     try{
-      await sendWhatsappMessageToApi(parent.phone, `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar que seu filho(a) ${name} está com uma condição médica. Por favor, entre em contato comigo para mais informações.`);
+      await sendWhatsappMessageToApi({
+        message: `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar que seu filho(a) ${name} está com uma condição médica. Por favor, entre em contato comigo para mais informações.`,
+        number: parent.phone
+      });
       showSuccess("Mensagem enviada com sucesso!");
     }catch (error) {
       console.error(error);
@@ -49,7 +67,10 @@ export const ModalChildInfo = (props: ChildInfoProps) => {
   const sendMessageEmergency = async () => {
     activateSendingEmergency();
     try{
-      await sendWhatsappMessageToApi(parent.emergencyContact, `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar de uma emergência que seu filho(a) ${name} está passando. Por favor, entre em contato comigo para mais informações.`);
+      await sendWhatsappMessageToApi({
+        message: `Olá, sou o cuidador ${adminUser}, Estou entrando em contato para informar de uma emergência que seu filho(a) ${name} está passando. Por favor, entre em contato comigo para mais informações.`,
+        number: parent.emergencyContact,
+      });
       showSuccess("Mensagem de Emergência enviada com sucesso!");
     }catch (error) {
       console.error(error);

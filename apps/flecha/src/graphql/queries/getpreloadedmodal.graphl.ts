@@ -1,8 +1,12 @@
 import { gql } from '@apollo/client';
 
-export const GET_CHILD_MODAL = gql`
+export const GET_PRELOAD_MODAL = gql`
   query GetChildModal($childId: String!) {
-    getChildModal(childId: $childId) {
+    getPreloadedModal(childId: $childId) {
+      id
+      name
+      age
+      class
       birthDate
       medicalConditions
       parent {
