@@ -28,11 +28,6 @@ const typeDefs = gql`
   }
 
   type ChildModal {
-    id: String!
-    name: String!
-    age: Int!
-    class: String!
-    pcd: String!
     birthDate: String!
     medicalConditions: [String!]!
     parent: Parent!
@@ -40,6 +35,20 @@ const typeDefs = gql`
 
   extend type Query {
     getChildModal(childId: String!): ChildModal!
+  }
+
+  type PreloadedModal {
+    id: String!
+    name: String!
+    age: Int!
+    class: String!
+    birthDate: String!
+    medicalConditions: [String!]!
+    parent: Parent!
+  }
+
+  extend type Query {
+    getPreloadedModal(childId: String!): PreloadedModal!
   }
 
   type ParentSelectResult {

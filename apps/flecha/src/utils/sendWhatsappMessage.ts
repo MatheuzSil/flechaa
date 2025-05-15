@@ -5,8 +5,8 @@ interface SendMessageProps {
 }
 
 export async function sendWhatsappMessage({ message, number, image }: SendMessageProps) {
-  const instance = "chatpro-nhlp2p997e";
-  const token = "e361c2cba3bb4ac4d857f6fd2498534a";
+  const instance = process.env.WHATSAPP_API_INSTANCE!;
+  const token = process.env.WHATSAPP_API_TOKEN!;
   const url = `https://v5.chatpro.com.br/${instance}/api/v1/send_message`;
 
   if (!number) throw new Error('Número de telefone não fornecido');
@@ -16,7 +16,7 @@ export async function sendWhatsappMessage({ message, number, image }: SendMessag
 
   const payload = {
     message,
-    number : "5519998504253",
+    number : "5511981728063",
     ...(cleanBase64 && { image: cleanBase64 }) // Envia apenas se existir
   };
 
