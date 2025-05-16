@@ -1,3 +1,5 @@
+import { Paragraph } from "@meu-workspace/safira";
+import exp from "constants";
 import styled from "styled-components";
 
 
@@ -15,13 +17,15 @@ export const ParentRegisterForm = styled.div`
 export const ParentRegisterFormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 2em ;
   max-width: 90em;
   border-radius: 0.5em;
   height: 90%;
-  background-color: rgba(74, 125, 255, 0.6);
+  background-color: rgba(74, 125, 255, 0.3);
+  backdrop-filter: blur(8px);
+
   border: 2px solid rgba(74, 125, 255, 1);
   z-index: 1;
 `
@@ -40,3 +44,37 @@ export const TextureContainer = styled.div`
   background-position: center;
 
 `
+
+
+export const FlechaIcon = styled.img`
+  z-index: 1;
+  width: 14rem;
+  height: auto;
+  bottom: 2rem;
+  right: 2rem;
+`
+
+export const ParentRegisterFormTitle = styled.h1`
+  font-size: 4.2rem;
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  margin-top: 1.6rem;
+  font-weight: 600;
+  line-height: 101px;
+  letter-spacing: -0.032rem;
+  text-align: center;
+  background: linear-gradient(90deg, #38acff 0%, #8833ff 40%, #ff7033 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
+
+export const ParentRegisterFormSubtitle = styled(Paragraph)`
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  text-align: center;
+  font-weight: 300;
+  margin-top: 0.2rem;
+
+`
+
