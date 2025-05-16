@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 import { verifyToken } from '../src/utils/auth';
 
 // Lista de rotas públicas (onde usuários não autenticados podem acessar)
-const publicRoutes = ['/login', '/cadastrar'];
+const publicRoutes = ['/login', '/cadastrar', '/cadastrar-pais', '/login-pais'];
 const dashboardRoute = '/dashboard';
 const loginRoute = '/login';
 
