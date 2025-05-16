@@ -8,10 +8,10 @@ export const RegisterFormBackground = styled.div`
   justify-content: space-around;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 1.25rem;
   position: absolute;
 
-  @media screen and (max-width: 1180px) {
+  @media screen and (max-width: 73.75rem) {
     flex-direction: column;
     justify-content: center;
   }
@@ -23,7 +23,7 @@ export const RegisterForm = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 700px;
+  max-width: 43.75rem;
   height: 100%;
 `;
 
@@ -33,7 +33,7 @@ export const RegisterFormContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: .625rem;
   width: 100%;
 `;
 
@@ -42,84 +42,84 @@ export const RegisterFormContent = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: .625rem;
 `;
 
 export const RegisterFormTitle = styled(Title)`
   font-family: ${({ theme }) => theme.fonts.craftyGirls};
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 400;
   background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
   color: transparent;
   background-clip: text;
-  margin-top: 48px;
+  margin-top: 3rem;
 
-  @media screen and (max-width: 425px) {
-    margin-top: 12px;
-    font-size: 36px;
+  @media screen and (max-width: 26.5625rem) {
+    margin-top: .75rem;
+    font-size: 2.25rem;
   }
 `;
 
 export const RegisterFormSubtitle = styled(Paragraph)`
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 400;
-  margin-top: 12px;
+  margin-top: .75rem;
   color: #222222;
 
-  @media screen and (max-width: 425px) {
-    font-size: 18px;
+  @media screen and (max-width: 26.5625rem) {
+    font-size: 1.125rem;
   }
 
-  @media screen and (max-width: 375px) {
-    font-size: 14px;
+  @media screen and (max-width: 23.4375rem) {
+    font-size: .875rem;
   }
 `;
 
 export const RegisterFormLabel = styled.label`
   width: 100%;
-  max-width: 600px;
-  margin-top: 24px;
+  max-width: 37.5rem;
+  margin-top: 1.5rem;
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   color: #222222;
 
-  @media screen and (max-width: 425px) {
-    font-size: 18px;
+  @media screen and (max-width: 26.5625rem) {
+    font-size: 1.125rem;
   }
 
-  @media screen and (max-width: 375px) {
-    margin-top: 12px;
-    font-size: 14px;
+  @media screen and (max-width: 23.4375rem) {
+    margin-top: .75rem;
+    font-size: .875rem;
   }
 `;
 
 export const RegisterFormInput = styled<any>(Field)`
   width: 100%;
-  height: 64px;
-  max-width: 600px;
-  margin-bottom: 10px;
-  padding: 10px 0;
-  border-radius: 5px;
+  height: 4rem;
+  max-width: 37.5rem;
+  margin-bottom: .625rem;
+  padding: .625rem 0;
+  border-radius: .3125rem;
 
   & input {
-    border: 2px solid transparent;
-    border-radius: 5px;
-    padding: 8px 12px;
+    border: .125rem solid transparent;
+    border-radius: .3125rem;
+    padding: .5rem .75rem;
     background-image: 
       linear-gradient(white, white),
       linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     box-sizing: border-box;
-    height: 64px;
+    height: 4rem;
   }
 
-  @media screen and (max-width: 375px) {
-    font-size: 14px;
+  @media screen and (max-width: 23.4375rem) {
+    font-size: .875rem;
     & input {
-      height: 48px;
+      height: 3rem;
     }
   }
 `;
@@ -127,12 +127,12 @@ export const RegisterFormInput = styled<any>(Field)`
 export const RegisterFormButton = styled.button<{ disabled: boolean }>`
   font-family: ${({ theme }) => theme.fonts.poppins};
   color: ${({ theme }) => theme.brandColors.primary50};
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
-  border-radius: 10px;
-  padding: 12px 48px;
-  margin: 48px 0px;
-  padding: 14px 48px;
+  border-radius: .625rem;
+  padding: .75rem 3rem;
+  margin: 3rem 0rem;
+  padding: .875rem 3rem;
   background: linear-gradient(
     90deg,
     rgba(56, 172, 255, 1),
@@ -155,31 +155,31 @@ export const RegisterFormButton = styled.button<{ disabled: boolean }>`
     transform: scale(1.03);
   }
 
-  @media screen and (max-width: 1024px) {
-    margin: 12px 0px;
+  @media screen and (max-width: 64rem) {
+    margin: .75rem 0rem;
   }
 
-  @media screen and (max-width: 375px) {
-    font-size: 14px;
-    padding: 12px 36px;
+  @media screen and (max-width: 23.4375rem) {
+    font-size: .875rem;
+    padding: .75rem 2.25rem;
   }
 `;
 
 export const Links = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: .5rem;
   align-items: center;
-  margin-bottom: 48px;
+  margin-bottom: 3rem;
 
-  @media screen and (max-width: 1024px) {
-    margin: 12px 0px;
+  @media screen and (max-width: 64rem) {
+    margin: .75rem 0rem;
   }
 `;
 
 export const LinksText = styled.p`
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   color: #222222;
 
@@ -191,23 +191,23 @@ export const LinksText = styled.p`
     font-family: ${({ theme }) => theme.fonts.poppins};
   }
 
-  @media screen and (max-width: 375px) {
-    font-size: 14px;
+  @media screen and (max-width: 23.4375rem) {
+    font-size: .875rem;
   }
 `;
 
 export const FlechaLogo = styled.img`
   display: flex;
-  width: 900px;
+  width: 56.25rem;
   max-width: 100%;
   height: auto;
   align-self: center;
 
-  @media screen and (max-width: 1670px) {
-    width: 600px;
+  @media screen and (max-width: 104.375rem) {
+    width: 37.5rem;
   }
 
-  @media screen and (max-width: 1350px) {
-    width: 400px;
+  @media screen and (max-width: 84.375rem) {
+    width: 25rem;
   }
 `;

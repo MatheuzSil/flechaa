@@ -5,7 +5,7 @@ export const FastRegisterBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 86px 0px;
+  margin: 5.375rem 0px;
 `;
 
 export const FastRegisterBoxContainer = styled.div`
@@ -14,17 +14,17 @@ export const FastRegisterBoxContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1440px;
+  max-width: 90rem;
   height: 100%;
-  padding: 50px 80px;
-  border-radius: 10px;
+  padding: 3.125rem 5rem;
+  border-radius: .625rem;
   background: #38ACFF;
   background: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
 `;
 
 export const FastRegisterBoxTitle = styled.h1`
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: 700;
   color: ${({ theme }) => theme.brandColors.primary50};
 `;
@@ -34,7 +34,7 @@ export const TextAndButtonsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -42,25 +42,25 @@ export const ButtonsContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: .625rem;
 `;
 
 export const FastRegisterBoxText = styled(Paragraph)`
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 300;
   color: ${({ theme }) => theme.brandColors.primary50};
 `;
 
 export const FastRegisterButton = styled(Button)`
   display: flex;
-  gap: 5px;
-  height: 42px;
-  padding: 12px 24px;
+  gap: .3125rem;
+  height: 2.625rem;
+  padding: .75rem 1.5rem;
   font-family: ${({ theme }) => theme.fonts.poppins};
   background-color: ${({ theme }) => theme.brandColors.primary400};
   color: ${({ theme }) => theme.brandColors.primary950};
-  font-size: 14px;
+  font-size: .875rem;
   font-weight: 700;
 
   &:hover {
@@ -70,12 +70,12 @@ export const FastRegisterButton = styled(Button)`
 
 export const FastRegisterButtonParents = styled(Button)`
   display: flex;
-  gap: 5px;
-  height: 42px;
+  gap: .3125rem;
+  height: 2.625rem;
   font-family: ${({ theme }) => theme.fonts.poppins};
   background-color: ${({ theme }) => theme.brandColors.primary50};
   font-weight: 700;
-  font-size: 14px;
+  font-size: .875rem;
   color: ${({ theme }) => theme.brandColors.primary950};
 
   &:hover {

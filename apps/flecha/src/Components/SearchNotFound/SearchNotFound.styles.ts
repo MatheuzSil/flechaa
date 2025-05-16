@@ -6,15 +6,15 @@ export const NotFoundContainer = styled.div`
   align-items: center;
 
   & img {
-    width: 75px;
-    height: 75px;
-    margin-right: 10px;
+    width: 4.6875rem;
+    height: 4.6875rem;
+    margin-right: .625rem;
   }
 `
 
 export const NotFoundParagraph = styled.p`
   color: ${({ theme }) => theme.brandColors.primary50};
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: semibold;
   font-family: ${({ theme }) => theme.fonts.poppins};
 `;

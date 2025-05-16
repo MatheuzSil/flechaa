@@ -6,11 +6,11 @@ export const CardContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 72px;
+  height: 4.5rem;
   background-color: ${({ theme }) => theme.brandColors.primary50};
-  margin-bottom: 20px;
-  padding: 0px 24px;
-  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  padding: 0rem 1.5rem;
+  border-radius: .5rem;
 `;
 
 export const CardInfo = styled.div`
@@ -21,34 +21,34 @@ export const CardInfo = styled.div`
 `;
 
 export const CardImage = styled.img`
-  width: 48px;
-  height: 48px;
-  border-radius: 5px;
-  margin-right: 26px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: .3125rem;
+  margin-right: 1.625rem;
   box-sizing: border-box;
 `;
 
 export const CardName = styled.h2`
-  font-size: 26px;
-  margin-right: 26px;
-  min-width: 230px;
+  font-size: 1.625rem;
+  margin-right: 1.625rem;
+  max-width: 14.375rem;
   font-weight: 500;
   color: ${({ theme }) => theme.brandColors.backgroundBlack};
   font-family: ${({ theme }) => theme.fonts.poppins};
 `;
 
 export const CardAgeAndClass = styled.h2`
-  font-size: 14px;
+  font-size: .875rem;
   color: ${({ theme }) => theme.brandColors.primary950};
   font-family: ${({ theme }) => theme.fonts.poppins};
 `;
 
 export const CardButton = styled.button`
-  font-size: 12px;
+  font-size: .75rem;
   font-weight: medium;
   font-family: ${({ theme }) => theme.fonts.poppins};
   color: ${({ theme }) => theme.brandColors.primary50};
   background-color: ${({ theme }) => theme.brandColors.primary950};
-  padding: 6px 16px;
-  border-radius: 5px;
+  padding: .375rem 1rem;
+  border-radius: .3125rem;
 `;

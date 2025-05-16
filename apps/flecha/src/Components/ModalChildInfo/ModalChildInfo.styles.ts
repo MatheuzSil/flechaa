@@ -6,7 +6,7 @@ export const ModalChildInfoContainer = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 40px 20px;
+  padding: 2.5rem 1.25rem;
 `
 
 export const ChildPhotoContainer = styled.div`
@@ -14,22 +14,22 @@ export const ChildPhotoContainer = styled.div`
 `
 
 export const ChildPhoto = styled.img`
-  width: 128px;
-  height: 128px;
+  width: 8rem;
+  height: 8rem;
 `
 
 export const ChildInfoContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 30px;
+  padding-left: 1.875rem;
 `
 
 export const ClassAndAgeContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 20px;
-  padding-top: 20px;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
   align-items: start;
 ` 
 
@@ -41,21 +41,21 @@ export const ChildInfoContent = styled.div`
 
 export const ChildName = styled(Title)`
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 36px;
+  font-size: 2.25rem;
   color: ${({ theme }) => theme.brandColors.backgroundBlack};
   font-weight: bold;
 `
 
 export const ChildAge = styled(Paragraph)`
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #333D54;
   font-weight: 400;
 `
 
 export const ChildClass = styled(Paragraph)`
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #333D54;
   font-weight: 400;
 `
@@ -65,8 +65,8 @@ export const CallButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-top: 20px;
-  gap: 20px;
+  padding-top: 1.25rem;
+  gap: 1.25rem;
 `
 
 export const CallButton = styled(Button)`
@@ -74,11 +74,11 @@ export const CallButton = styled(Button)`
   color: ${({ theme }) => theme.brandColors.primary400};
   font-family: ${({ theme }) => theme.fonts.poppins};
   display: flex;
-  gap: 10px;
-  font-size: 12px;
+  gap: .625rem;
+  font-size: .75rem;
   font-weight: 400;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: .625rem 1.25rem;
+  border-radius: .5rem;
   border: none;
   cursor: pointer;
 
@@ -94,11 +94,11 @@ export const CallButtonEmergency = styled(Button)`
   color: ${({ theme }) => theme.brandColors.primary50};
   font-family: ${({ theme }) => theme.fonts.poppins};
   display: flex;
-  gap: 10px;
-  font-size: 12px;
+  gap: .625rem;
+  font-size: .75rem;
   font-weight: 400;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: .625rem 1.25rem;
+  border-radius: .5rem;
   border: none;
   cursor: pointer;
 
@@ -112,9 +112,9 @@ export const OtherInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding-top: 15px;
-  padding-left: 20px;
-  gap: 30px;
+  padding-top: .9375rem;
+  padding-left: 1.25rem;
+  gap: 1.875rem;
 `
 
 export const MoreInfoContainer = styled.div`
@@ -130,7 +130,7 @@ export const MoreInfoContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     & p {
-      font-size: 18px;
+      font-size: 1.125rem;
     }
   }
 `

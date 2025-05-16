@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SearchListTitle = styled.h1`
   color: ${({ theme }) => theme.brandColors.primary50};
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: semibold;
   font-family: ${({ theme }) => theme.fonts.poppins};
 `;
@@ -13,7 +13,7 @@ export const SearchContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-right: 20px;
+  margin-right: 1.25rem;
 `;
 
 export const FiltrosContainer = styled.div`
@@ -21,21 +21,21 @@ export const FiltrosContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 `;
 
 export const FiltroInput = styled.input`
   width: 60%;
-  height: 36px;
+  height: 2.25rem;
   background-color: ${({ theme }) => theme.brandColors.primary50};
-  border-radius: 8px;
+  border-radius: .5rem;
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
   font-family: ${({ theme }) => theme.fonts.poppins};
   font-weight: 300;
   color: ${({ theme }) => theme.brandColors.primary800};
-  margin-right: 20px;
-  padding-left: 24px;
+  margin-right: 1.25rem;
+  padding-left: 1.5rem;
 `;
 
 export const FiltroSelectContainer = styled.div`
@@ -48,16 +48,16 @@ export const FiltroSelectContainer = styled.div`
 
 export const FiltroSelectTitle = styled.h2`
   color: ${({ theme }) => theme.brandColors.primary400};
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: semibold;
   font-family: ${({ theme }) => theme.fonts.poppins};
 `;
 
 export const FiltroList = styled.select`
   width: 100%;
-  height: 36px;
+  height: 2.25rem;
   background: none;
-  font-size: 16px;
+  font-size: 1rem;
   font-family: ${({ theme }) => theme.fonts.poppins};
   color: ${({ theme }) => theme.brandColors.primary50};
   border: none;
@@ -75,5 +75,5 @@ export const SearchResultContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 `;
