@@ -1,8 +1,6 @@
 import { Button } from "@meu-workspace/safira";
 import styled from "styled-components";
 
-
-
 export const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -23,13 +21,13 @@ export const ModalContainer = styled.div`
   background-color: ${({ theme }) => theme.brandColors.backgroundWhite};
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: .5rem;
+  padding: 1.25rem;
   width: 100%;
-  max-width: 1060px;
+  max-width: 66.25rem;
   height: 100%;
-  max-height: 700px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-height: 43.75rem;
+  box-shadow: 0 .25rem .5rem rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.5s ease;
 
   @keyframes fadeIn {
@@ -44,7 +42,7 @@ export const ModalHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: start;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   width: 100%;
 `
 
@@ -58,7 +56,4 @@ export const ButtonContainer = styled(Button)`
   &:hover {
     background-color: transparent;
   }
-
-  
-
 `

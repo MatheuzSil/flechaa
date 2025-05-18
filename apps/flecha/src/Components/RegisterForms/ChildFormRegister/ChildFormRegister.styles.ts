@@ -8,7 +8,7 @@ export const ChildFormRegister = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  padding: 32px;
   margin: 16em 0 12em 0;
   z-index: 1;
 `;
@@ -43,38 +43,38 @@ export const BlurBallSecond = styled(BlurBallIconSecond)`
 export const ChildFormRegisterContainer = styled.div`
   position: absolute;
   width: 100%;
-  max-width: 1400px;
+  max-width: 87.5rem;
   height: 100%;
   max-height: fit-content;
-  border: 2px solid ${({ theme }) => theme.brandColors.primary200};
-  padding: 0px 3rem;
+  border: .125rem solid ${({ theme }) => theme.brandColors.primary200};
+  padding: 0rem 48px;
   z-index: 10;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   background-color: rgba(119, 204, 255, 15%); /* Cor de fundo com opacidade */
 
   /* Borda e sombra suave */
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 1.875rem rgba(255, 255, 255, 0.05);
 
   /* Efeito de desfoque interno suave (opcional) */
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(.5rem);
 `;
 
 export const ChildFormContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-  margin-top: 84px;
+  gap: 16px;
+  margin-top: 5.25rem;
   z-index: 1;
-  padding: 0 20px;
+  padding: 0 1.25rem;
 `;
 
 export const ChildFormRegisterTitle = styled.h1`
-  font-size: 78px;
+  font-size: 4.875rem;
   font-family: ${({ theme }) => theme.fonts.poppins};
-  margin-top: 84px;
-  line-height: 101px;
-  letter-spacing: -0.032rem;
+  margin-top: 5.25rem;
+  line-height: 6.3125rem;
+  letter-spacing: -0.512px;
   text-align: center;
   background: linear-gradient(90deg, #38acff 0%, #8833ff 50%, #ff7033 80%);
   -webkit-background-clip: text;
@@ -85,34 +85,34 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
   z-index: 1;
-  padding: 0 20px;
+  padding: 0 1.25rem;
 `;
 
 export const ChildFormSubtitle = styled.label`
-  font-size: 1.2rem;
+  font-size: 19.2px;
   color: ${({ theme }) => theme.brandColors.primary50};
   font-family: ${({ theme }) => theme.fonts.poppins};
 `;
 
 export const ChildFormInput = styled(Field)`
   width: 100%;
-  max-width: 560px;
-  height: 52px;
-  padding: 0.5rem;
+  max-width: 35rem;
+  height: 3.25rem;
+  padding: 8px;
   outline: none;
 
   input {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
     font-family: ${({ theme }) => theme.fonts.poppins};
     color: ${({ theme }) => theme.brandColors.backgroundBlack};
   }
 
   // border
-  border-radius: 20px;
-  border-bottom: 4px solid transparent;
+  border-radius: 1.25rem;
+  border-bottom: .25rem solid transparent;
   background-image: 
     linear-gradient(white, white),
     linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
@@ -127,24 +127,24 @@ export const TermsAndConditionsContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 36px;
+  margin-top: 2.25rem;
 `
 
 export const CheckboxLabel = styled.label`
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   font-family: ${({ theme }) => theme.fonts.poppins};
   color: ${({ theme }) => theme.brandColors.primary50};
-  margin-right: 16px;
+  margin-right: 1rem;
 `
 
 export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
+  height: .0625rem;
+  width: .0625rem;
+  margin: -0.0625rem;
   overflow: hidden;
   padding: 0;
   position: absolute;
@@ -153,16 +153,16 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 
 export const StyledCheckbox = styled.div<{ checked: boolean }>`
   display: inline-block;
-  width: 25px;
-  height: 25px;
-  margin-right: 16px;
-  border-radius: 5px;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  margin-right: 1rem;
+  border-radius: .3125rem;
   background-image: 
     linear-gradient(white, white),
     linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  border: 4px solid transparent;
+  border: .25rem solid transparent;
   box-sizing: border-box;
   transition: all 150ms;
 
@@ -186,7 +186,7 @@ export const ChildFormButttonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 84px 0;
+  margin: 5.25rem 0;
 `;
 
 export const ChildFormButton = styled.button`
@@ -194,10 +194,10 @@ export const ChildFormButton = styled.button`
   align-items: center;
   color: ${({ theme }) => theme.brandColors.primary50};
   font-family: ${({ theme }) => theme.fonts.poppins};
-  font-size: 18px;
-  border-radius: 5px;
+  font-size: 1.125rem;
+  border-radius: .3125rem;
   font-weight: 500;
-  padding: 16px 36px;
+  padding: 1rem 2.25rem;
   background: linear-gradient(
     90deg,
     rgba(56, 172, 255, 1),
@@ -222,12 +222,12 @@ export const ChildFormButton = styled.button`
 `
 
 export const ArrowButtonIconContainer = styled(ArrowButtonIcon)`
-  width: 28px;
-  height: 28px;
-  margin-left: 8px;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-left: .5rem;
   transition: transform 0.3s ease;
 
   ${ChildFormButton}:hover & {
-    transform: translateX(5px);
+    transform: translateX(.3125rem);
   }
 `;
