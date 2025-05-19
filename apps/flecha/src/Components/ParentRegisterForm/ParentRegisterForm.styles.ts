@@ -1,4 +1,4 @@
-import { Paragraph } from "@meu-workspace/safira";
+import { Button, Paragraph } from "@meu-workspace/safira";
 import exp from "constants";
 import styled from "styled-components";
 
@@ -76,5 +76,28 @@ export const ParentRegisterFormSubtitle = styled(Paragraph)`
   font-weight: 300;
   margin-top: 0.2rem;
 
+`
+
+
+export const ContinueButton = styled.button`
+  width: 100%;
+  max-width: 8rem;
+  height: 4rem;
+  color: ${({ theme }) => theme.brandColors.primary50};
+  margin-top: 2rem;
+  border-radius: .5rem;
+  margin-top: 2rem;
+  opacity: 0.5;
+  background: ${({ theme }) => theme.brandColors.gradientBlue};
+  background-size: 200%;
+  background-position: left center;
+  transition: background-position 0.5s ease, transform 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-position: right center;
+    transform: scale(1.03);
+  }
+  
 `
 

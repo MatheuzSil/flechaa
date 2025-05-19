@@ -12,13 +12,13 @@ export const FormProgressBarContainer = styled.div`
 `
 
 
-export const FormProgressBar = styled.div`
+export const FormProgressBar = styled.div<{ value: number }>`
   width: 20em;
   max-width: 20rem;
   height: 0.5rem;
-  background-color: ${({ theme }) => theme.brandColors.primary50};
+  /* background-color: ${props => props.value > 0 ? props.theme.brandColors.gradientBlue : '#F0F8FF'}; */
+  background: ${props => props.value > 0 ? props.theme.brandColors.gradientBlue : props.theme.brandColors.primary50};
   border-radius: 0.5rem;
-  opacity: 0.3;
 `
 
 
