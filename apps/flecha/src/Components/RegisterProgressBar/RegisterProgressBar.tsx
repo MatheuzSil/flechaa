@@ -8,6 +8,7 @@ interface RegisterProgressBarProps {
 
 export const RegisterProgressBar = ({ firstBarValue, secondBarValue, thirdBarValue }: RegisterProgressBarProps) => {
 
+
   return(
     <>
       <S.FormProgressBarContainer>

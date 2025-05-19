@@ -21,7 +21,7 @@ export const ParentRegisterInputs = ({ registerPhase }: ParentRegisterInputsProp
         <S.ParentRegisterInputsContainer>
           <S.ParentRegisterInputsWrapper>
             <S.ParentRegisterInputLabel>Nome & Sobrenome</S.ParentRegisterInputLabel>
-            <S.ParentRegisterInput placeholder="Digite seu nome completo" value={name}  />
+            <S.ParentRegisterInput placeholder="Digite seu nome" value={name}  />
 
             <S.ParentRegisterInputLabel>Data de nascimento</S.ParentRegisterInputLabel>
             <S.ParentRegisterInput placeholder="Digite seu email" value={email}  />

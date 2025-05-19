@@ -13,12 +13,18 @@ export const FormProgressBarContainer = styled.div`
 
 
 export const FormProgressBar = styled.div<{ value: number }>`
-  width: 20em;
+  width: 100%;
+  min-width: 20rem;
   max-width: 20rem;
   height: 0.5rem;
   /* background-color: ${props => props.value > 0 ? props.theme.brandColors.gradientBlue : '#F0F8FF'}; */
   background: ${props => props.value > 0 ? props.theme.brandColors.gradientBlue : props.theme.brandColors.primary50};
   border-radius: 0.5rem;
+
+  @media (max-width: 1200px) {
+    min-width: 0;
+    
+  }
 `
 
 
