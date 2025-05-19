@@ -1,9 +1,12 @@
 import * as S from './RegisterProgressBar.styles'
 
-export const RegisterProgressBar = () => {
-  let firstBarValue = 10
-  let secondBarValue = 0
-  let thirdBarValue = 0
+interface RegisterProgressBarProps {
+  firstBarValue: number
+  secondBarValue: number
+  thirdBarValue: number
+}
+
+export const RegisterProgressBar = ({ firstBarValue, secondBarValue, thirdBarValue }: RegisterProgressBarProps) => {
 
   return(
     <>

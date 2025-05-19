@@ -101,3 +101,71 @@ export const ContinueButton = styled.button`
   
 `
 
+
+
+export const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  z-index: 1;
+`
+
+export const LinksText = styled(Paragraph)`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({ theme }) => theme.fonts.poppins};
+  text-align: center;
+  font-weight: 300;
+`
+
+export const Link = styled.a`
+  background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+  color: transparent;
+  font-weight: 400;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
+
+
+export const BackButton = styled(Button)`
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  color: ${({ theme }) => theme.brandColors.primary50};
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+  }
+
+`
+
+
+export const RegisterButton = styled.button`
+  width: 100%;
+  max-width: 20rem;
+  height: 4rem;
+  color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({ theme }) => theme.fonts.poppins}; 
+  margin-top: 2rem;
+  border-radius: .5rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  background: ${({ theme }) => theme.brandColors.gradientBlue};
+  background-size: 200%;
+  background-position: left center;
+  transition: background-position 0.5s ease, transform 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-position: right center;
+    transform: scale(1.03);
+  }
+
+`

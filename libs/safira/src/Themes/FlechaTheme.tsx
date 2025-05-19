@@ -18,6 +18,7 @@ const brandColors = {
   primary900: '#004477',
   primary950: '#002244',
   primary975: '#001122',
+  gradientBrand: 'linear-gradient(90deg, #38ACFF 0%, #8833FF 50%, #FF7033 100%)',
   gradientBlue: 'linear-gradient(90deg, #38ACFF 0%, #8833FF 100%)',
   backgroundBlack: '#222222',
   backgroundWhite: '#F0F8FF'
