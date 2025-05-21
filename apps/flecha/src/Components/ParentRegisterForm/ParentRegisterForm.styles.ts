@@ -147,7 +147,7 @@ export const BackButton = styled(Button)`
 `
 
 
-export const RegisterButton = styled.button`
+export const RegisterButton = styled(Button)`
   width: 100%;
   max-width: 20rem;
   height: 4rem;
