@@ -20,6 +20,23 @@ export const FastRegisterBoxContainer = styled.div`
   border-radius: .625rem;
   background: #38ACFF;
   background: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
+
+  @media screen and (max-width: 90rem) {
+    max-width: 80rem;
+  }
+
+  @media screen and (max-width: 64rem) {
+    max-width: 60rem;
+  }
+
+  @media screen and (max-width: 48rem) {
+    max-width: 40rem;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 26.5625rem) {
+    padding: 3rem 2rem;
+  }
 `;
 
 export const FastRegisterBoxTitle = styled.h1`
@@ -27,6 +44,10 @@ export const FastRegisterBoxTitle = styled.h1`
   font-size: 2.25rem;
   font-weight: 700;
   color: ${({ theme }) => theme.brandColors.primary50};
+
+  @media screen and (max-width: 26.5625rem) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const TextAndButtonsContainer = styled.div`
@@ -43,6 +64,10 @@ export const ButtonsContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: .625rem;
+
+  @media screen and (max-width: 26.5625rem) {
+    flex-direction: column;
+  }
 `;
 
 export const FastRegisterBoxText = styled(Paragraph)`
@@ -50,6 +75,10 @@ export const FastRegisterBoxText = styled(Paragraph)`
   font-size: 1.25rem;
   font-weight: 300;
   color: ${({ theme }) => theme.brandColors.primary50};
+
+  @media screen and (max-width: 26.5625rem) {
+    text-align: center;
+  }
 `;
 
 export const FastRegisterButton = styled(Button)`

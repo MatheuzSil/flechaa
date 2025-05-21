@@ -23,6 +23,10 @@ export const HeaderContents = styled.div`
   width: 100%;
   max-width: 90rem;
   height: 100%;
+
+  @media screen and (max-width: 90rem) {
+    justify-content: space-around;
+  }
 `
 
 export const HeaderFlechaIcon = styled.img`

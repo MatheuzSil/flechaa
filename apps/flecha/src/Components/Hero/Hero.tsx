@@ -1,4 +1,3 @@
-import { ModalCard } from '../../Containers/ModalCard/ModalCard';
 import SearchList from '../SearchList/SearchList';
 import StatsContainer from '../StatsContainer/StatsContainer';
 import * as S from './Hero.styles';
