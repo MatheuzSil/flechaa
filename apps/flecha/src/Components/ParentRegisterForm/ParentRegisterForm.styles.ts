@@ -64,6 +64,7 @@ export const ParentRegisterFormTitle = styled.h1`
   text-align: center;
   background: linear-gradient(90deg, #38acff 0%, #8833ff 40%, #ff7033 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
 
@@ -166,6 +167,7 @@ export const RegisterButton = styled(Button)`
   &:hover {
     background-position: right center;
     transform: scale(1.03);
+    background: ${({ theme }) => theme.brandColors.gradientBlue};
   }
 
 `

@@ -11,8 +11,8 @@ export interface ParentRegisterInputsProps {
   setConfirmPassword: (value: any) => void
   phone: { value: string, error: boolean, errorMessage: string | null }
   setPhone: (value: any) => void
-  emergencyPhone: { value: string, error: boolean, errorMessage: string | null }
-  setEmergencyPhone: (value: any) => void
+  emergencyContact: { value: string, error: boolean, errorMessage: string | null }
+  setEmergencyContact: (value: any) => void
   cpf: { value: string, error: boolean, errorMessage: string | null }
   setCpf: (value: any) => void
   confirmCpf: { value: string, error: boolean, errorMessage: string | null }

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { verifyToken } from '../src/utils/auth';
+import { decode } from 'punycode';
 
 // Lista de rotas públicas (onde usuários não autenticados podem acessar)
 const publicRoutes = ['/login', '/cadastrar', '/cadastrar-pais', '/login-pais'];
@@ -36,6 +37,18 @@ export async function middleware(req: NextRequest) {
     } catch (error) {
       return NextResponse.redirect(new URL(loginRoute, req.url));
     }
+  }
+
+  if(decoded?.role === 'parent') {
+    // Se o usuário for um pai e tentar acessar o dashboard, redireciona para a página de pais
+    if (pathname === dashboardRoute) {
+      return NextResponse.redirect(new URL('/dashboard-pais', req.url));
+    }
+  }
+
+  // Se o usuário for um admin e tentar acessar o dashboard de pais, redireciona para a página de admin
+  if (decoded?.role === 'admin' && pathname === '/dashboard-pais') {
+    return NextResponse.redirect(new URL(dashboardRoute, req.url));
   }
 
   if (isTokenValid) {

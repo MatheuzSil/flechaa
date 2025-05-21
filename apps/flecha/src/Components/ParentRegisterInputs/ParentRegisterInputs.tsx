@@ -4,7 +4,7 @@ import { validateEmail, validatePassword } from "../../utils/auth"
 import { ParentRegisterInputsProps } from "../../types/parentRegisterInputsProps";
 
 
-export const ParentRegisterInputs = ({ registerPhase, name, setName, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, phone, setPhone, emergencyPhone, setEmergencyPhone, cpf, setCpf, confirmCpf, setConfirmCpf }: ParentRegisterInputsProps) => {
+export const ParentRegisterInputs = ({ registerPhase, name, setName, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, phone, setPhone, emergencyContact, setEmergencyContact, cpf, setCpf, confirmCpf, setConfirmCpf }: ParentRegisterInputsProps) => {
   const onNameChange = useCallback((e: any) => {
       setName({ value: e.target.value, error: false, errorMessage: '' });
     }, []);
@@ -66,11 +66,11 @@ export const ParentRegisterInputs = ({ registerPhase, name, setName, email, setE
       }
     }, []);
 
-    const onEmergencyPhoneChange = useCallback((e: any) => {
+    const onEmergencyContactChange = useCallback((e: any) => {
       if (e.target.value.length < 11) {
-        setEmergencyPhone({ value: e.target.value, error: true, errorMessage: 'Número inválido' });
+        setEmergencyContact({ value: e.target.value, error: true, errorMessage: 'Número inválido' });
       } else {
-        setEmergencyPhone({ value: e.target.value, error: false, errorMessage: '' });
+        setEmergencyContact({ value: e.target.value, error: false, errorMessage: '' });
       }
     }, []);
 
@@ -122,7 +122,7 @@ export const ParentRegisterInputs = ({ registerPhase, name, setName, email, setE
           </S.ParentRegisterInputsWrapper>
           <S.ParentRegisterInputsWrapper>
             <S.ParentRegisterInputLabel>Contato de Emergência</S.ParentRegisterInputLabel>
-            <S.ParentRegisterInput placeholder="Pode ser o mesmo que o número de celular" label="Contato de Emergência" type="text" {...emergencyPhone} onChange={onEmergencyPhoneChange} autoComplete="tel" name="phone" />
+            <S.ParentRegisterInput placeholder="Pode ser o mesmo que o número de celular" label="Contato de Emergência" type="text" {...emergencyContact} onChange={onEmergencyContactChange} autoComplete="tel" name="phone" />
           </S.ParentRegisterInputsWrapper>
         </S.ParentRegisterInputsContainer>
       }
