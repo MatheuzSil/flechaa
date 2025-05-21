@@ -11,8 +11,8 @@ export class AuthService {
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) return { error: 'invalid_password' };
-
-    const token = await generateToken(user.id, user.name);
+    const role = 'admin'; // Default to 'user' if role is not set
+    const token = await generateToken(user.id, user.name, role);
     return { token };
   }
 

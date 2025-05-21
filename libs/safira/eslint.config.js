@@ -1,3 +1,4 @@
+
 const nx = require('@nx/eslint-plugin');
 const baseConfig = require('../../eslint.base.config.js');
 

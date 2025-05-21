@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server';
-import { AuthService } from '../../../services/AuthService';
-import { userRepository } from 'apps/flecha/src/lib/repositories';
+import { AuthParentService } from '../../../services/AuthParentService';
+import { parentUserRepository } from 'apps/flecha/src/lib/repositories';
 import { generateToken } from '../../../utils/auth';
 
-const authService = new AuthService(userRepository);
+const authParentService = new AuthParentService(parentUserRepository);
 
 export async function POST(req: Request) {
   try {
-    const { name, email, password } = await req.json();
+    const { name, email, password, phone, emergencyContact } = await req.json();
 
-    const user = await authService.register(name, email, password);
-    const token = await generateToken(user.id, name, 'admin');
+    const parentUser = await authParentService.register(name, email, password, phone, emergencyContact);
+    const token = await generateToken(parentUser.id, name, 'parent');
 
     const response = new NextResponse('User created', { status: 200 });
 

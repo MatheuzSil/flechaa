@@ -1,6 +1,6 @@
 'use client';
 
-import { LoginBackground } from '../../Components/Background/Background';
+import { LoginBackground } from '../../../Components/Background/Background';
 
 export default function LoginLayout({
   children,
