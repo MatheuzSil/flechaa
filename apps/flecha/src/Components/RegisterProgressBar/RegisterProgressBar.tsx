@@ -1,31 +1,34 @@
-import * as S from './RegisterProgressBar.styles'
+import { useParentRegisterPhase } from '../../store/store';
+import * as S from './RegisterProgressBar.styles';
 
-interface RegisterProgressBarProps {
-  firstBarValue: number
-  secondBarValue: number
-  thirdBarValue: number
-}
-
-export const RegisterProgressBar = ({ firstBarValue, secondBarValue, thirdBarValue }: RegisterProgressBarProps) => {
-
+export const RegisterProgressBar = () => {
+  const phase = useParentRegisterPhase((state) => state.phase);
+  const setPhase = useParentRegisterPhase((state) => state.setPhase);
+  const steps = [
+    { label: '1. Informações de cadastro' },
+    { label: '2. Informações de Contato' },
+    { label: '3. Informações para Verificação' },
+  ];
 
   return(
     <>
       <S.FormProgressBarContainer>
-        <S.FormProgressBarWrapper>
-          <S.FormProgressBarLabel>1. Informações de cadastro</S.FormProgressBarLabel>
-          <S.FormProgressBar value={firstBarValue} />
-        </S.FormProgressBarWrapper>
-        <S.FormProgressBarWrapper>
-          <S.FormProgressBarLabel>1. Informações de contato</S.FormProgressBarLabel>
-          <S.FormProgressBar value={secondBarValue} />
-        </S.FormProgressBarWrapper>
-        <S.FormProgressBarWrapper>
-          <S.FormProgressBarLabel>1. Informações para verificação</S.FormProgressBarLabel>
-          <S.FormProgressBar value={thirdBarValue} />
-        </S.FormProgressBarWrapper>
+          <S.FormProgressBarWrapper>
+            <S.ProgressWrapper>
+              {steps.map((step, index) => (
+                <S.ProgressCard onClick={() => setPhase(index + 1)}>
+                  <S.FormProgressBarLabel>{step.label}</S.FormProgressBarLabel>
+                  <S.ProgressBar
+                    key={index + 1}
+                    index={index + 1}
+                    total={steps.length}
+                    phase={phase}
+                  />
+                </S.ProgressCard>
+              ))}
+            </S.ProgressWrapper>
+          </S.FormProgressBarWrapper>
       </S.FormProgressBarContainer>
     </>
   )
-
 }

@@ -62,3 +62,13 @@ export const useDashboardStore = create<DashboardStatisticsStore>((set) => ({
   },
   setStatistics: (statistics: DashboardStatistics) => set({ statistics }),
 }));
+
+interface ParentRegisterPhase {
+  phase: number;
+  setPhase: (phase: number) => void;
+}
+
+export const useParentRegisterPhase = create<ParentRegisterPhase>((set) => ({
+  phase: 1,
+  setPhase: (phase: number) => set({ phase }),
+}))
