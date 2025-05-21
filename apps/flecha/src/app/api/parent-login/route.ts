@@ -2,11 +2,10 @@ import { NextResponse } from 'next/server';
 import { parentUserRepository } from 'apps/flecha/src/lib/repositories';
 import { AuthParentService } from 'apps/flecha/src/services/AuthParentService';
 
+const authParentService = new AuthParentService(parentUserRepository); // to be created only once
+
 export async function POST(req: Request) {
   const { email, password } = await req.json();
-
-  const authParentService = new AuthParentService(parentUserRepository);
-
   const result = await authParentService.login(email, password);
 
   if (result.error === 'user_not_found') {

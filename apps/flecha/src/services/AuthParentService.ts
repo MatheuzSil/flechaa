@@ -18,16 +18,9 @@ export class AuthParentService {
     return { token };
   }
 
-
-  async register(
-    name: string,
-    email: string,
-    password: string,
-    phone: string,
-    emergencyContact: string,
-    // cpf: string
-  ) {
+  async register(name: string, email: string, password: string, phone: string, emergencyContact: string) {
     const existingUser = await this.parentRepo.findByEmail(email);
+
     if (existingUser) {
       throw new Error('USER_ALREADY_EXISTS');
     }
@@ -39,10 +32,8 @@ export class AuthParentService {
       email,
       password: hashedPassword,
       phone,
-      emergencyContact,
-      // cpf,
+      emergencyContact
     });
-
     return parentUser;
   }
 }

@@ -1,4 +1,3 @@
-import { Paragraph } from 'libs/safira/src/lib/Paragraph/Paragraph.styles';
 import * as S from './ParentLoginForm.styles';
 import { useCallback, useState } from 'react';
 import { useLoadingStore } from '../../store/store';
@@ -30,7 +29,6 @@ const parentLogin = async (url: any, { arg }: any) => {
 
   return data;
 }
-   
 
 export const ParentLoginForm = () => {
   // State for email and password
@@ -40,76 +38,77 @@ export const ParentLoginForm = () => {
   // Function to handle login
   const { trigger, isMutating } = useSWRMutation('api/parent-login', parentLogin);
 
-    // Router
-    const router = useRouter();
-    
-    //Activate and deactivate loading animation
-    const activateLoadAnimation = useLoadingStore(
-      (state) => state.activateLoadAnimation
-    );
-    const deactivateLoadAnimation = useLoadingStore(
-      (state) => state.deactivateLoadAnimation
-    );
-
-    // Toast
-    const { showError, showSuccess } = useToast();
+  // Router
+  const router = useRouter();
   
-    const onEmailChange = useCallback((e: any) => {
-      e.target.value === 0
-        ? setEmail({ value: '', error: true, errorMessage: 'Email inválido' })
-        : setEmail({ value: e.target.value, error: false, errorMessage: '' });
-      !e.target.value.includes('@') &&
-        setEmail({
+  //Activate and deactivate loading animation
+  const activateLoadAnimation = useLoadingStore(
+    (state) => state.activateLoadAnimation
+  );
+  const deactivateLoadAnimation = useLoadingStore(
+    (state) => state.deactivateLoadAnimation
+  );
+
+  // Toast
+  const { showError, showSuccess } = useToast();
+
+  const onEmailChange = useCallback((e: any) => {
+    e.target.value === 0
+      ? setEmail({ value: '', error: true, errorMessage: 'Email inválido' })
+      : setEmail({ value: e.target.value, error: false, errorMessage: '' });
+    !e.target.value.includes('@') &&
+      setEmail({
+        value: e.target.value,
+        error: true,
+        errorMessage: 'Email inválido',
+      });
+  }, []);
+
+  const onPasswordChange = useCallback((e: any) => {
+    setPassword({ value: e.target.value, error: false, errorMessage: '' });
+  }, []);
+
+  const onPasswordBlur = useCallback(
+    (e: any) => {
+      if (e.target.value.length === 0 || e.target.value.length < 6) {
+        setPassword({
           value: e.target.value,
           error: true,
-          errorMessage: 'Email inválido',
+          errorMessage: 'Campo obrigatório',
         });
-    }, []);
-    const onPasswordChange = useCallback((e: any) => {
-      setPassword({ value: e.target.value, error: false, errorMessage: '' });
-    }, []);
-  
-    const onPasswordBlur = useCallback(
-      (e: any) => {
-        if (e.target.value.length === 0 || e.target.value.length < 6) {
-          setPassword({
-            value: e.target.value,
-            error: true,
-            errorMessage: 'Campo obrigatório',
-          });
-        } else {
-          setPassword({ value: e.target.value, error: false, errorMessage: '' });
-        }
-      },
-      [password]
-    );
-  
-    const onLogin = useCallback(async () => {
-      const loginData: any = { email: email.value, password: password.value };
-      activateLoadAnimation();
-      try {
-        const res = await trigger(loginData);
-        showSuccess('Login realizado com sucesso!');
-        router.push('/dashboard');
-      } catch (error: any) {
-        console.log('Erro ao realizar login:', error);
-        showError(error.data?.error || error.message || 'Erro ao realizar login');
-        setEmail({
-          ...email,
-          error: true,
-          errorMessage: 'Email ou senha inválidos',
-        });
-        setPassword({
-          ...password,
-          error: true,
-          errorMessage: 'Email ou senha inválidos',
-        });
-      } finally {
-        deactivateLoadAnimation();
+      } else {
+        setPassword({ value: e.target.value, error: false, errorMessage: '' });
       }
-    }, [email, password]);
-  
-    const isDisabled = !email.value || !password.value || email.error || password.error || isMutating;
+    },
+    [password]
+  );
+
+  const onLogin = useCallback(async () => {
+    const loginData: any = { email: email.value, password: password.value };
+    activateLoadAnimation();
+    try {
+      const res = await trigger(loginData);
+      showSuccess('Login realizado com sucesso!');
+      router.push('/dashboard');
+    } catch (error: any) {
+      console.log('Erro ao realizar login:', error);
+      showError(error.data?.error || error.message || 'Erro ao realizar login');
+      setEmail({
+        ...email,
+        error: true,
+        errorMessage: 'Email ou senha inválidos',
+      });
+      setPassword({
+        ...password,
+        error: true,
+        errorMessage: 'Email ou senha inválidos',
+      });
+    } finally {
+      deactivateLoadAnimation();
+    }
+  }, [email, password]);
+
+  const isDisabled = !email.value || !password.value || email.error || password.error || isMutating;
 
   return(
     <>
