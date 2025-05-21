@@ -1,4 +1,4 @@
-import { Field, Paragraph, Title } from "@meu-workspace/safira";
+import { Button, Field, Paragraph, Title } from "@meu-workspace/safira";
 import styled from "styled-components";
 
 
@@ -68,6 +68,7 @@ export const ParentLoginFormTitle = styled(Title)`
   text-align: center;
   background: linear-gradient(90deg, #38acff 0%, #8833ff 40%, #ff7033 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 `
 
@@ -136,7 +137,7 @@ export const ParentLoginInputsWrapper = styled.div`
 
 
 
-export const ParentLoginButton = styled.button`
+export const ParentLoginButton = styled(Button)`
   width: 100%;
   max-width: 20rem;
   height: 4rem;
@@ -155,6 +156,8 @@ export const ParentLoginButton = styled.button`
   &:hover {
     background-position: right center;
     transform: scale(1.03);
+  background: ${({ theme }) => theme.brandColors.gradientBlue};
+
   }
 `
 
