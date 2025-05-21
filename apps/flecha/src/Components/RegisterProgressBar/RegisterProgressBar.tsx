@@ -16,7 +16,7 @@ export const RegisterProgressBar = () => {
           <S.FormProgressBarWrapper>
             <S.ProgressWrapper>
               {steps.map((step, index) => (
-                <S.ProgressCard onClick={() => setPhase(index + 1)}>
+                <S.ProgressCard key={index + 1} onClick={() => setPhase(index + 1)}>
                   <S.FormProgressBarLabel>{step.label}</S.FormProgressBarLabel>
                   <S.ProgressBar
                     key={index + 1}
