@@ -1,5 +1,3 @@
-import { Interface } from "readline";
-
 export interface IParentRepository {
   findByEmail(email: string): Promise<any>;
   create(data: {

@@ -1,5 +1,4 @@
-import { IParentRepository } from "../interfaces/!ParentRepository";
-import { IUserRepository } from "../interfaces/IUserRepository";
+import { IParentRepository } from "../interfaces/IParentRepository";
 import { hashPassword } from "../utils/auth";
 import bcrypt from 'bcryptjs';
 import { generateToken } from "../utils/auth";

@@ -1,14 +1,18 @@
-import { Title } from '@meu-workspace/safira'
-import *as S from './ParentRegisterForm.styles'
-import { RegisterProgressBar } from '../RegisterProgressBar/RegisterProgressBar'
-import { ParentRegisterInputs } from '../ParentRegisterInputs/ParentRegisterInputs'
-import { GoArrowRight } from "react-icons/go";
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { TiArrowLeft } from "react-icons/ti";
-import ValidationObject from '../../types/validationObject';
-import { useLoadingStore } from '../../store/store';
-import useSWRMutation from 'swr/mutation';
+import * as S from './ParentRegisterForm.styles';
 
+// Components
+import { RegisterProgressBar } from '../RegisterProgressBar/RegisterProgressBar';
+import { ParentRegisterInputs } from '../ParentRegisterInputs/ParentRegisterInputs';
+import { GoArrowRight } from "react-icons/go";
+import { TiArrowLeft } from "react-icons/ti";
+
+// Types
+import ValidationObject from '../../types/validationObject';
+
+// Hooks
+import { useLoadingStore, useParentRegisterPhase } from '../../store/store';
+import useSWRMutation from 'swr/mutation';
+import { useCallback, useMemo, useState } from 'react';
 import { useToast } from '../../hooks/useToast';
 import { useRouter } from 'next/navigation';
 
@@ -33,18 +37,10 @@ const parentRegister = async (url: any, { arg }: any) => {
     error.data = data;
     throw error;
   }
-
   return data;
 }
 
-
 export const ParentRegisterForm = () => {
-  // Register Phase
-  const [registerPhase, setRegisterPhase] = useState(1)
-  const [firstBarValue, setFirstBarValue] = useState(0)
-  const [secondBarValue, setSecondBarValue] = useState(0)
-  const [thirdBarValue, setThirdBarValue] = useState(0)
-
   // Parent Data
   const [userName, setUserName] = useState<ValidationObject>({ value: '', error: false, errorMessage: '' })
   const [email, setEmail] = useState<ValidationObject>({ value: '', error: false, errorMessage: '' })
@@ -57,49 +53,31 @@ export const ParentRegisterForm = () => {
 
   // Register Function 
   const { trigger, isMutating } = useSWRMutation('api/parent-register', parentRegister);
-  
-  //Loading Animation
-  const activateLoadAnimation = useLoadingStore(
-      (state) => state.activateLoadAnimation
-    );
-    const deactivateLoadAnimation = useLoadingStore(
-      (state) => state.deactivateLoadAnimation
-    );
 
   // Toast
   const { showError, showSuccess } = useToast();
 
   // Router
   const router = useRouter();
+  
+  // Zustand
+  const activateLoadAnimation = useLoadingStore((state) => state.activateLoadAnimation);
+  const deactivateLoadAnimation = useLoadingStore((state) => state.deactivateLoadAnimation);
+
+  const phase = useParentRegisterPhase((state) => state.phase);
+  const setPhase = useParentRegisterPhase((state) => state.setPhase);
 
   const nextRegisterPhase = () => {
-    if (registerPhase < 3) {
-      setRegisterPhase(registerPhase + 1)
+    if (phase < 3) {
+      setPhase(phase + 1);
     }
-    
   }
 
   const previousRegisterPhase = () => {
-    if (registerPhase > 1) {
-      setRegisterPhase(registerPhase - 1)
+    if (phase > 1) {
+      setPhase(phase - 1);
     }
   }
-
-  useEffect(() => {
-    if (registerPhase === 1) {
-      setFirstBarValue(100)
-      setSecondBarValue(0)
-      setThirdBarValue(0)
-    } else if (registerPhase === 2) {
-      setFirstBarValue(0)
-      setSecondBarValue(100)
-      setThirdBarValue(0)
-    } else if (registerPhase === 3) {
-      setFirstBarValue(0)
-      setSecondBarValue(0)
-      setThirdBarValue(100)
-    }
-  }, [registerPhase])
 
   const onParentRegister = useCallback(async () => {
     const parentData : any = {
@@ -125,19 +103,31 @@ export const ParentRegisterForm = () => {
     console.log('Parent Data:', parentData);
   }, [userName, email, password, phone, emergencyContact, cpf])
 
+  const disabled = useMemo(() => {
+      return (
+        !userName.value ||
+        !email.value ||
+        !password.value ||
+        !confirmPassword.value ||
+        userName.error ||
+        email.error ||
+        password.error ||
+        confirmPassword.error
+      );
+  }, [userName, email, password, confirmPassword]);
 
-    const disabled = useMemo(() => {
-        return (
-          !userName.value ||
-          !email.value ||
-          !password.value ||
-          !confirmPassword.value ||
-          userName.error ||
-          email.error ||
-          password.error ||
-          confirmPassword.error
-        );
-      }, [userName, email, password, confirmPassword]);
+  const loadSubtitle = () => {
+    switch(phase) {
+      case 1:
+        return "Por favor, preencha com as informações necessárias para a criação da conta."
+
+      case 2:
+        return "Preencha com as informações para contato em caso de emergência e de contato."
+      
+      case 3:
+        return "Precisamos dessas informações para verificarmos a sua conta em nossos totens."
+    }
+  }
 
   return( 
     <S.ParentRegisterForm>
@@ -146,8 +136,10 @@ export const ParentRegisterForm = () => {
         <S.TextureContainer />
         <S.FlechaIcon src="/flecha_logo_60op.svg"/>
         <S.ParentRegisterFormTitle>Bem-vindo Membro!</S.ParentRegisterFormTitle>
-        <S.ParentRegisterFormSubtitle>Por favor, preencha com as informações necessárias para a criação da conta.</S.ParentRegisterFormSubtitle>
-        <RegisterProgressBar firstBarValue={firstBarValue} secondBarValue={secondBarValue} thirdBarValue={thirdBarValue} />
+        <S.ParentRegisterFormSubtitle>
+          {loadSubtitle()}
+        </S.ParentRegisterFormSubtitle>
+        <RegisterProgressBar />
         <ParentRegisterInputs 
           name={{...userName}} setName={setUserName}
           email={{...email}} setEmail={setEmail}
@@ -157,10 +149,9 @@ export const ParentRegisterForm = () => {
           emergencyContact={{...emergencyContact}} setEmergencyContact={setEmergencyContact}
           cpf={{...cpf}} setCpf={setCpf}
           confirmCpf={{...confirmCpf}} setConfirmCpf={setConfirmCpf}
-          registerPhase={registerPhase}
         />
-        {registerPhase < 3 && <S.ContinueButton onClick={nextRegisterPhase}><GoArrowRight size={40}/></S.ContinueButton>}
-        {registerPhase === 3 && <S.RegisterButton onClick={onParentRegister} disabled={disabled}>Finalizar Cadastro</S.RegisterButton>}
+        {phase < 3 && <S.ContinueButton onClick={nextRegisterPhase}><GoArrowRight size={30}/></S.ContinueButton>}
+        {phase === 3 && <S.RegisterButton onClick={onParentRegister} disabled={disabled}>Finalizar Cadastro</S.RegisterButton>}
         <S.Links>
           <S.LinksText>
             Já possui uma conta?{' '}

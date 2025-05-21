@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { AuthParentService } from '../../../services/AuthParentService';
-import { userRepository } from 'apps/flecha/src/lib/repositories';
 import { parentUserRepository } from 'apps/flecha/src/lib/repositories';
 import { generateToken } from '../../../utils/auth';
 

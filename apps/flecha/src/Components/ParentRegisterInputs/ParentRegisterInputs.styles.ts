@@ -1,6 +1,17 @@
 import { Field } from "@meu-workspace/safira";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
+// Keyframes for scale + fade
+const fadeInScale = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 
 export const ParentRegisterInputsContainer = styled.div`
   display: flex;
@@ -10,6 +21,8 @@ export const ParentRegisterInputsContainer = styled.div`
   margin-top: 1rem;
   padding: 1em 4em;
   justify-content: center;
+
+  animation: ${fadeInScale} 0.4s ease-out;
 `
 
 export const ParentRegisterInputsWrapper = styled.div`

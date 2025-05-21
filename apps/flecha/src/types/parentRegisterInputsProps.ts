@@ -1,6 +1,5 @@
 
 export interface ParentRegisterInputsProps {
-  registerPhase: number
   name: { value: string, error: boolean, errorMessage: string | null }
   setName: (value: any) => void
   email: { value: string, error: boolean, errorMessage: string | null }
