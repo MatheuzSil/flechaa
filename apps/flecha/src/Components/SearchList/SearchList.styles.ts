@@ -5,6 +5,14 @@ export const SearchListTitle = styled.h1`
   font-size: 2.25rem;
   font-weight: semibold;
   font-family: ${({ theme }) => theme.fonts.poppins};
+
+  @media screen and (max-width: 26.5625rem) {
+    font-size: 1.75rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -14,6 +22,11 @@ export const SearchContainer = styled.div`
   align-items: center;
   width: 100%;
   margin-right: 1.25rem;
+
+  @media screen and (max-width: 90rem) {
+    max-width: 43.75rem;
+    margin: 0 0 1.25rem 0;
+  }
 `;
 
 export const FiltrosContainer = styled.div`
@@ -22,6 +35,10 @@ export const FiltrosContainer = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 1.25rem;
+  
+  @media screen and (max-width: 26.5625rem) {
+    max-width: 25rem;
+  }
 `;
 
 export const FiltroInput = styled.input`

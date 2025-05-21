@@ -20,6 +20,10 @@ export const FooterContents = styled.div`
   max-width: 90rem;
   height: 100%;
   margin-top: 2.25rem;
+
+  @media screen and (max-width: 26.5625rem) {
+    flex-direction: column;
+  }
 `
 
 export const FooterFlechaIcon = styled.img`

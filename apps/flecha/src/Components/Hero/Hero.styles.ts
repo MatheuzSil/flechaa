@@ -16,4 +16,9 @@ export const HeroListContainer = styled.section`
   width: 100%;
   flex-direction: row;
   align-items: flex-start;
+
+  @media screen and (max-width: 90rem) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;

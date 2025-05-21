@@ -6,6 +6,14 @@ export const StatsListTitle = styled.h1`
   font-size: 2.25rem;
   font-weight: semibold;
   font-family: ${({ theme }) => theme.fonts.poppins};
+
+  @media screen and (max-width: 26.5625rem) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const StatsContainer = styled.div`
@@ -14,6 +22,10 @@ export const StatsContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+
+  @media screen and (max-width: 26.5625rem) {
+    max-width: 25rem;
+  }
 `;
 
 export const StatsListBoxsContainer = styled.div`
@@ -50,6 +62,14 @@ export const StatsTitleAndIconContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 1.25rem;
+
+  @media screen and (max-width: 26.5625rem) {
+    max-width: 18.75rem;
+  }
+
+  @media screen and (max-width: 20rem) {
+    max-width: 12.5rem;
+  }
 `
 
 export const StatsListBoxIcon = styled.div``
