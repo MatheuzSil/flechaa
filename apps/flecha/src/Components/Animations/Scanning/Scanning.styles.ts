@@ -4,5 +4,5 @@ export const ScanningContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.brandColors.primary50};;
+  background-color: ${({ theme }) => theme.brandColors.primary50};
 `;

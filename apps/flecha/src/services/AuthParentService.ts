@@ -1,8 +1,9 @@
+"use server";
+
 import { IParentRepository } from "../interfaces/IParentRepository";
 import { hashPassword } from "../utils/auth";
 import bcrypt from 'bcryptjs';
 import { generateToken } from "../utils/auth";
-
 
 export class AuthParentService {
   constructor(private parentRepo: IParentRepository) {}

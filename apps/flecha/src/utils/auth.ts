@@ -1,3 +1,5 @@
+"use server";
+
 import bcrypt from 'bcryptjs';
 import { jwtVerify, SignJWT } from 'jose';
 

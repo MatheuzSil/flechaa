@@ -2,7 +2,7 @@
 import { ThemeProvider, themes } from "@meu-workspace/safira";
 import { SWRConfig } from "swr";
 
-const theme: keyof typeof themes = process.env.THEME as keyof typeof themes || 'flecha';
+const theme: keyof typeof themes = process.env.THEME as keyof typeof themes || 'flecha' as keyof typeof themes;
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
 
