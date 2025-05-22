@@ -1,4 +1,4 @@
-import { Field, Paragraph, Title } from '@meu-workspace/safira';
+import { Field, Paragraph, themes, Title } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const RegisterFormBackground = styled.div`
@@ -46,7 +46,7 @@ export const RegisterFormContent = styled.div`
 `;
 
 export const RegisterFormTitle = styled(Title)`
-  font-family: ${({ theme }) => theme.fonts.craftyGirls};
+  font-family: ${({  }) => themes.flecha.fonts.craftyGirls};
   font-size: 3rem;
   font-weight: 400;
   background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
@@ -61,7 +61,7 @@ export const RegisterFormTitle = styled(Title)`
 `;
 
 export const RegisterFormSubtitle = styled(Paragraph)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.5rem;
   font-weight: 400;
   margin-top: .75rem;
@@ -80,7 +80,7 @@ export const RegisterFormLabel = styled.label`
   width: 100%;
   max-width: 37.5rem;
   margin-top: 1.5rem;
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.125rem;
   font-weight: 400;
   color: #222222;
@@ -125,8 +125,8 @@ export const RegisterFormInput = styled<any>(Field)`
 `;
 
 export const RegisterFormButton = styled.button<{ disabled: boolean }>`
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   font-size: 1.125rem;
   font-weight: 400;
   border-radius: .625rem;
@@ -149,8 +149,8 @@ export const RegisterFormButton = styled.button<{ disabled: boolean }>`
   transition: background-position 0.5s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: ${({ theme, disabled }) =>
-      disabled && theme.brandColors.primary200};
+    background-color: ${({ disabled }) =>
+      disabled && themes.flecha.brandColors.primary200};
     background-position: right center;
     transform: scale(1.03);
   }
@@ -178,7 +178,7 @@ export const Links = styled.div`
 `;
 
 export const LinksText = styled.p`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.125rem;
   font-weight: 400;
   color: #222222;
@@ -188,7 +188,7 @@ export const LinksText = styled.p`
     color: transparent;
     background-clip: text;
     text-decoration: none;
-    font-family: ${({ theme }) => theme.fonts.poppins};
+    font-family: ${({  }) => themes.flecha.fonts.poppins};
   }
 
   @media screen and (max-width: 23.4375rem) {

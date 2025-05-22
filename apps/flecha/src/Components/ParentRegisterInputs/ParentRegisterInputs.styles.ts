@@ -1,4 +1,4 @@
-import { Field } from "@meu-workspace/safira";
+import { Field, themes } from "@meu-workspace/safira";
 import styled, { keyframes } from "styled-components";
 
 // Keyframes for scale + fade
@@ -34,8 +34,8 @@ export const ParentRegisterInputsWrapper = styled.div`
 
 export const ParentRegisterInputLabel = styled.label`
   font-size: 1.2em;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
 `
 
 
@@ -51,8 +51,8 @@ export const ParentRegisterInput = styled(Field)`
   input {
     font-size: 16px;
     font-weight: 400;
-    font-family: ${({ theme }) => theme.fonts.poppins};
-    color: ${({ theme }) => theme.brandColors.backgroundBlack};
+    font-family: ${({  }) => themes.flecha.fonts.poppins};
+    color: ${({  }) => themes.flecha.brandColors.backgroundBlack};
     max-width: none;
   }
 

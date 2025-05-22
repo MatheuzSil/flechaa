@@ -1,11 +1,11 @@
-import { Paragraph, Title } from '@meu-workspace/safira';
+import { Paragraph, themes, Title } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const StatsListTitle = styled.h1`
-  color: ${({ theme }) => theme.brandColors.primary50};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   font-size: 2.25rem;
   font-weight: semibold;
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
 
   @media screen and (max-width: 26.5625rem) {
     font-size: 1.5rem;
@@ -51,8 +51,8 @@ export const StatsListBox = styled.div`
   width: 100%;
   max-width: 43.75rem;
   height: 4.5rem;
-  background-color: ${({ theme }) => theme.brandColors.primary950};
-  border-radius: ${({ theme }) => theme.borderRadius};
+  background-color: ${({  }) => themes.flecha.brandColors.primary950};
+  border-radius: ${({  }) => themes.flecha.borderRadius};
   padding: 1.25rem;
   box-shadow: 0rem .25rem .25rem rgba(0, 0, 0, 0.25);
 `
@@ -75,21 +75,21 @@ export const StatsTitleAndIconContainer = styled.div`
 export const StatsListBoxIcon = styled.div``
 
 export const StatsListBoxTitle = styled(Title)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1rem;
-  color: ${({ theme }) => theme.brandColors.primary50};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   font-weight: 300;
 `
 
 export const StatsListBoxValue = styled(Paragraph)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1rem;
-  color: ${({ theme }) => theme.brandColors.primary400};
+  color: ${({  }) => themes.flecha.brandColors.primary400};
   font-weight: bold;
 `
 
 export const Disclaimer = styled(Paragraph)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1rem;
   color: #888888;
   font-weight: 700;

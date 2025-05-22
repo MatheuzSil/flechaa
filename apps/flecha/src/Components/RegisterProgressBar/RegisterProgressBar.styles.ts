@@ -1,3 +1,4 @@
+import { themes } from "@meu-workspace/safira";
 import styled from "styled-components"
 
 export const FormProgressBarContainer = styled.div`
@@ -36,8 +37,8 @@ export const ProgressCard = styled.div`
 
 export const FormProgressBarLabel = styled.label`
   font-size: 0.5;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-weight: 400;
   cursor: pointer;
   margin-bottom: 0.75rem;

@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
+import { themes } from "../../Themes/themes";
 
 const Ghost = css`
-  ${({ theme }) => css`
+  ${({  }) => css`
     background: transparent;
-    color: ${theme.brandColors.brand};
+    color: ${themes.flecha.brandColors.primary100};
     border: none;
 
     &:hover {
@@ -20,9 +21,9 @@ const Ghost = css`
 `
 
 const Outline = css`
-  ${({ theme }) => css`
-    border: 1px solid ${theme.brandColors.primary50};
-    color: ${theme.brandColors.primary50};
+  ${({  }) => css`
+    border: 1px solid ${themes.flecha.brandColors.primary50};
+    color: ${themes.flecha.brandColors.primary50};
     background-color: transparent;
     &:hover {
       background-color: transparent;
@@ -36,14 +37,14 @@ const Outline = css`
   `}
 `
 
-const Secondary = css`
-  ${({ theme }) => css`
-    background: ${theme.brandColors.brandSecondary};
+// const Secondary = css`
+//   ${({  }) => css`
+//     background: ${themes.brandColors.brandSecondary};
     
-    &:hover {
-    }
-  `}
-`
+//     &:hover {
+//     }
+//   `}
+// `
 const Delete = css`
   display: flex;
   align-items: center;
@@ -57,7 +58,7 @@ const Delete = css`
 
 
 const DeleteOutline = css`
-  ${({ theme }) => css`
+  ${({  }) => css`
     color: red;
 
     &:hover {
@@ -71,69 +72,69 @@ const DeleteOutline = css`
   `}
 `
 
-const Cancel = css`
-  ${({ theme }) => css`
-    background: ${theme.brandColors.brandSecondary};
-    color: ${theme.brandColors.brand};
+// const Cancel = css`
+//   ${({  }) => css`
+//     background: ${themes.brandColors.brandSecondary};
+//     color: ${themes.brandColors.brand};
 
-    &:hover {
+//     &:hover {
       
-    }
-  `}
-`
+//     }
+//   `}
+// `
 
-const White = css`
-  ${({ theme }) => css`
-    background: ${theme.brandColors.brandSecondary};
-    color: ${theme.brandColors.brand};
+// const White = css`
+//   ${({  }) => css`
+//     background: ${themes.brandColors.brandSecondary};
+//     color: ${themes.brandColors.brand};
     
-    &:hover {
-      background: ${theme.brandColors.brandSecondary};
-    }
-  `}
-`
+//     &:hover {
+//       background: ${themes.brandColors.brandSecondary};
+//     }
+//   `}
+// `
 
-const Toolbar = css<any>`
-  ${({ theme, $active,  $hideColor }) => css`
-    width: 38px;  
-    height: 38px;
-    padding: 0; 
+// const Toolbar = css<any>`
+//   ${({ , $active,  $hideColor }) => css`
+//     width: 38px;  
+//     height: 38px;
+//     padding: 0; 
 
-    ${(!!$active && !$hideColor) && css`
-      background-color: ${theme.brandColors.brandSecondary};
+//     ${(!!$active && !$hideColor) && css`
+//       background-color: ${themes.brandColors.brandSecondary};
 
-      &:hover{
-        background-color: rgba(0, 0, 0, 0.8);
-      }
-    `}
+//       &:hover{
+//         background-color: rgba(0, 0, 0, 0.8);
+//       }
+//     `}
 
-    ${(!$active && !$hideColor) && css`
-      background-color: transparent;
+//     ${(!$active && !$hideColor) && css`
+//       background-color: transparent;
 
-      path{
-        fill: ${theme.brandColors.brand};
-        stroke: ${theme.brandColors.brand};
-      }
+//       path{
+//         fill: ${themes.brandColors.brand};
+//         stroke: ${themes.brandColors.brand};
+//       }
 
-      &:hover{
-        background-color: ${theme.brandbrandColors.brandSecondary};
+//       &:hover{
+//         background-color: ${themes.brandbrandColors.brandSecondary};
 
-        path{
-        fill: #fff;
-        stroke: #fff;
-        }
+//         path{
+//         fill: #fff;
+//         stroke: #fff;
+//         }
 
-        span{
-          color: #fff;
-        }
-      }
-    `}
+//         span{
+//           color: #fff;
+//         }
+//       }
+//     `}
      
-  `}
-`
+//   `}
+// `
 
 export const Button = styled.button<any>`
-  ${({ theme, $variant, $textAlign }) => css`
+  ${({  $variant, $textAlign }) => css`
     border-radius: 8px;
     padding: 8px 16px;
     font-size: 16px;
@@ -145,7 +146,7 @@ export const Button = styled.button<any>`
     cursor: pointer;
     color: #fff;
     text-align: ${$textAlign || 'center'};
-    background: ${theme.brandColors.brand};
+    background: ${themes.flecha.brandColors.primary100};
     transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
     &:hover {
@@ -162,12 +163,8 @@ export const Button = styled.button<any>`
     }
 
     ${$variant === 'outline' && Outline}
-    ${$variant === 'secondary' && Secondary}
     ${$variant === 'ghost' && Ghost}
     ${$variant === 'delete' && Delete}
     ${$variant === 'deleteOutline' && DeleteOutline}
-    ${$variant === 'cancel' && Cancel}
-    ${$variant === 'white' && White}
-    ${$variant === 'toolbar' && Toolbar }
   `}
 `

@@ -1,3 +1,4 @@
+import { themes } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const NotFoundContainer = styled.div`
@@ -13,8 +14,8 @@ export const NotFoundContainer = styled.div`
 `
 
 export const NotFoundParagraph = styled.p`
-  color: ${({ theme }) => theme.brandColors.primary50};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   font-size: 1.125rem;
   font-weight: semibold;
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
 `;

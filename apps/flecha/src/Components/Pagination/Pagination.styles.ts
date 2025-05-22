@@ -1,3 +1,4 @@
+import { themes } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const Pagination = styled.div`
@@ -11,8 +12,8 @@ export const Pagination = styled.div`
 export const PaginationText = styled.p`
   font-size: 1rem;
   font-weight: regular;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
 `;
 
 export const PaginationChevron = styled.div`

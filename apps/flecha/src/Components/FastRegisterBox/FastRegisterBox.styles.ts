@@ -1,4 +1,4 @@
-import { Button, Paragraph } from '@meu-workspace/safira';
+import { Button, Paragraph, themes } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const FastRegisterBox = styled.div`
@@ -40,10 +40,10 @@ export const FastRegisterBoxContainer = styled.div`
 `;
 
 export const FastRegisterBoxTitle = styled.h1`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 2.25rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.brandColors.primary50};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
 
   @media screen and (max-width: 26.5625rem) {
     font-size: 1.75rem;
@@ -71,10 +71,10 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const FastRegisterBoxText = styled(Paragraph)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.25rem;
   font-weight: 300;
-  color: ${({ theme }) => theme.brandColors.primary50};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
 
   @media screen and (max-width: 26.5625rem) {
     text-align: center;
@@ -86,14 +86,14 @@ export const FastRegisterButton = styled(Button)`
   gap: .3125rem;
   height: 2.625rem;
   padding: .75rem 1.5rem;
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  background-color: ${({ theme }) => theme.brandColors.primary400};
-  color: ${({ theme }) => theme.brandColors.primary950};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
+  background-color: ${({  }) => themes.flecha.brandColors.primary400};
+  color: ${({  }) => themes.flecha.brandColors.primary950};
   font-size: .875rem;
   font-weight: 700;
 
   &:hover {
-    background-color: ${({ theme }) => theme.brandColors.primary500};
+    background-color: ${({  }) => themes.flecha.brandColors.primary500};
   }
 `;
 
@@ -101,13 +101,13 @@ export const FastRegisterButtonParents = styled(Button)`
   display: flex;
   gap: .3125rem;
   height: 2.625rem;
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  background-color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
+  background-color: ${({  }) => themes.flecha.brandColors.primary50};
   font-weight: 700;
   font-size: .875rem;
-  color: ${({ theme }) => theme.brandColors.primary950};
+  color: ${({  }) => themes.flecha.brandColors.primary950};
 
   &:hover {
-    background-color: ${({ theme }) => theme.brandColors.primary100};
+    background-color: ${({  }) => themes.flecha.brandColors.primary100};
   }
 `;

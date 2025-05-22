@@ -1,4 +1,4 @@
-import { Button, Field, Title } from '@meu-workspace/safira';
+import { Button, Field, themes, Title } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const LoginFormBackground = styled.div`
@@ -51,11 +51,11 @@ export const LoginFormTitleContainer = styled.div`
   height: 6.25rem;
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
-  background-color: ${({ theme }) => theme.brandColors.brandSecondary};
+  background-color: ${({  }) => themes.flecha.brandColors.primary300};
 `;
 
 export const LoginFormTitle = styled(Title)`
-  font-family: ${({ theme }) => theme.fonts.craftyGirls};
+  font-family: ${({  }) => themes.flecha.fonts.craftyGirls};
   font-size: 3rem;
   text-align: center;
   font-weight: 400;
@@ -75,7 +75,7 @@ export const LoginFormTitle = styled(Title)`
 `;
 
 export const LoginFormSubtitle = styled.p`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.5rem;
   font-weight: 400;
   margin-top: .75rem;
@@ -96,7 +96,7 @@ export const LoginFormLabel = styled.label`
   width: 100%;
   max-width: 37.5rem;
   margin-top: 1.5rem;
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.125rem;
   font-weight: 400;
   color: #222222;
@@ -149,8 +149,8 @@ export const LoginFormInput = styled<any>(Field)`
 export const LoginFormButton = styled.button`
   margin-top: 1.25rem;
   margin: 2.5rem;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1rem;
   border-radius: .3125rem;
   font-weight: 600;
@@ -174,7 +174,7 @@ export const LoginFormButton = styled.button`
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
-    background-color: ${({ theme }) => theme.brandColors.primary200};
+    background-color: ${({  }) => themes.flecha.brandColors.primary200};
   }
 
   @media screen and (max-width: 26.5625rem) {
@@ -195,7 +195,7 @@ export const Links = styled.div`
 `;
 
 export const LinksText = styled.p`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.125rem;
   font-weight: 400;
   color: #222222;
@@ -205,7 +205,7 @@ export const LinksText = styled.p`
     color: transparent;
     background-clip: text;
     text-decoration: none;
-    font-family: ${({ theme }) => theme.fonts.poppins};
+    font-family: ${({  }) => themes.flecha.fonts.poppins};
     font-weight: 400;
   }
 

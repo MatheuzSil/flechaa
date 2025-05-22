@@ -1,5 +1,6 @@
 import { SelectIcon } from 'apps/flecha/public/icons/icon';
 import styled from 'styled-components';
+import { themes } from '@meu-workspace/safira';
 
 export const CalendarPopup = styled.div`
   position: absolute;
@@ -9,18 +10,18 @@ export const CalendarPopup = styled.div`
   background: white;
   border-radius: .75rem;
   padding: 1rem;
-  box-shadow: 0 0 0 2px ${({ theme }) => theme.brandColors.primary400};
+  box-shadow: 0 0 0 2px ${({ }) => themes.flecha.brandColors.primary400};
   width: 20rem;
 
   .rdp-root {
-    --rdp-accent-color: ${({ theme }) => theme.brandColors.primary400};
+    --rdp-accent-color: ${({ }) => themes.flecha.brandColors.primary400};
     --rdp-background-color: transparent;
     font-family: inherit;
   }
 
   .rdp-day_selected:not([disabled]),
   .rdp-day_today {
-    border: .125rem solid ${({ theme }) => theme.brandColors.primary400};
+    border: .125rem solid ${({ }) => themes.flecha.brandColors.primary400};
     color: #000;
     background: none;
     border-radius: 50%;
@@ -32,14 +33,14 @@ export const CalendarPopup = styled.div`
 
   .rdp-caption {
     font-weight: bold;
-    color: ${({ theme }) => theme.brandColors.primary400};
+    color: ${({ }) => themes.flecha.brandColors.primary400};
     display: flex;
     justify-content: center;
     gap: .5rem;
   }
 
   .rdp-nav_button {
-    color: ${({ theme }) => theme.brandColors.primary400};
+    color: ${({ }) => themes.flecha.brandColors.primary400};
   }
 `;
 
@@ -72,8 +73,8 @@ export const CustomInputsWrapper = styled.div`
     outline: none;
     font-size: 1rem;
     font-weight: 400;
-    font-family: ${({ theme }) => theme.fonts.poppins};
-    color: ${({ theme }) => theme.brandColors.backgroundBlack};
+    font-family: ${({  }) => themes.flecha.fonts.poppins};
+    color: ${({  }) => themes.flecha.brandColors.backgroundBlack};
   }
 
   svg {
@@ -148,8 +149,8 @@ export const SelectedParentContainer = styled.div`
   outline: none;
   font-size: 1rem;
   font-weight: 400;
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  color: ${({ theme }) => theme.brandColors.backgroundBlack};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.backgroundBlack};
 
   img {
     width: 2rem;

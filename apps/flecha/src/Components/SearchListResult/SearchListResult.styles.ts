@@ -1,3 +1,4 @@
+import { themes } from '@meu-workspace/safira';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
@@ -7,7 +8,7 @@ export const CardContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 4.5rem;
-  background-color: ${({ theme }) => theme.brandColors.primary50};
+  background-color: ${({  }) => themes.flecha.brandColors.primary50};
   margin-bottom: 1.25rem;
   padding: 0rem 1.5rem;
   border-radius: .5rem;
@@ -41,8 +42,8 @@ export const CardName = styled.h2`
   margin-right: 1.625rem;
   max-width: 14.375rem;
   font-weight: 500;
-  color: ${({ theme }) => theme.brandColors.backgroundBlack};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.backgroundBlack};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
 
   @media screen and (max-width: 26.5625rem) {
     font-size: 1rem;
@@ -52,8 +53,8 @@ export const CardName = styled.h2`
 
 export const CardAgeAndClass = styled.h2`
   font-size: .875rem;
-  color: ${({ theme }) => theme.brandColors.primary950};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary950};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
 
   @media screen and (max-width: 26.5625rem) {
     font-size: 0.5rem;
@@ -63,9 +64,9 @@ export const CardAgeAndClass = styled.h2`
 export const CardButton = styled.button`
   font-size: .75rem;
   font-weight: medium;
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  color: ${({ theme }) => theme.brandColors.primary50};
-  background-color: ${({ theme }) => theme.brandColors.primary950};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  background-color: ${({  }) => themes.flecha.brandColors.primary950};
   padding: .375rem 1rem;
   border-radius: .3125rem;
 

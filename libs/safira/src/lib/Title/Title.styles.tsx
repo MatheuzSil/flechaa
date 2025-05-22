@@ -1,3 +1,4 @@
+import { themes } from "@meu-workspace/safira";
 import React from "react";
 import styled, {css} from "styled-components";
 
@@ -12,9 +13,9 @@ const variantFontSize: any = {
 };
 
 export const Title = styled(({ variant, ...props }:any) => { const Comp = variant || 'h1';  return <Comp {...props} />})<any>`
-  ${({ theme, $fontSize, $textAlign, $fontColor, variant, $clamp }) => css`
+  ${({ $fontSize, $textAlign, $fontColor, variant, $clamp }) => css`
     font-size: ${$fontSize || variantFontSize[variant][0]};
-    color: ${$fontColor || theme?.colors?.blackLight};
+    color: ${$fontColor || themes?.flecha.brandColors?.primary800};
     text-align: ${$textAlign || "start"};
     line-height: 1.2;
 

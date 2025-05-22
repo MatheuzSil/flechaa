@@ -1,3 +1,4 @@
+import { themes } from "@meu-workspace/safira";
 import styled, { css, keyframes } from "styled-components";
 
 const fadeIn = keyframes`
@@ -18,7 +19,7 @@ export const Field = styled.label<any>`
 export const ErrorContainer = styled.div`
   position: absolute;
   z-index: 1000;
-  background-color: ${props => props.theme.brandColors.primary600}; ;
+  background-color: ${ themes.flecha.brandColors.primary600};
   border-radius: 10px;
   padding: 8px 12px;
   right: 4px;
@@ -33,7 +34,7 @@ export const Arrow = styled.div`
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid ${props => props.theme.brandColors.primary600};
+  border-top: 10px solid ${ themes.flecha.brandColors.primary600};
   position: absolute;
   top: 100%;
   right: 12px;

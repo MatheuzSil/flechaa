@@ -1,4 +1,4 @@
-import { Button, Paragraph } from "@meu-workspace/safira";
+import { Button, Paragraph, themes } from "@meu-workspace/safira";
 import styled from "styled-components";
 
 export const ParentRegisterForm = styled.div`
@@ -52,7 +52,7 @@ export const FlechaIcon = styled.img`
 
 export const ParentRegisterFormTitle = styled.h1`
   font-size: 4.2rem;
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   margin-top: 1.6rem;
   font-weight: 600;
   line-height: 101px;
@@ -66,8 +66,8 @@ export const ParentRegisterFormTitle = styled.h1`
 
 export const ParentRegisterFormSubtitle = styled(Paragraph)`
   font-size: 1.4rem;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   text-align: center;
   font-weight: 300;
   margin-top: 0.2rem;
@@ -75,11 +75,11 @@ export const ParentRegisterFormSubtitle = styled(Paragraph)`
 
 export const ContinueButton = styled.button`
   padding: 1rem 2.25rem;
-  color: ${({ theme }) => theme.brandColors.primary50};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   margin-top: 2rem;
   border-radius: .5rem;
   margin-top: 2rem;
-  background: ${({ theme }) => theme.brandColors.gradientBlue};
+  background: ${({  }) => themes.flecha.brandColors.gradientBlue};
   background-size: 200%;
   background-position: left center;
   transition: background-position 0.5s ease, transform 0.2s ease;
@@ -101,14 +101,14 @@ export const Links = styled.div`
 
 export const LinksText = styled(Paragraph)`
   font-size: 1.2rem;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   text-align: center;
   font-weight: 300;
 `
 
 export const Link = styled.a`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
   color: transparent;
   font-weight: 600;
@@ -125,7 +125,7 @@ export const BackButton = styled(Button)`
   border: none;
   cursor: pointer;
   z-index: 1;
-  color: ${({ theme }) => theme.brandColors.primary50};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
 
   &:hover {
     transform: scale(1.1);
@@ -137,13 +137,13 @@ export const RegisterButton = styled(Button)`
   width: 100%;
   max-width: 20rem;
   height: 4rem;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins}; 
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins}; 
   margin-top: 2rem;
   border-radius: .5rem;
   margin-top: 2rem;
   font-size: 1.5rem;
-  background: ${({ theme }) => theme.brandColors.gradientBlue};
+  background: ${({  }) => themes.flecha.brandColors.gradientBlue};
   background-size: 200%;
   background-position: left center;
   transition: background-position 0.5s ease, transform 0.2s ease;
@@ -152,6 +152,6 @@ export const RegisterButton = styled(Button)`
   &:hover {
     background-position: right center;
     transform: scale(1.03);
-    background: ${({ theme }) => theme.brandColors.gradientBlue};
+    background: ${({  }) => themes.flecha.brandColors.gradientBlue};
   }
 `

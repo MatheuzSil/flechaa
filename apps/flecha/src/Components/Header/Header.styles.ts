@@ -1,4 +1,4 @@
-import { Paragraph } from "@meu-workspace/safira";
+import { Paragraph, themes } from "@meu-workspace/safira";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div<{ isFixed: boolean }>`
@@ -42,8 +42,8 @@ export const HeaderProfileContainer = styled.div`
 `
 
 export const HeaderProfileName = styled(Paragraph)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.125rem;
-  color: ${({ theme }) => theme.brandColors.primary50};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   font-weight: 300;
 `

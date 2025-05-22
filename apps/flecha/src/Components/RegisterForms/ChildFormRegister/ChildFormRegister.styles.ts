@@ -1,4 +1,4 @@
-import { Field } from '@meu-workspace/safira';
+import { Field, themes } from '@meu-workspace/safira';
 import { BlurBallIconSecond, BlurballIcon, ArrowButtonIcon } from 'apps/flecha/public/icons/icon';
 import styled from 'styled-components';
 
@@ -46,7 +46,7 @@ export const ChildFormRegisterContainer = styled.div`
   max-width: 87.5rem;
   height: 100%;
   max-height: fit-content;
-  border: .125rem solid ${({ theme }) => theme.brandColors.primary200};
+  border: .125rem solid ${({  }) => themes.flecha.brandColors.primary200};
   padding: 0rem 48px;
   z-index: 10;
   border-radius: 1.25rem;
@@ -71,13 +71,14 @@ export const ChildFormContainer = styled.div`
 
 export const ChildFormRegisterTitle = styled.h1`
   font-size: 4.875rem;
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   margin-top: 5.25rem;
   line-height: 6.3125rem;
   letter-spacing: -0.512px;
   text-align: center;
   background: linear-gradient(90deg, #38acff 0%, #8833ff 50%, #ff7033 80%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
 
@@ -92,8 +93,8 @@ export const Wrapper = styled.div`
 
 export const ChildFormSubtitle = styled.label`
   font-size: 19.2px;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
 `;
 
 export const ChildFormInput = styled(Field)`
@@ -106,8 +107,8 @@ export const ChildFormInput = styled(Field)`
   input {
     font-size: 16px;
     font-weight: 400;
-    font-family: ${({ theme }) => theme.fonts.poppins};
-    color: ${({ theme }) => theme.brandColors.backgroundBlack};
+    font-family: ${({  }) => themes.flecha.fonts.poppins};
+    color: ${({  }) => themes.flecha.brandColors.backgroundBlack};
   }
 
   // border
@@ -133,8 +134,8 @@ export const TermsAndConditionsContainer = styled.div`
 export const CheckboxLabel = styled.label`
   font-size: 16px;
   font-weight: 400;
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   margin-right: 1rem;
 `
 
@@ -192,8 +193,8 @@ export const ChildFormButttonContainer = styled.div`
 export const ChildFormButton = styled.button`
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.125rem;
   border-radius: .3125rem;
   font-weight: 500;
@@ -217,7 +218,7 @@ export const ChildFormButton = styled.button`
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
-    background-color: ${({ theme }) => theme.brandColors.primary200};
+    background-color: ${({  }) => themes.flecha.brandColors.primary200};
   }
 `
 

@@ -1,3 +1,4 @@
+import { themes } from "@meu-workspace/safira";
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
@@ -39,22 +40,22 @@ export const FooterContactContainer = styled.div`
 `
 
 export const FooterContactTitle = styled.h1`
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   font-size: 2.25rem;
   font-weight: semibold;
   margin-bottom: .625rem;
 `
 
 export const FooterContactText = styled.p`
-  font-family: ${({ theme }) => theme.fonts.poppins};
-  color: ${({ theme }) => theme.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
   font-size: 1.125rem;
   font-weight: 300;
 `
 
 export const FooterPoweredBy = styled.p`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   background-image: linear-gradient(90deg, rgba(56, 172, 255, 1) 0%, rgba(136, 51, 255, 1) 50%, rgba(255, 112, 51, 1) 100%);
   color: transparent;
   background-clip: text;

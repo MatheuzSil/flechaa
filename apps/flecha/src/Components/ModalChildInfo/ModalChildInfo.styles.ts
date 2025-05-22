@@ -1,4 +1,4 @@
-import { Button, Paragraph, Title } from "@meu-workspace/safira";
+import { Button, Paragraph, themes, Title } from "@meu-workspace/safira";
 import styled from "styled-components";
 
 export const ModalChildInfoContainer = styled.div`
@@ -40,21 +40,21 @@ export const ChildInfoContent = styled.div`
 `
 
 export const ChildName = styled(Title)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 2.25rem;
-  color: ${({ theme }) => theme.brandColors.backgroundBlack};
+  color: ${({  }) => themes.flecha.brandColors.backgroundBlack};
   font-weight: bold;
 `
 
 export const ChildAge = styled(Paragraph)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.125rem;
   color: #333D54;
   font-weight: 400;
 `
 
 export const ChildClass = styled(Paragraph)`
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   font-size: 1.125rem;
   color: #333D54;
   font-weight: 400;
@@ -70,9 +70,9 @@ export const CallButtonsContainer = styled.div`
 `
 
 export const CallButton = styled(Button)`
-  background-color: ${({ theme }) => theme.brandColors.primary950};
-  color: ${({ theme }) => theme.brandColors.primary400};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  background-color: ${({  }) => themes.flecha.brandColors.primary950};
+  color: ${({  }) => themes.flecha.brandColors.primary400};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   display: flex;
   gap: .625rem;
   font-size: .75rem;
@@ -83,7 +83,7 @@ export const CallButton = styled(Button)`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.brandColors.primary975};
+    background-color: ${({  }) => themes.flecha.brandColors.primary975};
 
   }
 
@@ -91,8 +91,8 @@ export const CallButton = styled(Button)`
 
 export const CallButtonEmergency = styled(Button)`
   background-color: #CE0000 ;
-  color: ${({ theme }) => theme.brandColors.primary50};
-  font-family: ${({ theme }) => theme.fonts.poppins};
+  color: ${({  }) => themes.flecha.brandColors.primary50};
+  font-family: ${({  }) => themes.flecha.fonts.poppins};
   display: flex;
   gap: .625rem;
   font-size: .75rem;

@@ -1,3 +1,4 @@
+import { themes } from '@meu-workspace/safira';
 import React from 'react';
 import { forwardRef, useMemo } from 'react';
 import styled, { css } from "styled-components";
@@ -37,7 +38,7 @@ const InputWithRef: any = forwardRef((props: any, ref: any) => {
 });
 
 export const Input = styled(InputWithRef)`
-  ${({ theme }) => css`
+  ${({  }) => css`
     font-size: 12px;
     padding: 4px 16px;
     border-radius: 8px;
@@ -45,11 +46,11 @@ export const Input = styled(InputWithRef)`
     font-size: 16px;
     width: 100%;
     min-height: 38px;
-    color: ${theme?.colors?.blackDark};
-    background: ${theme?.colors?.whiteLight};
+    color: ${themes?.flecha.brandColors?.primary800};
+    background: ${themes?.flecha.brandColors?.primary50};
 
     &::placeholder {
-      color: ${theme?.colors?.blackLight};
+      color: ${themes?.flecha.brandColors?.primary800};
     }
 
     &:disabled {
