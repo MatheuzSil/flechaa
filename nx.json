@@ -77,6 +77,5 @@
     "@nx/react": {
       "library": {}
     }
-  },
-  "useLegacyCache": true
+  }
 }
