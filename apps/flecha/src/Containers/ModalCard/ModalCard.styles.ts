@@ -1,4 +1,4 @@
-import { Button } from "@meu-workspace/safira";
+import { Button, themes } from "@meu-workspace/safira";
 import styled from "styled-components";
 
 export const ModalOverlay = styled.div`
@@ -18,7 +18,7 @@ export const ModalOverlay = styled.div`
 
 
 export const ModalContainer = styled.div`
-  background-color: ${({ theme }) => theme.brandColors.backgroundWhite};
+  background-color: ${({  }) => themes.flecha.brandColors.backgroundWhite};
   display: flex;
   flex-direction: column;
   border-radius: .5rem;
