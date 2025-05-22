@@ -29,9 +29,10 @@
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
+      "assets": ["apps/flecha/public"],
       "options": {
         "outputPath": "dist/apps/flecha",
-        "assets": ["apps/flecha/public"]
+        "assets": "apps/flecha/public"
       }
     }
   }
